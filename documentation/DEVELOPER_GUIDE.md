@@ -6,8 +6,8 @@
    * [Development Environment](#Development-Environment)
 
  * **Appendix Tools**
-   * [Using the Rileeki AWS Server](#Option-1:-Using-the-Rileeki-AWS-Server)
-   * [Installing a Virtual Machine](#Option-2:-Installing-a-Virtual-Machine)
+   * [Using the Rileeki AWS Server](#option-1-using-the-rileeki-aws-server)
+   * [Installing a Virtual Machine](#option-2-Installing-a-Virtual-Machine)
 <!--te-->
 
 ## Our Repo
@@ -27,14 +27,14 @@
 Using a local IDE of your choice, add the Git repos will need and set up the virtual environment to access helper functions 
  
 - (Create a GITHUB account if you have not already - github.com)
-- Git clone ssh://git@github.com/orchid-initiative/synthetic-database-project to your IDE
+- `git clone ssh://git@github.com/orchid-initiative/postpartum-larc` to your IDE
 - Create a virtual environment to access shared helper functions
   - Background reading: [VIRTUAL ENVIRONMENTS 1](https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/), [VIRTUAL ENVIRONMENTS 2](https://openclassrooms.com/en/courses/6900846-set-up-a-python-environment/6990546-manage-virtual-environments-using-requirements-files)
   - Generate SSH keys on your machine and then add your key to your github account
     - [Generating a SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/you generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
     - [Adding your SSH key to github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
-  - Run: $ sudo apt install python3-pip     (Installs the Python3 version of "pip" on your system, allowing you to easily install and manage Python packages)
-  - Run: $ pip install -r [YOUR REPO PATH]/requirements.txt
+  - Run: `$ sudo apt install python3-pip`     (Installs the Python3 version of "pip" on your system, allowing you to easily install and manage Python packages)
+  - Run: `$ pip install -r [YOUR REPO PATH]/requirements.txt`
     
 ## Appendix Tools
 ### Option 1: Using the Rileeki AWS Server
