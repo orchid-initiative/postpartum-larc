@@ -1,7 +1,7 @@
 # Project Charter 
 
 ## Executive Summary
-We will be using a synthetic patient database simulating California inpatient discharge data to do a proof of concept study in support of Dr. Jen Franks’ research interests.  Specifically, we’ll be looking at the utilization of immediate postpartum LARC (long-acting reversible contraceptives) at California hospitals to determine if Kern Medical Center in Bakersfield is an outlier for not offering these procedures.  The goal is to support the preparation of a data request for HCAI, and to create an analytic program that can be repeated when that real-world data is obtained.
+We will be using a synthetic patient database simulating California inpatient discharge data to do a proof of concept study in support of Dr. Jen Franks’ research interests.  Specifically, we’ll be looking at the utilization of immediate postpartum LARC (long-acting reversible contraceptives) at California hospitals to determine if Kern Medical Center in Bakersfield was an outlier for not offering these procedures before residents did advocacy work in recent years.  The goal is to support the preparation of a data request for HCAI, and to create an analytic program that can be repeated when that real-world data is obtained.
 
 ## Project Goals
 - Create a tool to analyze data from the synthetic patient database
@@ -12,6 +12,7 @@ We will be using a synthetic patient database simulating California inpatient di
    - Data should be stratified based on location
    - Report should highlight places that are not supplying LARC
    - Report should highlight insurance companies that are not covering LARC
+   - Report should highlight the change in LARC placement rates at Kern Medical Center over time from 2018 to 2023.
    - Data should include the following points and be limited to hospitals that supply obstetrics care:
      1. \# of L&D stays in CA
         - Include procedure codes, how many of those stays had the procedures done during those stays
