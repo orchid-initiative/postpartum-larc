@@ -6,6 +6,23 @@ We will be using a synthetic patient database simulating California inpatient di
 ## Project Goals
 
 ## Deliverables
+* A report of the synthetic data with the following parameters/features:
+   - Data should be stratified based on location
+   - Report should highlight places that are not supplying LARC
+   - Report should highlight insurance companies that are not covering LARC
+   - Data should include the following points and be limited to hospitals that supply obstetrics care:
+     1. \# of L&D stays in CA
+        - Include procedure codes, how many of those stays had the procedures done during those stays
+     2. What insurances the patients have
+     3. Post-partum hemorrhaging (diagnosis code, control for confounding variables)
+     4. Demographics (representative of women who have had L&D stays across California)
+        - Age, ethnicity, socioeconomic status (optional) (medicaid status), parity
+        - Comparison between people who got LARC and who haven’t
+        - Disability (Mental illness in particular) (Intellectual disability)
+     5. Infection
+        - Intra-amniotic infection
+        - Chorioamnionitis
+        - Endometritis
 
 ## Business Case / Background
 
@@ -17,29 +34,54 @@ We will be using a synthetic patient database simulating California inpatient di
 ## Benefits, Costs, and Budget
 
 **Benefits:**
+- **Project**
+  - Getting best practices to be followed in the Kern Hospital in Bakersfield
+
+- **People** 
+  - Adds to Rhonda’s public coding portfolio
+  - Develops Iris’s project management skills and experience
+  - Teaches Dr. Franks how to do research with this data source
+
+- **Organization:**
+  - Provides a use case for the synthetic patient database
+  - Helps strengthen the relationship between Orchid and Dr. Franks 
 
 **Costs:**
+- Our time
+- $4 per month for server use
 
 **Budget needed:**
-
+- N/A (For now)
 
 # Scope and Exclusion
 
 **In-Scope:**
+- Create the report
+- Write the code
+- Other in-scope items (optional):
 
 **Out-of-Scope:**
+- Obtaining the real data
+- Writing the grant
+- Presenting to Kern Hospital
+- Publication of any papers
+- Data outside of California 
+- Other out-of-scope items (optional):
   
 # Project Team
-Project Sponsor:
+Project Sponsor: TBD
 
-Product Owner:
+Product Owner: TBD
 
-Project Lead:
+Project Lead: TBD
 
-Project Development Team:
+Project Development Team: TBD
 
-Additional Stakeholders: 
+Additional Stakeholders: TBD
 
 
 # Measuring Success
 **What is acceptable:**
+1. Final report has been delivered to the client
+1. Client is satisfied with the extent of data in the report
+1. Rhonda is satisfied with the project as an addition to her public coding portfolio.
