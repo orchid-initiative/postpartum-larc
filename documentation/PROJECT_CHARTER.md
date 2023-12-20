@@ -18,14 +18,14 @@ We will be using a synthetic patient database simulating California inpatient di
         - Include procedure codes, how many of those stays had the procedures done during those stays
      2. What insurances the patients have
      3. Post-partum hemorrhaging (diagnosis code, control for confounding variables)
-     4. Demographics (representative of women who have had L&D stays across California)
-        - Age, ethnicity, socioeconomic status (optional) (medicaid status), parity
-        - Comparison between people who got LARC and who haven’t
-        - Disability (Mental illness in particular) (Intellectual disability)
      5. Infection
         - Intra-amniotic infection
         - Chorioamnionitis
         - Endometritis
+     4. Demographics (representative of women who have had L&D stays across California)
+        - Age, ethnicity, socioeconomic status (optional) (medicaid status), parity
+        - Comparison between people who got LARC and who haven’t
+        - Disability (Mental illness in particular) (Intellectual disability)
 * A code repository for the program 
 
 ## Business Case / Background
