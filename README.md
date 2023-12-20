@@ -8,7 +8,7 @@ Project initiation is nearing completion and we are assembling a team to begin w
 
 ### General Information
 - Want to learn more about the project's scope and objectives? Check out the [project charter](documentation/PROJECT_CHARTER.md).
-- Ready to contribute? Check out the [developer guide](documentation/DEVELOPER_GUIDE.md) and project board (coming soon!).
+- Ready to contribute? Check out the [developer guide](documentation/DEVELOPER_GUIDE.md) and [project board](https://github.com/orgs/orchid-initiative/projects/10)!
 - Have questions or feedback? Join the discussion on our GitHub Discussions page.  Or, you can use the GitHub issues page to report bugs and request new features.
 
 ### Additional Resources
