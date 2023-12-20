@@ -22,7 +22,7 @@ We will be using a synthetic patient database simulating California inpatient di
         - Intra-amniotic infection
         - Chorioamnionitis
         - Endometritis
-     4. Demographics (representative of women who have had L&D stays across California)
+     4. Demographics (representative of people who have had L&D stays across California)
         - Age, ethnicity, socioeconomic status (optional) (medicaid status), parity
         - Comparison between people who got LARC and who haven’t
         - Disability (Mental illness in particular) (Intellectual disability)
@@ -32,7 +32,7 @@ We will be using a synthetic patient database simulating California inpatient di
 
 **Why are we doing this?**
 - We experienced difficulty at Kern Medical Center in Bakersfield instituting a program to support immediate postpartum LARC because of concerns for reimbursement.  Given the strong benefits in the literature including minimizing barriers to care and promoting patient autonomy, a study looking at overall utilization of this resource by hospitals would be beneficial for better contextualizing the contraceptive environment, particularly for patient populations whose only interaction with the healthcare system is during the immediate postpartum period.  We suspect the option of immediate postpartum LARC is standard of care in other hospitals and that patient's readily utilize this service, but we need the data to back that up.
-- During early 2023 IPP (Immediate Post-partum) placement of Nexplanon increased as insurance reimbursement improved, however placement of IUDs still lagged behind, per Dr. Franks assertion likely secondary to provider culture and lack of advocacy. There is evidence to support that IPP IUD placement is preferrable to interval post-partum IUD placement at greater than 6 weeks postpartum in chestfeeding persons because of the decreased risk of uterine perforation/embedment. (Note: we may be able to add to this evidence with a future study using administrative healthcare data.)
+- During early 2023 IPP (Immediate Post-partum) placement of Nexplanon increased as insurance reimbursement improved, however placement of IUDs still lagged behind, per Dr. Franks assertion likely secondary to provider culture and lack of advocacy. There is evidence to support that IPP IUD placement is preferrable to interval post-partum IUD placement at greater than 6 weeks postpartum because of the decreased risk of uterine perforation/embedment. (Note: we may be able to add to this evidence with a future study using administrative healthcare data.)
 - This data source is new to Dr. Franks, so the hope is that we can use synthetic data to demonstrate the use case before jumping through the hoops required to get access to real data.
 - The hope is that the analysis will be repeated on real-world data obtained from HCAI and used to bolster the argument that these procedures should both be offered by the medical centers in the Central Valley and should be covered by the health insurance providers most commonly associated with those patients.
 
