@@ -71,7 +71,7 @@ Project Sponsor: TBD
 
 Product Owner: TBD
 
-Project Lead: TBD
+Project Lead: Iris F. 
 
 Project Development Team: TBD
 
