@@ -18,7 +18,7 @@ We will be using a synthetic patient database simulating California inpatient di
         - Include procedure codes, how many of those stays had the procedures done during those stays
      2. What insurances the patients have
      3. Post-partum hemorrhaging (diagnosis code, control for confounding variables)
-     5. Infection (confounding variables, exclude)
+     5. Infection (records to exclude, based on the following:)
         - Intra-amniotic infection
         - Chorioamnionitis
         - Endometritis
