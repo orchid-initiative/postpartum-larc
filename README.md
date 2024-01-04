@@ -14,3 +14,4 @@ Project initiation is nearing completion and we are assembling a team to begin w
 ### Additional Resources
 - [Google Drive folder](https://drive.google.com/drive/folders/1zWag_MZAYXod5H0NEOwFOsjk0Dp7rtug) (access required)
 - Slack channel: #larc
+- [Program Details](https://drive.google.com/drive/folders/1tKRSoRtKV4-Sm9TtlCJPRUeoux058ucM?usp=drive_link) (access required)
