@@ -67,7 +67,7 @@ We will be using a synthetic patient database simulating California inpatient di
 - Data outside of California 
   
 # Project Team
-Project Sponsor: TBD
+Project Sponsor: Riley Kwong
 
 Product Owner: TBD
 
