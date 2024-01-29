@@ -84,8 +84,8 @@ Product Owner: TBD
 Project Lead: Iris F. 
 
 Project Development Team: 
-- Jim Cheairs
-- Rhonda Tullis
+- Jim Cheairs - Data Visualist
+- Rhonda Tullis - Lead Programmer 
 
 Additional Stakeholders: 
 - Travis Haussler 
