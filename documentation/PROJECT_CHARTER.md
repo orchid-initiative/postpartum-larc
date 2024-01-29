@@ -73,9 +73,12 @@ Product Owner: TBD
 
 Project Lead: Iris F. 
 
-Project Development Team: TBD
+Project Development Team: 
+- Jim Cheairs
+- Rhonda Tullis
 
-Additional Stakeholders: TBD
+Additional Stakeholders: 
+- Travis Haussler 
 
 
 # Measuring Success
