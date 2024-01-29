@@ -57,8 +57,16 @@ We will be using a synthetic patient database simulating California inpatient di
 # Scope and Exclusion
 
 **In-Scope:**
+- Writing a program:
+   - Includes coding logs and QA reports
+   - Read in the raw data
+   - Select a set of variables to keep
+   - Report on the data
+   - Subsetting of the L&D records
+   - Flag variables specified in deliverables
+   - Aggregate the data
+   - Pass the data on to visualization
 - Create the report
-- Write the code
 
 **Out-of-Scope:**
 - Obtaining the real data
