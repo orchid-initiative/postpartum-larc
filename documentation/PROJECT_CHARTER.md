@@ -17,11 +17,12 @@ We will be using a synthetic patient database simulating California inpatient di
      1. \# of L&D stays in CA
         - Include procedure codes, how many of those stays had the procedures done during those stays
      2. What insurances the patients have
-     3. Post-partum hemorrhaging (diagnosis code, control for confounding variables)
-     5. Infection (records to exclude, based on the following:)
-        - Intra-amniotic infection
-        - Chorioamnionitis
-        - Endometritis
+     3. Exclusion criteria:
+        - Post-partum hemorrhaging (diagnosis code, control for confounding variables)
+        - Infection (records to exclude, based on the following:)
+           - Intra-amniotic infection
+           - Chorioamnionitis
+           - Endometritis
      4. Demographics (representative of people who have had L&D stays across California)
         - Age, ethnicity, socioeconomic status (optional) (medicaid status), parity
         - Comparison between people who got LARC and who haven’t
