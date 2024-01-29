@@ -24,7 +24,7 @@ We will be using a synthetic patient database simulating California inpatient di
            - Chorioamnionitis
            - Endometritis
      4. Demographics (representative of people who have had L&D stays across California)
-        - Age, ethnicity, socioeconomic status (optional) (medicaid status), parity
+        - Age, ethnicity, socioeconomic status (optional) (medicaid status), parity, preferred language
         - Comparison between people who got LARC and who haven’t
         - Disability (Mental illness in particular) (Intellectual disability)
 * A code repository for the program 
