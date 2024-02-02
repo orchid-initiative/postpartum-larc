@@ -59,7 +59,7 @@ We will be using a synthetic patient database simulating California inpatient di
 
 **In-Scope:**
 - Writing a program:
-   - Includes coding logs and QA reports
+   - Includes coding logs and Quality Assurance (QA) reports
    - Read in the raw data
    - Select a set of variables to keep
    - Report on the data
