@@ -15,7 +15,7 @@ We will be using a synthetic patient database simulating California inpatient di
    - Report should highlight the change in LARC placement rates at Kern Medical Center over time from 2018 to 2023.
    - Data should include the following points and be limited to hospitals that supply obstetrics care:
      1. \# of L&D stays in CA
-        - Include procedure codes, how many of those stays had the procedures done during those stays
+        - Include procedure codes and how many of those stays had the procedures done during those stays
      2. What insurances the patients have
      3. Exclusion criteria:
         - Post-partum hemorrhaging (diagnosis code, control for confounding variables)
