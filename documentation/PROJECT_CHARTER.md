@@ -6,6 +6,7 @@ We will be using a synthetic patient database simulating California inpatient di
 ## Project Goals
 - Create a tool to analyze data from the synthetic patient database
 - Generate a report with this tool detailing various health metrics as specified by the client
+- Have a functional code repository approved by Rhonda in time to be used for job applications 
 
 ## Deliverables
 * A report of the synthetic data with the following parameters/features:
