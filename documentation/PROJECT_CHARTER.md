@@ -41,7 +41,7 @@ We will be using a synthetic patient database simulating California inpatient di
 
 **Benefits:**
 - **Project**
-  - Paves the way for data-driven research on IPP LARC procedures in California, empowering clinicians to do advocacy, policymakers to allocate resources in a targeted way, and resident physicians to measure the impact of their QI projects.
+  - Paves the way for data-driven research on IPP LARC procedures in California, empowering clinicians to do advocacy, policymakers to allocate resources in a targeted way, and resident physicians to measure the impact of their Quality Improvement (QI) projects.
 - **People** 
   - Adds to Rhonda’s public coding portfolio
   - Develops Iris’s project management skills and experience
