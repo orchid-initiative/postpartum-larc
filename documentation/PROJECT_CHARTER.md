@@ -68,7 +68,7 @@ We will be using a synthetic patient database simulating California inpatient di
    - Aggregate the data
    - Pass the data on to visualization
 - Create the report
-- Establishing coding norms and data platforms for Orchid
+- Establishing relevant coding norms and data platforms for Orchid
 
 **Out-of-Scope:**
 - Obtaining the real data
