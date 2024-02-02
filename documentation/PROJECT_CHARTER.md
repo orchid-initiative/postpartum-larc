@@ -81,7 +81,7 @@ We will be using a synthetic patient database simulating California inpatient di
 # Project Team
 Project Sponsor: Riley Kwong
 
-Product Owner: TBD
+Product Owner: Iris F. 
 
 Project Lead: Iris F. 
 
