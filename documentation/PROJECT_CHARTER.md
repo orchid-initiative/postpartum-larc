@@ -48,7 +48,8 @@ We will be using a synthetic patient database simulating California inpatient di
   - Supports Dr. Franks in her research and advocacy interests
 - **Organization:**
   - Provides a first use case for the synthetic patient database
-  - Helps strengthen the relationship between Orchid and Dr. Franks 
+  - Helps strengthen the relationship between Orchid and Dr. Franks
+  - Serves as a model for future projects
 
 **Costs:**
 - Our time
