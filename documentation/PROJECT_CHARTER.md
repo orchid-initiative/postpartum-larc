@@ -9,25 +9,7 @@ We will be using a synthetic patient database simulating California inpatient di
 - Have a functional code repository approved by Rhonda in time to be used for job applications 
 
 ## Deliverables
-* A report of the synthetic data with the following parameters/features:
-   - Data should be stratified based on location
-   - Report should highlight places that are not supplying LARC
-   - Report should highlight insurance companies that are not covering LARC
-   - Report should highlight the change in LARC placement rates at Kern Medical Center over time from 2018 to 2023.
-   - Data should include the following points and be limited to hospitals that supply obstetrics care:
-     1. \# of L&D stays in CA
-        - Include procedure codes and how many of those stays had the procedures done during those stays
-     2. What insurances the patients have
-     3. Exclusion criteria:
-        - Post-partum hemorrhaging (diagnosis code, control for confounding variables)
-        - Infection (records to exclude, based on the following:)
-           - Intra-amniotic infection
-           - Chorioamnionitis
-           - Endometritis
-     4. Demographics (representative of people who have had L&D stays across California)
-        - Age, ethnicity, socioeconomic status (optional) (medicaid status), parity, preferred language
-        - Comparison between people who got LARC and who haven’t
-        - Disability (Mental illness in particular) (Intellectual disability)
+* A report of the synthetic data with parameters detailed on the (program specs document)[https://docs.google.com/document/d/141xp-JPispApGdvv8b8Ou8yDhxEQ6M6KO9Ats9ZrIHg/edit?usp=sharing]
 * A code repository for the program 
 
 ## Business Case / Background
