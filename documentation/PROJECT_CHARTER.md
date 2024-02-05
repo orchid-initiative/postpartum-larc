@@ -4,8 +4,7 @@
 We will be using a synthetic patient database simulating California inpatient discharge data to do a proof of concept study in support of Dr. Jen Franks’ research interests.  Specifically, we’ll be looking at the utilization of immediate postpartum long-acting reversible contraceptives (LARC) at California hospitals to determine if Kern Medical Center in Bakersfield was an outlier for not offering these procedures before residents did advocacy work in recent years.  The goal is to support the preparation of a data request for Health Care Access and Information (HCAI), and to create an analytic program that can be repeated when that real-world data is obtained.
 
 ## Project Goals
-- Create a tool to analyze data from the synthetic patient database
-- Generate a report with this tool detailing various health metrics as specified by the client
+- Generate a sample report for our client that details and visualizes specified health metrics relevant to IPP-LARC by creating a tool that can analyze data from a synthetic patient database. Our report and program will meet client approval before July 1st and provide a process, management, and coding standard for future Orchid projects. 
 - Have a functional code repository approved by Rhonda in time to be used for job applications 
 
 ## Deliverables
