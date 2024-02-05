@@ -9,7 +9,7 @@ We will be using a synthetic patient database simulating California inpatient di
 - Have a functional code repository approved by Rhonda in time to be used for job applications 
 
 ## Deliverables
-* A report of the synthetic data with parameters detailed on the (program specs document)[https://docs.google.com/document/d/141xp-JPispApGdvv8b8Ou8yDhxEQ6M6KO9Ats9ZrIHg/edit?usp=sharing]
+* A report of the synthetic data with parameters detailed on the [program specs document](https://docs.google.com/document/d/141xp-JPispApGdvv8b8Ou8yDhxEQ6M6KO9Ats9ZrIHg/edit?usp=sharing)
 * A code repository for the program 
 
 ## Business Case / Background
