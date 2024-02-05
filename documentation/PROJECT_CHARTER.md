@@ -41,16 +41,8 @@ We will be using a synthetic patient database simulating California inpatient di
 # Scope and Exclusion
 
 **In-Scope:**
-- Writing a program:
-   - Includes coding logs and Quality Assurance (QA) reports
-   - Read in the raw data
-   - Select a set of variables to keep
-   - Report on the data
-   - Subsetting of the L&D records
-   - Flag variables specified in deliverables
-   - Aggregate the data
-   - Pass the data on to visualization
-- Create the report
+- Writing a program to read in and analyze the synthetic data
+- Creating the report to visualize the data to our client's specifications
 - Establishing relevant coding norms and data platforms for Orchid
 
 **Out-of-Scope:**
