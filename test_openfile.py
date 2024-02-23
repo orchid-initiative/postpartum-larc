@@ -1,18 +1,24 @@
 # test pgm to produce readin/subset/transform/aggregate steps 
 # w/small test file
 
+
 import csv
 from operator import itemgetter
+
+# USER PARAMETERS
 filepath = 'testdata.csv' 
 selection_variable_name = 'thirdthing'
 selection_values = "uio"
 variables_keep = ['firstid', 'thirdthing']
 outputfile_prefix = 'labor_and_delivery'
 
+
+# READ, SUBSET, AND OUTPUT TO FILE
 # Open the input file, one row at a time,
 # count all records,
 # keep and subset the header row for variables of interest,
 # output selected records with the selected variables 
+
 with open(filepath, buffering=1, mode='rt') as infile:
     print('Reading input file:  ',filepath)
     for count, line in enumerate(infile):
@@ -48,9 +54,10 @@ with open(filepath, buffering=1, mode='rt') as infile:
             with open(f'{outputfile_prefix}_all.csv', mode='w') as outfile:
                 writer = csv.writer(outfile)
                 writer.writerow(headerrow_subset)
+            # Set subset_count (used in log)
+            subset_count = 0
 
         else:
-            print('Datarow_idx is:  ', datarow_idx)
             # Convert line in input file to list
             datarow = line.replace('\n','').split(sep=',') 
             # Get the selection variable
@@ -68,6 +75,8 @@ with open(filepath, buffering=1, mode='rt') as infile:
             # Output record where keep=True
             # keep only variables of interest
             if keep==True:
+                # Count output records
+                subset_count = subset_count + 1
                 # Subset row for variables of interest
                 output_row = itemgetter(*datarow_idx)(datarow)
                 # Output data with select variables to file
@@ -75,6 +84,12 @@ with open(filepath, buffering=1, mode='rt') as infile:
                         as outfile:
                     writer = csv.writer(outfile)
                     writer.writerow(output_row)
-            else:
-                print('Record does not get printed to output file')
+            elif keep==False:
+                okay = True # This is hear to close the else block
 
+print(f'\n{filepath}')
+print('TOTAL RECORDS:  ', count)
+print(f'\n{outputfile_prefix}_all.csv')
+print('RECORDS IN SUBSET:  ', subset_count)
+# ending time
+# time elapsed
