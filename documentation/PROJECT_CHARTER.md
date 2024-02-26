@@ -60,7 +60,8 @@ Project Lead: Iris F.
 
 Project Development Team: 
 - Jim Cheairs - Data Visualist
-- Rhonda Tullis - Lead Programmer 
+- Rhonda Tullis - Lead Programmer
+- Uday Bheemshetty - QA Analyst
 
 Additional Stakeholders: 
 - Travis Haussler 
