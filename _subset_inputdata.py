@@ -109,9 +109,3 @@ def subset_and_output(filepath,
     # ending time
     # time elapsed
 
-subset_and_output(filepath = 'testdata.csv', 
-                  selection_variable_name = 'thirdthing',
-                  selection_values = "uio",
-                  variables_keep = ['firstid', 'thirdthing'],
-                  outputfile_prefix = 'labor_and_delivery')
-
