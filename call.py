@@ -17,8 +17,8 @@ from operator import itemgetter
 from _subset_inputdata import subset_and_output
 
 subset_and_output(filepath='/home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_01-31-2024_1538_2024.csv',
-                  selection_variable_name='race1',
-                  selection_values='R2',
+                  selection_variable_name='admtype_ns',
+                  selection_values=[4, 5, 6],
                   variables_keep=['oshpd_id','data_id','pat_id',
                           'agyradm','sex','ethncty','race1','race_grp','pls_abbr',
                           'patcnty','patzip',

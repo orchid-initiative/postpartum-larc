@@ -83,10 +83,10 @@ def subset_and_output(filepath,
                     print(line)
                     # Print out selection criteria
                     print('Selection criteria for variable of interest:')  
-                    print(f'{selection_variable_name} == {selection_values}')
+                    print(f'{selection_variable_name} in({selection_values})')
 
                 # Set 'keep' flag
-                keep = datarow[selection_var_idx]==f'{selection_values}'
+                keep = (datarow[selection_var_idx] in(f'{selection_values}'))
                 #print('Keeping row? :  ', keep)
 
                 # Output record where keep=True
