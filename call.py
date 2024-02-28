@@ -1,9 +1,3 @@
-# 1_subset_inputdata.py 
-
-
-import csv
-from operator import itemgetter
-
 ########################################################################
 # READ, SUBSET, AND OUTPUT TO FILE
 # Open the input file, one row at a time,
@@ -18,11 +12,13 @@ from operator import itemgetter
 #   variables_keep = {list of variables to keep in output}
 #   outputfile_prefix = {will be used to name the subset output file}
 ########################################################################
-from subset_inputdata import subset_and_output
+import csv
+from operator import itemgetter
+from _subset_inputdata import subset_and_output
 
 subset_and_output(filepath='/home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_01-31-2024_1538_2024.csv',
-                  selection_variable_name='MSDRG',
-                  selection_values="",
+                  selection_variable_name='race1',
+                  selection_values='R2',
                   variables_keep=['oshpd_id','data_id','pat_id',
                           'agyradm','sex','ethncty','race1','race_grp','pls_abbr',
                           'patcnty','patzip',
@@ -41,4 +37,5 @@ subset_and_output(filepath='/home/rtullis/orchid_initiative/postpartum_larc/raw/
                           'oproc17','oproc18','oproc19','oproc20','oproc21',
                           'oproc22','oproc23','oproc24'],
                   outputfile_prefix = 'labor_and_delivery_2024')
+
 
