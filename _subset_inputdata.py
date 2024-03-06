@@ -22,7 +22,8 @@ def subset_and_output(filepath,
                       selection_variable_name,
                       selection_values,
                       variables_keep,
-                      outputfile_prefix):
+                      outputfile_prefix,
+                      outputfile_suffix):
 
     with open(filepath, buffering=1, mode='rt') as infile:
         print('Reading input file:  ',filepath)
@@ -63,7 +64,7 @@ def subset_and_output(filepath,
                         , datarow_idx)
                 print('\nAnd here are the corresponding variables selected:  ')
                 print(headerrow_subset)                    
-                with open(f'{outputfile_prefix}_all.csv', mode='w') \
+                with open(f'{outputfile_prefix}_{outputfile_suffix}.csv', mode='w') \
                           as outfile:
                     writer = csv.writer(outfile)
                     writer.writerow(headerrow_subset)
@@ -82,8 +83,10 @@ def subset_and_output(filepath,
                     print('\nWhole line for first row of data:  ')
                     print(line)
                     # Print out selection criteria
-                    print('Selection criteria for variable of interest:')  
-                    print(f'{selection_variable_name} in({selection_values})')
+                    print('\nSelection criteria for variable of interest:') 
+                    print(f'{selection_variable_name=}')
+                    print('is in:')
+                    print(f'{selection_values=}')
 
                 # Set 'keep' flag
                 keep = (datarow[selection_var_idx] in(f'{selection_values}'))
@@ -97,14 +100,14 @@ def subset_and_output(filepath,
                     # Subset row for variables of interest
                     output_row = itemgetter(*datarow_idx)(datarow)
                     # Output data with select variables to file
-                    with open(f'{outputfile_prefix}_all.csv', mode='a') \
+                    with open(f'{outputfile_prefix}_{outputfile_suffix}.csv', mode='a') \
                             as outfile:
                         writer = csv.writer(outfile)
                         writer.writerow(output_row)
 
     print(f'\n{filepath}')
     print('TOTAL RECORDS:  ', count)
-    print(f'\n{outputfile_prefix}_all.csv')
+    print(f'\n{outputfile_prefix}_{outputfile_suffix}.csv')
     print('RECORDS IN SUBSET:  ', subset_count)
     # ending time
     # time elapsed
