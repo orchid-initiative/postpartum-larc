@@ -21,10 +21,10 @@ for filename in parm.infile_names:
     my_infile = filename
     my_outfile_suffix = my_infile[-8:-4] # Slicing needs parameterized?
     my_outfile_filepath = f'{parm.outpath}/{parm.outputfile_prefix}_{my_outfile_suffix}'
-    print('\n','#'*72)
-    print(f'Heres my infile location:  {my_inpath}/{my_infile}')
-    print(f'\nHeres my outfile location:  {my_outfile_filepath}')
-   
+
+    print('\n')
+    print('#'*72)
+    print('RUNNING SUBSET_AND_OUTPUT')
     subset_and_output(infilepath=f'{my_inpath}/{my_infile}',
                       filter_variable_name=parm.filter_variable_name,
                       filter_values=parm.filter_values,

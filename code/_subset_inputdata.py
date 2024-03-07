@@ -1,5 +1,3 @@
-# 1_subset_inputdata.py 
-
 
 import csv
 from operator import itemgetter
@@ -31,8 +29,8 @@ def subset_and_output(infilepath,
             if count==0:
                 # Get header row for all the data
                 headerrow_all = line.replace('\n','').split(sep=',')
-                print('\nEntire dataset header row:')
-                print(headerrow_all)
+                #print('\nEntire dataset header row:')
+                #print(headerrow_all)
                 print('\nVariables of interest are:')
                 print(variables_keep)
 
@@ -47,7 +45,6 @@ def subset_and_output(infilepath,
                 hdr_subset = sorted(headerrow_subset)
                 var_keep = sorted(variables_keep)
                 if hdr_subset==var_keep:
-                #if headerrow_subset==variables_keep:
                     print("""--> Good.  The headerrow_subset contains the 
                              expected variables""")
                 else:
