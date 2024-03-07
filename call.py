@@ -16,18 +16,18 @@ from operator import itemgetter
 from _subset_inputdata import subset_and_output
 import parameters as parm
 
-for filename in parm.file_names:
+for filename in parm.infile_names:
     my_inpath = f'{parm.inpath}'
     my_infile = filename
-    my_outfile_suffix = my_infile[-8:-4]
-    print(f'Heres my file location:  {my_inpath}/{my_infile}')
-    print('Heres my outfile name suffix:  ', my_outfile_suffix)
+    my_outfile_suffix = my_infile[-8:-4] # Slicing needs parameterized?
+    my_outfile_filepath = f'{parm.outpath}/{parm.outputfile_prefix}_{my_outfile_suffix}'
+    print('\n','#'*72)
+    print(f'Heres my infile location:  {my_inpath}/{my_infile}')
+    print(f'\nHeres my outfile location:  {my_outfile_filepath}')
    
-    subset_and_output(filepath=f'{my_inpath}/{my_infile}',
-                      selection_variable_name=parm.selection_variable_name,
-                      selection_values=parm.selection_values,
+    subset_and_output(infilepath=f'{my_inpath}/{my_infile}',
+                      filter_variable_name=parm.filter_variable_name,
+                      filter_values=parm.filter_values,
                       variables_keep=parm.variables_keep,
-                      outputfile_prefix=parm.outputfile_prefix,
-                      outputfile_suffix=my_outfile_suffix)
-
+                      outfilepath=f'{my_outfile_filepath}')
 
