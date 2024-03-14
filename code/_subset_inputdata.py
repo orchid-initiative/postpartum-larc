@@ -1,7 +1,3 @@
-
-import csv
-from operator import itemgetter
-
 ########################################################################
 # READ, SUBSET, AND OUTPUT TO FILE
 # Open the input file, one row at a time,
@@ -16,6 +12,10 @@ from operator import itemgetter
 #   variables_keep = {list of variables to keep in output}
 #   outfile_path = {Is derived. Used to name the subset output file}
 ########################################################################
+
+import csv
+from operator import itemgetter
+
 def subset_and_output(infilepath, 
                       filter_variable_name,
                       filter_values,

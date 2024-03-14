@@ -9,11 +9,11 @@
 #  output selected records with the selected variables 
 #
 #  by Rhonda Tullis, 2/28/2024
-#
+#  for Orchid Initiative
 ########################################################################
 import csv
-from operator import itemgetter
 from _subset_inputdata import subset_and_output
+from _readin_and_report import readin_and_report
 import parameters as parm
 
 for filename in parm.infile_names:
@@ -21,13 +21,22 @@ for filename in parm.infile_names:
     my_infile = filename
     my_outfile_suffix = my_infile[-8:-4] # Slicing needs parameterized?
     my_outfile_filepath = f'{parm.outpath}/{parm.outputfile_prefix}_{my_outfile_suffix}'
+    my_dateformats = parm.date_formats
 
-    print('\n')
-    print('#'*72)
-    print('RUNNING SUBSET_AND_OUTPUT')
+    print('\n############### RUNNING subset_and_output ###############')
     subset_and_output(infilepath=f'{my_inpath}/{my_infile}',
                       filter_variable_name=parm.filter_variable_name,
                       filter_values=parm.filter_values,
                       variables_keep=parm.variables_keep,
                       outfilepath=f'{my_outfile_filepath}')
+
+    print('\n############### RUNNING readin_and_report ###############')
+    readin_and_report(filepath=f'{my_outfile_filepath}.csv',
+                      datatypes=parm.datatypes,
+                      variables_keep=parm.variables_keep,
+                      date_formats=parm.date_formats, # date_formats itself
+                      #is not used, but it provides the list of date vars.
+                      value_count_variables=parm.value_count_variables)
+
+
 
