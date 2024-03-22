@@ -21,6 +21,10 @@ infile_names = ['csv_HCAIPDD_01-31-2024_1538_2018.csv',
                 'csv_HCAIPDD_01-31-2024_1538_2023.csv',
                 'csv_HCAIPDD_01-31-2024_1538_2024.csv']
 
+# Document containing DX and PX codes for identifying procedure of 
+# interest and conditions to flag
+code_sets = f'{mainpath}/documentation/LARC codes.xlsx' 
+
 # Output path for interim files
 outpath = f'{mainpath}/created'
 
@@ -34,9 +38,6 @@ filter_variable_name = 'admtype_ns'
 # Values for filter_variable_name for selecting denominator rows
 #filter_values = [768, 788, 807] #Labor and delivery DRGs
 filter_values = [4, 5, 6]
-
-# LARC procedures (both snomed and ICD10)  >>> Testing PX that is present to make sure code works:  80146002
-larcs = ['80146002','65200003','0UH97HZ','0UH98HZ','0UHC7HZ','0UHC8HZ','169553002','0JHD0HZ','0JHD3HZ','0JHF0HZ','0JHF3HZ']
 
 # Date formats for date variables that are read in and kept
 date_formats = {'admtdate':'%m%d%Y','dschdate':'%m%d%Y'}
