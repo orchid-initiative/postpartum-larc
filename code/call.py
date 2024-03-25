@@ -14,6 +14,7 @@
 import csv
 from _subset_inputdata import subset_and_output
 from _readin_and_report import readin_and_report
+from _flag_and_output import flag_larcs
 import parameters as parm
 
 for filename in parm.infile_names:
@@ -31,12 +32,15 @@ for filename in parm.infile_names:
                       outfilepath=f'{my_outfile_filepath}')
 
     print('\n############### RUNNING readin_and_report ###############')
-    readin_and_report(filepath=f'{my_outfile_filepath}.csv',
-                      datatypes=parm.datatypes,
-                      variables_keep=parm.variables_keep,
-                      date_formats=parm.date_formats, # date_formats itself
-                      #is not used, but it provides the list of date vars.
-                      value_count_variables=parm.value_count_variables)
+    dataframe=readin_and_report(filepath=f'{my_outfile_filepath}.csv',
+                                datatypes=parm.datatypes,
+                                variables_keep=parm.variables_keep,
+                                # date_formats itself is not used, but 
+                                # it provides the list of date vars.
+                                date_formats=parm.date_formats,
+                                value_count_variables=parm.value_count_variables)
 
+    print('\n############## RUNNING flag_larcs #######################')
+    flag_larcs(df=dataframe)
 
 

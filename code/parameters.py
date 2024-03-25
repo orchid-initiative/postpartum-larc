@@ -65,6 +65,12 @@ variables_keep = ['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex',
                   'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21',
                   'oproc22', 'oproc23', 'oproc24']
 
+# List of DX variables to parse through
+dx_vars = [x for x in variables_keep if 'diag' in x]
+
+# List of PX variables to parse through
+px_vars = [x for x in variables_keep if 'proc' in x]
+
 # Data types for kept variables that need a string type indicated
 datatypes = ({'oshpd_id':str, 
               'srcroute_ns':str,

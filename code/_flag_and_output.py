@@ -8,20 +8,15 @@
 #######################################################################
 
 import pandas as pd
-import lxml
-import datetime as dt
+import parameters as parm
+import _get_mappings as mappings
 
+# Flag LARC procedures
+def flag_larcs(df):
+    df['larc'] = 0
+    for var in parm.px_vars:
+        df.loc[df[var].isin(mappings.larc_procedures), 'larc'] = 1
 
-# Get lists of codes to use for exclusions and category flags
-specs = "https://docs.google.com/document/d/141xp-JPispApGdvv8b8Ou8yDhxEQ6M6KO9Ats9ZrIHg/edit?usp=sharing"
-obj = pd.read_html(specs)
-print(obj)
-"""
-# Look for LARC procs
-df['larc'] = 0
-for var in proc_vars:
-    df.loc[df[var].isin(larcs), 'larc'] = 1
+    print(df['larc'].value_counts(dropna=False))
+    return df
 
-report = ProfileReport(df=df, minimal=True)
-report.to_file('readin_report.html')
-"""
