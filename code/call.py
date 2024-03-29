@@ -14,7 +14,7 @@
 import csv
 from _subset_inputdata import subset_and_output
 from _readin_and_report import readin_and_report
-from _flag_and_output import flag_larcs
+from _flag_and_output import flags
 import parameters as parm
 
 for filename in parm.infile_names:
@@ -24,14 +24,14 @@ for filename in parm.infile_names:
     my_outfile_filepath = f'{parm.outpath}/{parm.outputfile_prefix}_{my_outfile_suffix}'
     my_dateformats = parm.date_formats
 
-    print('\n############### RUNNING subset_and_output ###############')
+    print(f'\n\n########## RUNNING subset_and_output for {my_outfile_suffix} ##########')
     subset_and_output(infilepath=f'{my_inpath}/{my_infile}',
                       filter_variable_name=parm.filter_variable_name,
                       filter_values=parm.filter_values,
                       variables_keep=parm.variables_keep,
                       outfilepath=f'{my_outfile_filepath}')
 
-    print('\n############### RUNNING readin_and_report ###############')
+    print(f'\n########## RUNNING readin_and_report for {my_outfile_suffix} ##########')
     dataframe=readin_and_report(filepath=f'{my_outfile_filepath}.csv',
                                 datatypes=parm.datatypes,
                                 variables_keep=parm.variables_keep,
@@ -40,7 +40,6 @@ for filename in parm.infile_names:
                                 date_formats=parm.date_formats,
                                 value_count_variables=parm.value_count_variables)
 
-    print('\n############## RUNNING flag_larcs #######################')
-    flag_larcs(df=dataframe)
-
+    print(f'\n########## RUNNING flags for {my_outfile_suffix} ##########')
+    flags(df=dataframe,file_suffix=my_outfile_suffix,outpath=parm.outpath)
 
