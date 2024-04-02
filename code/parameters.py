@@ -13,13 +13,15 @@ inpath = f'{mainpath}/raw'
 
 # A dict w/list of the names of the input files 
 # and a naming suffix to differentiate output files.
-infile_names = ['csv_HCAIPDD_01-31-2024_1538_2018.csv',
-                'csv_HCAIPDD_01-31-2024_1538_2019.csv',
-                'csv_HCAIPDD_01-31-2024_1538_2020.csv',
-                'csv_HCAIPDD_01-31-2024_1538_2021.csv',
-                'csv_HCAIPDD_01-31-2024_1538_2022.csv',
-                'csv_HCAIPDD_01-31-2024_1538_2023.csv',
-                'csv_HCAIPDD_01-31-2024_1538_2024.csv']
+infile_names = ['csv_HCAIPDD_03-30-2024_1713.csv' #,
+                #'csv_HCAIPDD_01-31-2024_1538_2018.csv',
+                #'csv_HCAIPDD_01-31-2024_1538_2019.csv',
+                #'csv_HCAIPDD_01-31-2024_1538_2020.csv',
+                #'csv_HCAIPDD_01-31-2024_1538_2021.csv',
+                #'csv_HCAIPDD_01-31-2024_1538_2022.csv',
+                #'csv_HCAIPDD_01-31-2024_1538_2023.csv',
+                #'csv_HCAIPDD_01-31-2024_1538_2024.csv'
+                ]
 
 # Document containing DX and PX codes for identifying procedure of 
 # interest and conditions to flag
@@ -32,12 +34,10 @@ outpath = f'{mainpath}/created'
 outputfile_prefix = 'labor_and_delivery'
 
 # Name of variable used to select denominator rows
-#filter_variable_name = 'MSDRG'
-filter_variable_name = 'admtype_ns'
+filter_variable_name = 'MSDRG'
 
 # Values for filter_variable_name for selecting denominator rows
-#filter_values = [768, 788, 807] #Labor and delivery DRGs
-filter_values = [4, 5, 6]
+filter_values = [768, 788, 807] #Labor and delivery DRGs
 
 # Date formats for date variables that are read in and kept
 date_formats = {'admtdate':'%m%d%Y','dschdate':'%m%d%Y'}
@@ -53,12 +53,12 @@ variables_keep = ['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex',
                   'patzip', 'admtdate', 'dschdate', 'dsch_yr', 'los', 
                   'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'disp', 
                   'pay_cat', 'pay_type', 'pay_plan', 'charge', 'MSDRG', 
-                  'diag_p', 'poa_p', 'proc_p', 
+                  'diag_p', 'poa_p', 'proc_p', 'odiag1',  
                   'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 
                   'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11',
                   'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16',
                   'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21',
-                  'odiag22', 'odiag23', 'odiag24', 
+                  'odiag22', 'odiag23', 'odiag24', 'oproc1',
                   'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6',
                   'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11',
                   'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16',
@@ -82,6 +82,7 @@ datatypes = ({'oshpd_id':str,
               'data_id':str,
               'pat_id':str,
               'diag_p':str,
+              'odiag1':str,
               'odiag2':str,
               'odiag3':str,
               'odiag4':str,
@@ -107,6 +108,7 @@ datatypes = ({'oshpd_id':str,
               'odiag24':str,
               'odiag25':str,
               'proc_p':str,
+              'oproc1':str,
               'oproc2':str,
               'oproc3':str,
               'oproc4':str,
