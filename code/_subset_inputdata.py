@@ -45,11 +45,11 @@ def subset_and_output(infilepath,
                 hdr_subset = sorted(headerrow_subset)
                 var_keep = sorted(variables_keep)
                 if hdr_subset==var_keep:
-                    print("""--> Good.  The headerrow_subset contains the 
-                             expected variables""")
+                    print("""--> Good.  The headerrow_subset contains 
+                             the expected variables""")
                 else:
-                    print("""--> !! ERROR:  Header row subset and selected 
-                            variables dont match!!!""")
+                    print("""--> !! ERROR:  Header row subset and 
+                             selected variables dont match!!!""")
                 del hdr_subset, var_keep
 
                 # Use headerrow subset as index list to use on data in next 
@@ -84,9 +84,9 @@ def subset_and_output(infilepath,
                     print('is in:')
                     print(f'{filter_values=}')
 
-                # Set 'keep' flag
-                keep = (datarow[filter_var_idx] in(f'{filter_values}'))
-                #print('Keeping row? :  ', keep)
+                # Set 'keep' flag. Dont look where values are missing
+                if len(datarow[filter_var_idx])>0:
+                    keep = (datarow[filter_var_idx] in(f'{filter_values}'))
 
                 # Output record where keep=True
                 # keep only variables of interest
@@ -100,6 +100,8 @@ def subset_and_output(infilepath,
                             as outfile:
                         writer = csv.writer(outfile)
                         writer.writerow(output_row)
+                        # Set keep value to False for next row
+                        keep = False
 
     print(f'\n{infilepath}')
     print('TOTAL RECORDS INPUT:  ', count)
