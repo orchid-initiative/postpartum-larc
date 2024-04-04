@@ -12,6 +12,7 @@
 #  for Orchid Initiative
 ########################################################################
 import csv
+import time
 from _subset_inputdata import subset_and_output
 from _readin_and_report import readin_and_report
 from _flag_and_output import flags
@@ -25,11 +26,14 @@ for filename in parm.infile_names:
     my_dateformats = parm.date_formats
 
     print(f'\n\n########## RUNNING subset_and_output for {my_outfile_suffix} ##########')
+
     subset_and_output(infilepath=f'{my_inpath}/{my_infile}',
                       filter_variable_name=parm.filter_variable_name,
                       filter_values=parm.filter_values,
                       variables_keep=parm.variables_keep,
                       outfilepath=f'{my_outfile_filepath}')
+    #printElapsedTime(start_time=start_time)
+
 
     print(f'\n########## RUNNING readin_and_report for {my_outfile_suffix} ##########')
     dataframe=readin_and_report(filepath=f'{my_outfile_filepath}.csv',
@@ -41,5 +45,8 @@ for filename in parm.infile_names:
                                 value_count_variables=parm.value_count_variables)
 
     print(f'\n########## RUNNING flags for {my_outfile_suffix} ##########')
+    start_time = time.time()
     flags(df=dataframe,file_suffix=my_outfile_suffix,outpath=parm.outpath)
+    elapsed_time = time.time() - start_time
+    print('Elapsed time (seconds):  ', elapsed_time)
 
