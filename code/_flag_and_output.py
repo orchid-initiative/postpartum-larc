@@ -14,6 +14,20 @@ import _get_mappings as mappings
 
 # FLAG PROCEDURES, DEMOGRAPHICS, AND CONDITIONS
 def flags(df, file_suffix, outpath):
+   
+    # **** F L A G   D E M O G R A P H I C - B A S E D   F L A G S ****
+    # ******** MEDICAID ******** (if pay_cat=Medi-Cal)
+    # else zero.  Missing pay_cat values will return missing values.
+    df['medicaid'] = np.where(df['pay_cat']=='03', 1, 0) 
+
+
+    # ******** PREFERRED_LANGUAGE_NOT_ENGLISH ********
+    df['preferred_language_not_english'] = np.where(df['pls_abbr']\
+            =='ENG', 0, 1)
+
+
+    # **** S E T   O T H E R   F L A G S   T O   0   I N I T I A L L Y
+    # **** A N D   R E A D   C O D E S E T S   F O R   E A C H   F L A G
 
     # ******** LARC **********
     # Get list of PXs for LARCs
@@ -21,18 +35,6 @@ def flags(df, file_suffix, outpath):
                                              sheet_name='LARC') 
     # Set flag to zero for all records
     df['larc'] = 0
-    # Set records where a PX is in the LARC list
-    for var in parm.px_vars:
-        df.loc[df[var].isin(larc_procedures), 'larc'] = 1
-        
-
-    # ******** MEDICAID ******** (if pay_cat=Medi-Cal)
-    # else zero.  Missing pay_cat values will return missing values.
-    df['medicaid'] = np.where(df['pay_cat']=='03', 1, 0) 
-
-
-    # ******** PREFERRED_LANGUAGE_NOT_ENGLISH ********
-    df['preferred_language_not_english'] = np.where(df['pls_abbr']=='ENG', 0, 1)
 
 
     # ******** PRIOR PREGNANCIES ********
@@ -41,10 +43,6 @@ def flags(df, file_suffix, outpath):
                                      sheet_name='prior pregnancy')
     # Set flag to zero for all records
     df['known_prior_pregnancy'] = 0
-    # Set records where a DX is in the prior pregnancy list
-    for var in parm.dx_vars:
-        df.loc[df[var].isin(prior_pregnancy_dxs), \
-                'known_prior_pregnancy'] = 1
 
 
     # ******** MENTAL ILLNESS ********
@@ -53,10 +51,6 @@ def flags(df, file_suffix, outpath):
                                      sheet_name='mental illness')
     # Set flag to zero for all records
     df['mental_illness'] = 0
-    # Set records where first 3 chars of a DX is in mental illness list
-    for var in parm.dx_vars:
-        df.loc[df[var].str[:3].isin(mental_illness_dx3s), \
-                'mental_illness'] = 1
 
 
     # ******** INTELLECTUAL DISABILITY ********
@@ -66,10 +60,6 @@ def flags(df, file_suffix, outpath):
             sheet_name='intellectual disability')
     # Set flag to zero for all records
     df['intellectual_disability'] = 0
-    # Set records where first 3 chars of a DX in intellctl disablty list
-    for var in parm.dx_vars:
-        df.loc[df[var].str[:3].isin(intellectual_disability_dx3s),\
-                'intellectual_disability'] = 1
 
 
     # ******** HEMORRAHAGE ********
@@ -78,9 +68,6 @@ def flags(df, file_suffix, outpath):
                                             sheet_name='hemorrhage')
     # Set flag to zero for all records
     df['hemorrhage'] = 0
-    # Set records where a DX is in the hemorrhage list
-    for var in parm.dx_vars:
-        df.loc[df[var].isin(hemorrhage_dxs), 'hemorrhage'] = 1
 
 
     # ******** INTRAAMNIOTIC INFECTION ********
@@ -90,10 +77,6 @@ def flags(df, file_suffix, outpath):
             sheet_name='intraamniotic infection')
     # Set flag to zero for all records
     df['intraamniotic_infection'] = 0
-    # Set records where a DX is in the intraamniotic infection list
-    for var in parm.dx_vars:
-        df.loc[df[var].isin(intraamniotic_infection_dxs), \
-                'intraamniotic_infection'] = 1
 
 
     # ******** CHORIOAMNIONITIS ********
@@ -102,10 +85,6 @@ def flags(df, file_suffix, outpath):
                                      sheet_name='chorioamnionitis')
     # Set flag to zero for all records
     df['chorioamnionitis'] = 0
-    # Set records where a DX is in the chorioamnionitis list
-    for var in parm.dx_vars:
-        df.loc[df[var].isin(chorioamnionitis_dxs), \
-                'chorioamnionitis'] = 1
 
 
     # ******** ENDOMETRITIS ********
@@ -114,10 +93,42 @@ def flags(df, file_suffix, outpath):
                                      sheet_name='endometritis')
     # Set flag to zero for all records
     df['endometritis'] = 0
-    # Set records where a DX is in the endometritis list
+
+
+    # **** F L A G   P X / D X - B A S E D   C O N D I T I O N S
+    # FLAG LARCS USING PXs
+    for var in parm.px_vars:
+        df.loc[df[var].notna().isin(larc_procedures), 'larc'] = 1
+
+    # FLAG CONDITIONS USING DXs 
     for var in parm.dx_vars:
-        df.loc[df[var].isin(endometritis_dxs), \
-                'endometritis'] = 1
+
+        # Known prior pregancy
+        df.loc[df[var].notna().isin(prior_pregnancy_dxs), \
+                'known_prior_pregnancy'] = 1
+
+        # Mental illness
+        df.loc[df[var].str[:3].notna().isin(mental_illness_dx3s), \
+                'mental_illness'] = 1
+
+        # Intellectual disability
+        df.loc[df[var].str[:3].notna().isin(intellectual_disability_dx3s),\
+                'intellectual_disability'] = 1
+
+        # Hemorrhage 
+        df.loc[df[var].notna().isin(hemorrhage_dxs), 'hemorrhage'] = 1
+
+        # Intraamniotic infection
+        df.loc[df[var].notna().isin(intraamniotic_infection_dxs), \
+                'intraamniotic_infection'] = 1
+
+        # Chorioamnionitis
+        df.loc[df[var].notna().isin(chorioamnionitis_dxs), \
+                'chorioamnionitis'] = 1
+    
+        # Endometritis
+        df.loc[df[var].notna().isin(endometritis_dxs), \
+                     'endometritis'] = 1
 
 
     # Report on flags
