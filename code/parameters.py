@@ -13,15 +13,21 @@ inpath = f'{mainpath}/raw'
 
 # A dict w/list of the names of the input files 
 # and a naming suffix to differentiate output files.
-infile_names = ['csv_HCAIPDD_03-30-2024_1713.csv' #,
-                #'csv_HCAIPDD_01-31-2024_1538_2018.csv',
-                #'csv_HCAIPDD_01-31-2024_1538_2019.csv',
-                #'csv_HCAIPDD_01-31-2024_1538_2020.csv',
-                #'csv_HCAIPDD_01-31-2024_1538_2021.csv',
-                #'csv_HCAIPDD_01-31-2024_1538_2022.csv',
-                #'csv_HCAIPDD_01-31-2024_1538_2023.csv',
-                #'csv_HCAIPDD_01-31-2024_1538_2024.csv'
+infile_names = ['csv_HCAIPDD_04-09-2024_1143_2018.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2019.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2020.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2021.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2022.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2023.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2024.csv'
                 ]
+
+# Used in the naming of output files, to differentiate when there are
+# muliple files.  For example, if the input files have year in the name,
+# use a slice to select the characters containing year.
+# Example file name:  input_file_2024.csv
+# Corresponding slice that is put in a tuple:  (-8,-4)
+file_suffix_slice = (-8,-4)
 
 # Document containing DX and PX codes for identifying procedure of 
 # interest and conditions to flag
