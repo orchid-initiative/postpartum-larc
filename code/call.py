@@ -33,7 +33,7 @@ for filename in parm.infile_names:
                       filter_variable_name=parm.filter_variable_name,
                       filter_values=parm.filter_values,
                       variables_keep=parm.variables_keep,
-                      outfilepath=f'{my_outfile_filepath}')
+                      outfilepath=my_outfile_filepath)
     #printElapsedTime(start_time=start_time)
 
 
