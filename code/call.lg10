@@ -1,0 +1,1319 @@
+
+
+
+ ########## RUNNING subset_and_output for 2018 ##########
+
+Reading input file:   /home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2018.csv
+
+Variables of interest are:
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'pls_abbr', 'patcnty', 'patzip', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'disp', 'pay_cat', 'pay_type', 'pay_plan', 'charge', 'MSDRG', 'diag_p', 'poa_p', 'proc_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24']
+
+Check to see if headerrow_subset and 
+                         variables_keep match.
+--> Good.  The headerrow_subset contains 
+                             the expected variables
+
+Here are the indices for selected variables:   [1, 5, 6, 11, 16, 17, 18, 29, 30, 35, 38, 40, 42, 43, 44, 46, 50, 51, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136, 139, 142, 145, 148, 151, 154, 157, 160, 163, 166, 169, 172, 201, 202, 206, 207, 208, 209, 211, 212]
+
+And here are the corresponding variables selected:  
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'MSDRG', 'diag_p', 'poa_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'proc_p', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24', 'disp', 'charge', 'pay_cat', 'pay_type', 'pay_plan', 'pls_abbr', 'patcnty', 'patzip']
+
+Whole line for first row of data:  
+1,,,90046,19,1000000010,100000000009,03231995,03231995,0,0,23,23,06,06,04,F,E1,R5,,,,,,,,,,,,12132018,5,12,4,2018,12132018,12,4,2018,10,0,,1,3,3,,807,,,,Z3400,W,Z3400,N,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,31208007,20181213,0,66348005,20181213,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,999808709,999808709,00,5284,5284,999-80-8709,Y,06,1,0000,SPA,Spanish,19,90002
+
+
+Selection criteria for variable of interest:
+filter_variable_name='MSDRG'
+is in:
+filter_values=[768, 788, 807]
+
+/home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2018.csv
+TOTAL RECORDS INPUT:   4272
+
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2018.csv
+RECORDS OUTPUT IN SUBSET:   1843
+
+
+ ########## RUNNING readin_and_report for 2018 ##########
+
+Read in of subset
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2018.csv
+           count         mean          std     min     50%      max
+agyradm   1843.0    28.725448     6.390440    15.0    29.0     44.0
+race_grp     0.0          NaN          NaN     NaN     NaN      NaN
+dsch_yr   1843.0  2018.000000     0.000000  2018.0  2018.0   2018.0
+los       1843.0     0.043950     0.205040     0.0     0.0      1.0
+MSDRG     1843.0   796.089528    16.118525   768.0   807.0    807.0
+charge    1843.0  8203.988606  6838.261041   767.0  6519.0  41378.0
+pay_type  1843.0     1.655453     0.585850     0.0     2.0      2.0
+pay_plan  1815.0    28.633058    95.374726     0.0     0.0    476.0
+
+ MSDRG
+807    1211
+768     405
+788     227
+dtype: int64
+
+ oshpd_id
+NaN       1764
+190796      42
+190555      16
+190392       8
+191227       6
+191228       6
+190429       1
+dtype: int64
+
+ dsch_yr
+2018    1843
+dtype: int64
+
+ ethncty
+E2    973
+E1    870
+dtype: int64
+
+ race1
+R5    1300
+R2     270
+R3     186
+R4      31
+R9      29
+R1      27
+dtype: int64
+
+ pls_abbr
+ENG    1107
+SPA     555
+CMN      65
+TGL      41
+VIE      32
+KOR      16
+HIN       9
+PES       8
+ARM       6
+ARA       4
+dtype: int64
+
+ pay_cat
+03     860
+06     748
+08     108
+NaN     92
+01      35
+dtype: int64
+
+ pay_type
+2    1316
+1     419
+0     108
+dtype: int64
+
+ pay_plan
+0.0      1609
+476.0      56
+152.0      39
+303.0      33
+176.0      31
+NaN        28
+43.0       24
+126.0      23
+dtype: int64
+
+
+ ########## RUNNING flags for 2018 ##########
+
+Results for -- larc
+0    1843
+Name: larc, dtype: int64
+
+Results for -- pay_cat
+03     860
+06     748
+08     108
+NaN     92
+01      35
+Name: pay_cat, dtype: int64
+
+Results for -- medicaid
+0    983
+1    860
+Name: medicaid, dtype: int64
+
+Results for -- pls_abbr
+ENG    1107
+SPA     555
+CMN      65
+TGL      41
+VIE      32
+KOR      16
+HIN       9
+PES       8
+ARM       6
+ARA       4
+Name: pls_abbr, dtype: int64
+
+Results for -- preferred_language_not_english
+0    1107
+1     736
+Name: preferred_language_not_english, dtype: int64
+
+Results for -- known_prior_pregnancy
+0    1843
+Name: known_prior_pregnancy, dtype: int64
+
+Results for -- mental_illness
+0    1843
+Name: mental_illness, dtype: int64
+
+Results for -- intellectual_disability
+0    1843
+Name: intellectual_disability, dtype: int64
+
+Results for -- hemorrhage
+0    1843
+Name: hemorrhage, dtype: int64
+
+Results for -- intraamniotic_infection
+0    1843
+Name: intraamniotic_infection, dtype: int64
+
+Results for -- chorioamnionitis
+0    1843
+Name: chorioamnionitis, dtype: int64
+
+Results for -- endometritis
+0    1843
+Name: endometritis, dtype: int64
+Elapsed time (seconds):   5.961930990219116
+
+
+
+ ########## RUNNING subset_and_output for 2019 ##########
+
+Reading input file:   /home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2019.csv
+
+Variables of interest are:
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'pls_abbr', 'patcnty', 'patzip', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'disp', 'pay_cat', 'pay_type', 'pay_plan', 'charge', 'MSDRG', 'diag_p', 'poa_p', 'proc_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24']
+
+Check to see if headerrow_subset and 
+                         variables_keep match.
+--> Good.  The headerrow_subset contains 
+                             the expected variables
+
+Here are the indices for selected variables:   [1, 5, 6, 11, 16, 17, 18, 29, 30, 35, 38, 40, 42, 43, 44, 46, 50, 51, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136, 139, 142, 145, 148, 151, 154, 157, 160, 163, 166, 169, 172, 201, 202, 206, 207, 208, 209, 211, 212]
+
+And here are the corresponding variables selected:  
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'MSDRG', 'diag_p', 'poa_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'proc_p', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24', 'disp', 'charge', 'pay_cat', 'pay_type', 'pay_plan', 'pls_abbr', 'patcnty', 'patzip']
+
+Whole line for first row of data:  
+1,,,91343,19,1000000003,100000000003,07291992,07291992,0,0,26,26,07,07,04,F,E2,R5,,,,,,,,,,,,07242019,4,7,3,2019,07242019,7,3,2019,3,0,,6,3,5,,768,,,,Z3400,U,Z3400,Y,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,85548006,20190724,0,66348005,20190724,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,999104954,999104954,95,7817,7817,999-10-4954,N,03,2,0000,ENG,English,19,90094
+
+
+Selection criteria for variable of interest:
+filter_variable_name='MSDRG'
+is in:
+filter_values=[768, 788, 807]
+
+/home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2019.csv
+TOTAL RECORDS INPUT:   4311
+
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2019.csv
+RECORDS OUTPUT IN SUBSET:   1906
+
+
+ ########## RUNNING readin_and_report for 2019 ##########
+
+Read in of subset
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2019.csv
+           count         mean          std     min     50%      max
+agyradm   1906.0    28.935992     6.708251    15.0    29.0     45.0
+race_grp     0.0          NaN          NaN     NaN     NaN      NaN
+dsch_yr   1906.0  2019.000000     0.000000  2019.0  2019.0   2019.0
+los       1906.0     0.045645     0.208769     0.0     0.0      1.0
+MSDRG     1906.0   795.684155    16.105164   768.0   807.0    807.0
+charge    1906.0  8206.038825  6769.321140   767.0  6793.5  43955.0
+pay_type  1906.0     1.663169     0.571297     0.0     2.0      2.0
+pay_plan  1880.0    26.234043    91.411319     0.0     0.0    476.0
+
+ MSDRG
+807    1214
+768     421
+788     271
+dtype: int64
+
+ oshpd_id
+NaN       1828
+190796      39
+190555      12
+191227      10
+191228      10
+190392       6
+190878       1
+dtype: int64
+
+ dsch_yr
+2019    1906
+dtype: int64
+
+ ethncty
+E2    1003
+E1     903
+dtype: int64
+
+ race1
+R5    1367
+R2     272
+R3     180
+R9      35
+R4      29
+R1      23
+dtype: int64
+
+ pls_abbr
+ENG    1150
+SPA     569
+CMN      64
+TGL      44
+VIE      27
+KOR      15
+ARA      11
+ARM      10
+HIN       8
+PES       8
+dtype: int64
+
+ pay_cat
+03     890
+06     755
+NaN    111
+08      98
+01      52
+dtype: int64
+
+ pay_type
+2    1362
+1     446
+0      98
+dtype: int64
+
+ pay_plan
+0.0      1672
+476.0      56
+126.0      41
+176.0      33
+43.0       32
+NaN        26
+152.0      24
+303.0      22
+dtype: int64
+
+
+ ########## RUNNING flags for 2019 ##########
+
+Results for -- larc
+0    1906
+Name: larc, dtype: int64
+
+Results for -- pay_cat
+03     890
+06     755
+NaN    111
+08      98
+01      52
+Name: pay_cat, dtype: int64
+
+Results for -- medicaid
+0    1016
+1     890
+Name: medicaid, dtype: int64
+
+Results for -- pls_abbr
+ENG    1150
+SPA     569
+CMN      64
+TGL      44
+VIE      27
+KOR      15
+ARA      11
+ARM      10
+PES       8
+HIN       8
+Name: pls_abbr, dtype: int64
+
+Results for -- preferred_language_not_english
+0    1150
+1     756
+Name: preferred_language_not_english, dtype: int64
+
+Results for -- known_prior_pregnancy
+0    1906
+Name: known_prior_pregnancy, dtype: int64
+
+Results for -- mental_illness
+0    1906
+Name: mental_illness, dtype: int64
+
+Results for -- intellectual_disability
+0    1906
+Name: intellectual_disability, dtype: int64
+
+Results for -- hemorrhage
+0    1906
+Name: hemorrhage, dtype: int64
+
+Results for -- intraamniotic_infection
+0    1906
+Name: intraamniotic_infection, dtype: int64
+
+Results for -- chorioamnionitis
+0    1906
+Name: chorioamnionitis, dtype: int64
+
+Results for -- endometritis
+0    1906
+Name: endometritis, dtype: int64
+Elapsed time (seconds):   5.385783672332764
+
+
+
+ ########## RUNNING subset_and_output for 2020 ##########
+
+Reading input file:   /home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2020.csv
+
+Variables of interest are:
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'pls_abbr', 'patcnty', 'patzip', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'disp', 'pay_cat', 'pay_type', 'pay_plan', 'charge', 'MSDRG', 'diag_p', 'poa_p', 'proc_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24']
+
+Check to see if headerrow_subset and 
+                         variables_keep match.
+--> Good.  The headerrow_subset contains 
+                             the expected variables
+
+Here are the indices for selected variables:   [1, 5, 6, 11, 16, 17, 18, 29, 30, 35, 38, 40, 42, 43, 44, 46, 50, 51, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136, 139, 142, 145, 148, 151, 154, 157, 160, 163, 166, 169, 172, 201, 202, 206, 207, 208, 209, 211, 212]
+
+And here are the corresponding variables selected:  
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'MSDRG', 'diag_p', 'poa_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'proc_p', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24', 'disp', 'charge', 'pay_cat', 'pay_type', 'pay_plan', 'pls_abbr', 'patcnty', 'patzip']
+
+Whole line for first row of data:  
+1,,,90036,19,1000000007,100000000006,11251990,11251990,0,0,29,29,07,07,04,F,E1,R5,,,,,,,,,,,,08302020,1,8,3,2020,08302020,8,3,2020,7,0,,F,3,5,,807,,,,Z3400,N,Z3400,W,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,31208007,20200830,0,66348005,20200830,0,0UH97HZ,20200830,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,999851560,999851560,89,20035,20035,999-85-1560,N,06,2,0000,ENG,English,19,90810
+
+
+Selection criteria for variable of interest:
+filter_variable_name='MSDRG'
+is in:
+filter_values=[768, 788, 807]
+
+/home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2020.csv
+TOTAL RECORDS INPUT:   4271
+
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2020.csv
+RECORDS OUTPUT IN SUBSET:   1967
+
+
+ ########## RUNNING readin_and_report for 2020 ##########
+
+Read in of subset
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2020.csv
+           count         mean          std     min     50%      max
+agyradm   1967.0    29.072191     6.718650    15.0    29.0     45.0
+race_grp     0.0          NaN          NaN     NaN     NaN      NaN
+dsch_yr   1967.0  2020.000000     0.000000  2020.0  2020.0   2020.0
+los       1967.0     0.040671     0.197577     0.0     0.0      1.0
+MSDRG     1967.0   796.054398    15.976063   768.0   807.0    807.0
+charge    1967.0  8000.147433  6577.070614   767.0  6705.0  41536.0
+pay_type  1967.0     1.667514     0.579645     0.0     2.0      2.0
+pay_plan  1939.0    26.412584    92.110144     0.0     0.0    476.0
+
+ MSDRG
+807    1277
+768     421
+788     269
+dtype: int64
+
+ oshpd_id
+NaN       1905
+190796      32
+191227       8
+190392       7
+190555       6
+190878       4
+191228       4
+190429       1
+dtype: int64
+
+ dsch_yr
+2020    1967
+dtype: int64
+
+ ethncty
+E2    1035
+E1     932
+dtype: int64
+
+ race1
+R5    1417
+R2     293
+R3     161
+R4      44
+R1      27
+R9      25
+dtype: int64
+
+ pls_abbr
+ENG    1185
+SPA     600
+CMN      62
+TGL      28
+VIE      27
+KOR      24
+ARM      12
+HIN      10
+PES      10
+ARA       9
+dtype: int64
+
+ pay_cat
+03     922
+06     765
+08     112
+NaN    107
+01      61
+dtype: int64
+
+ pay_type
+2    1425
+1     430
+0     112
+dtype: int64
+
+ pay_plan
+0.0      1728
+476.0      58
+43.0       32
+126.0      32
+152.0      32
+176.0      31
+NaN        28
+303.0      26
+dtype: int64
+
+
+ ########## RUNNING flags for 2020 ##########
+
+Results for -- larc
+0    1967
+Name: larc, dtype: int64
+
+Results for -- pay_cat
+03     922
+06     765
+08     112
+NaN    107
+01      61
+Name: pay_cat, dtype: int64
+
+Results for -- medicaid
+0    1045
+1     922
+Name: medicaid, dtype: int64
+
+Results for -- pls_abbr
+ENG    1185
+SPA     600
+CMN      62
+TGL      28
+VIE      27
+KOR      24
+ARM      12
+HIN      10
+PES      10
+ARA       9
+Name: pls_abbr, dtype: int64
+
+Results for -- preferred_language_not_english
+0    1185
+1     782
+Name: preferred_language_not_english, dtype: int64
+
+Results for -- known_prior_pregnancy
+0    1967
+Name: known_prior_pregnancy, dtype: int64
+
+Results for -- mental_illness
+0    1967
+Name: mental_illness, dtype: int64
+
+Results for -- intellectual_disability
+0    1967
+Name: intellectual_disability, dtype: int64
+
+Results for -- hemorrhage
+0    1967
+Name: hemorrhage, dtype: int64
+
+Results for -- intraamniotic_infection
+0    1967
+Name: intraamniotic_infection, dtype: int64
+
+Results for -- chorioamnionitis
+0    1967
+Name: chorioamnionitis, dtype: int64
+
+Results for -- endometritis
+0    1967
+Name: endometritis, dtype: int64
+Elapsed time (seconds):   5.452135801315308
+
+
+
+ ########## RUNNING subset_and_output for 2021 ##########
+
+Reading input file:   /home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2021.csv
+
+Variables of interest are:
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'pls_abbr', 'patcnty', 'patzip', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'disp', 'pay_cat', 'pay_type', 'pay_plan', 'charge', 'MSDRG', 'diag_p', 'poa_p', 'proc_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24']
+
+Check to see if headerrow_subset and 
+                         variables_keep match.
+--> Good.  The headerrow_subset contains 
+                             the expected variables
+
+Here are the indices for selected variables:   [1, 5, 6, 11, 16, 17, 18, 29, 30, 35, 38, 40, 42, 43, 44, 46, 50, 51, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136, 139, 142, 145, 148, 151, 154, 157, 160, 163, 166, 169, 172, 201, 202, 206, 207, 208, 209, 211, 212]
+
+And here are the corresponding variables selected:  
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'MSDRG', 'diag_p', 'poa_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'proc_p', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24', 'disp', 'charge', 'pay_cat', 'pay_type', 'pay_plan', 'pls_abbr', 'patcnty', 'patzip']
+
+Whole line for first row of data:  
+1,,,90270,19,1000000001,100000000001,07131998,07131998,0,0,22,22,06,06,04,F,E2,R2,,,,,,,,,,,,03292021,2,3,1,2021,03292021,3,1,2021,1,0,,D,3,5,,768,,,,Z3400,U,Z3400,N,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,85548006,20210329,0,66348005,20210329,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,999807564,999807564,51,9460,9460,999-80-7564,Y,06,2,0000,ENG,English,19,90232
+
+
+Selection criteria for variable of interest:
+filter_variable_name='MSDRG'
+is in:
+filter_values=[768, 788, 807]
+
+/home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2021.csv
+TOTAL RECORDS INPUT:   4242
+
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2021.csv
+RECORDS OUTPUT IN SUBSET:   1951
+
+
+ ########## RUNNING readin_and_report for 2021 ##########
+
+Read in of subset
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2021.csv
+           count         mean          std     min     50%      max
+agyradm   1951.0    29.353152     6.917376    15.0    29.0     47.0
+race_grp     0.0          NaN          NaN     NaN     NaN      NaN
+dsch_yr   1951.0  2021.000000     0.000000  2021.0  2021.0   2021.0
+los       1951.0     0.042030     0.200708     0.0     0.0      1.0
+MSDRG     1951.0   795.546899    16.409745   768.0   807.0    807.0
+charge    1951.0  8053.847770  6426.254177   767.0  6717.0  40413.0
+pay_type  1951.0     1.666325     0.573687     0.0     2.0      2.0
+pay_plan  1920.0    32.352083   105.658431     0.0     0.0    476.0
+
+ MSDRG
+807    1256
+768     457
+788     238
+dtype: int64
+
+ oshpd_id
+NaN       1887
+190796      27
+191227      17
+190555       8
+190392       6
+191228       5
+190878       1
+dtype: int64
+
+ dsch_yr
+2021    1951
+dtype: int64
+
+ ethncty
+E2    1000
+E1     951
+dtype: int64
+
+ race1
+R5    1374
+R2     298
+R3     188
+R4      37
+R9      34
+R1      20
+dtype: int64
+
+ pls_abbr
+ENG    1169
+SPA     584
+CMN      52
+TGL      42
+VIE      29
+KOR      25
+ARA      14
+PES      14
+ARM      11
+HIN      11
+dtype: int64
+
+ pay_cat
+03     929
+06     755
+NaN    123
+08     104
+01      40
+dtype: int64
+
+ pay_type
+2    1404
+1     443
+0     104
+dtype: int64
+
+ pay_plan
+0.0      1697
+476.0      83
+126.0      33
+176.0      33
+NaN        31
+303.0      28
+43.0       26
+152.0      20
+dtype: int64
+
+
+ ########## RUNNING flags for 2021 ##########
+
+Results for -- larc
+0    1951
+Name: larc, dtype: int64
+
+Results for -- pay_cat
+03     929
+06     755
+NaN    123
+08     104
+01      40
+Name: pay_cat, dtype: int64
+
+Results for -- medicaid
+0    1022
+1     929
+Name: medicaid, dtype: int64
+
+Results for -- pls_abbr
+ENG    1169
+SPA     584
+CMN      52
+TGL      42
+VIE      29
+KOR      25
+PES      14
+ARA      14
+HIN      11
+ARM      11
+Name: pls_abbr, dtype: int64
+
+Results for -- preferred_language_not_english
+0    1169
+1     782
+Name: preferred_language_not_english, dtype: int64
+
+Results for -- known_prior_pregnancy
+0    1951
+Name: known_prior_pregnancy, dtype: int64
+
+Results for -- mental_illness
+0    1951
+Name: mental_illness, dtype: int64
+
+Results for -- intellectual_disability
+0    1951
+Name: intellectual_disability, dtype: int64
+
+Results for -- hemorrhage
+0    1951
+Name: hemorrhage, dtype: int64
+
+Results for -- intraamniotic_infection
+0    1951
+Name: intraamniotic_infection, dtype: int64
+
+Results for -- chorioamnionitis
+0    1951
+Name: chorioamnionitis, dtype: int64
+
+Results for -- endometritis
+0    1951
+Name: endometritis, dtype: int64
+Elapsed time (seconds):   7.503169298171997
+
+
+
+ ########## RUNNING subset_and_output for 2022 ##########
+
+Reading input file:   /home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2022.csv
+
+Variables of interest are:
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'pls_abbr', 'patcnty', 'patzip', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'disp', 'pay_cat', 'pay_type', 'pay_plan', 'charge', 'MSDRG', 'diag_p', 'poa_p', 'proc_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24']
+
+Check to see if headerrow_subset and 
+                         variables_keep match.
+--> Good.  The headerrow_subset contains 
+                             the expected variables
+
+Here are the indices for selected variables:   [1, 5, 6, 11, 16, 17, 18, 29, 30, 35, 38, 40, 42, 43, 44, 46, 50, 51, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136, 139, 142, 145, 148, 151, 154, 157, 160, 163, 166, 169, 172, 201, 202, 206, 207, 208, 209, 211, 212]
+
+And here are the corresponding variables selected:  
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'MSDRG', 'diag_p', 'poa_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'proc_p', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24', 'disp', 'charge', 'pay_cat', 'pay_type', 'pay_plan', 'pls_abbr', 'patcnty', 'patzip']
+
+Whole line for first row of data:  
+1,,,90211,19,1000000002,100000000002,01152002,01152002,0,0,20,20,06,06,04,F,E1,R1,,,,,,,,,,,,10112022,3,10,4,2022,10112022,10,4,2022,2,0,,5,3,4,,788,,,,Z3400,N,Z3400,U,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,237001001,20221011,0,11466000,20221011,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,999655425,999655425,07,13648,13648,999-65-5425,N,06,2,0000,ENG,English,19,90059
+
+
+Selection criteria for variable of interest:
+filter_variable_name='MSDRG'
+is in:
+filter_values=[768, 788, 807]
+
+/home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2022.csv
+TOTAL RECORDS INPUT:   4161
+
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2022.csv
+RECORDS OUTPUT IN SUBSET:   1920
+
+
+ ########## RUNNING readin_and_report for 2022 ##########
+
+Read in of subset
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2022.csv
+           count         mean          std     min     50%      max
+agyradm   1920.0    29.309375     7.222303    15.0    29.0     48.0
+race_grp     0.0          NaN          NaN     NaN     NaN      NaN
+dsch_yr   1920.0  2022.000000     0.000000  2022.0  2022.0   2022.0
+los       1920.0     0.032292     0.176820     0.0     0.0      1.0
+MSDRG     1920.0   795.765104    16.112894   768.0   807.0    807.0
+charge    1920.0  8028.672917  6680.532512   767.0  6466.5  45685.0
+pay_type  1920.0     1.652604     0.587913     0.0     2.0      2.0
+pay_plan  1894.0    27.526399    93.612508     0.0     0.0    476.0
+
+ MSDRG
+807    1231
+768     424
+788     265
+dtype: int64
+
+ oshpd_id
+NaN       1850
+190796      37
+190555      11
+190392       9
+191227       6
+191228       4
+190878       2
+190429       1
+dtype: int64
+
+ dsch_yr
+2022    1920
+dtype: int64
+
+ ethncty
+E2    1011
+E1     909
+dtype: int64
+
+ race1
+R5    1348
+R2     291
+R3     193
+R4      33
+R1      28
+R9      27
+dtype: int64
+
+ pls_abbr
+ENG    1171
+SPA     571
+CMN      52
+TGL      41
+VIE      28
+KOR      18
+ARA      11
+ARM      11
+HIN       9
+PES       8
+dtype: int64
+
+ pay_cat
+03     887
+06     764
+08     114
+NaN    107
+01      48
+dtype: int64
+
+ pay_type
+2    1367
+1     439
+0     114
+dtype: int64
+
+ pay_plan
+0.0      1683
+476.0      56
+126.0      37
+303.0      35
+43.0       28
+152.0      28
+176.0      27
+NaN        26
+dtype: int64
+
+
+ ########## RUNNING flags for 2022 ##########
+
+Results for -- larc
+0    1920
+Name: larc, dtype: int64
+
+Results for -- pay_cat
+03     887
+06     764
+08     114
+NaN    107
+01      48
+Name: pay_cat, dtype: int64
+
+Results for -- medicaid
+0    1033
+1     887
+Name: medicaid, dtype: int64
+
+Results for -- pls_abbr
+ENG    1171
+SPA     571
+CMN      52
+TGL      41
+VIE      28
+KOR      18
+ARA      11
+ARM      11
+HIN       9
+PES       8
+Name: pls_abbr, dtype: int64
+
+Results for -- preferred_language_not_english
+0    1171
+1     749
+Name: preferred_language_not_english, dtype: int64
+
+Results for -- known_prior_pregnancy
+0    1920
+Name: known_prior_pregnancy, dtype: int64
+
+Results for -- mental_illness
+0    1920
+Name: mental_illness, dtype: int64
+
+Results for -- intellectual_disability
+0    1920
+Name: intellectual_disability, dtype: int64
+
+Results for -- hemorrhage
+0    1920
+Name: hemorrhage, dtype: int64
+
+Results for -- intraamniotic_infection
+0    1920
+Name: intraamniotic_infection, dtype: int64
+
+Results for -- chorioamnionitis
+0    1920
+Name: chorioamnionitis, dtype: int64
+
+Results for -- endometritis
+0    1920
+Name: endometritis, dtype: int64
+Elapsed time (seconds):   9.419947147369385
+
+
+
+ ########## RUNNING subset_and_output for 2023 ##########
+
+Reading input file:   /home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2023.csv
+
+Variables of interest are:
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'pls_abbr', 'patcnty', 'patzip', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'disp', 'pay_cat', 'pay_type', 'pay_plan', 'charge', 'MSDRG', 'diag_p', 'poa_p', 'proc_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24']
+
+Check to see if headerrow_subset and 
+                         variables_keep match.
+--> Good.  The headerrow_subset contains 
+                             the expected variables
+
+Here are the indices for selected variables:   [1, 5, 6, 11, 16, 17, 18, 29, 30, 35, 38, 40, 42, 43, 44, 46, 50, 51, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136, 139, 142, 145, 148, 151, 154, 157, 160, 163, 166, 169, 172, 201, 202, 206, 207, 208, 209, 211, 212]
+
+And here are the corresponding variables selected:  
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'MSDRG', 'diag_p', 'poa_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'proc_p', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24', 'disp', 'charge', 'pay_cat', 'pay_type', 'pay_plan', 'pls_abbr', 'patcnty', 'patzip']
+
+Whole line for first row of data:  
+1,190796,106190796,90095,19,1000000006,100000000005,10242004,10242004,0,0,18,18,05,05,03,F,E1,R5,,,,,,,,,,,,05222023,2,5,2,2023,05222023,5,2,2023,6,0,,E,3,5,,807,,,,Z3400,Y,Z3400,N,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,18946005,20230522,0,66348005,20230522,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,999211674,999211674,20,4978,4978,999-21-1674,Y,06,2,0000,ENG,English,19,91405
+
+
+Selection criteria for variable of interest:
+filter_variable_name='MSDRG'
+is in:
+filter_values=[768, 788, 807]
+
+/home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2023.csv
+TOTAL RECORDS INPUT:   4183
+
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2023.csv
+RECORDS OUTPUT IN SUBSET:   2036
+
+
+ ########## RUNNING readin_and_report for 2023 ##########
+
+Read in of subset
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2023.csv
+           count         mean          std     min     50%      max
+agyradm   2036.0    29.264735     7.212748    15.0    29.0     49.0
+race_grp     0.0          NaN          NaN     NaN     NaN      NaN
+dsch_yr   2036.0  2023.000000     0.000000  2023.0  2023.0   2023.0
+los       2036.0     0.042731     0.202299     0.0     0.0      1.0
+MSDRG     2036.0   795.312377    16.228184   768.0   807.0    807.0
+charge    2036.0  8178.967583  6566.354615   767.0  6859.0  43360.0
+pay_type  2036.0     1.655206     0.593145     0.0     2.0      2.0
+pay_plan  2017.0    25.791274    91.724979     0.0     0.0    476.0
+
+ MSDRG
+807    1272
+768     464
+788     300
+dtype: int64
+
+ oshpd_id
+NaN       1945
+190796      40
+190392      17
+190555      15
+191228       9
+191227       7
+190878       2
+190429       1
+dtype: int64
+
+ dsch_yr
+2023    2036
+dtype: int64
+
+ ethncty
+E2    1034
+E1    1002
+dtype: int64
+
+ race1
+R5    1453
+R2     311
+R3     167
+R9      40
+R4      34
+R1      31
+dtype: int64
+
+ pls_abbr
+ENG    1197
+SPA     642
+CMN      62
+TGL      41
+VIE      37
+ARA      15
+KOR      15
+PES      13
+HIN       8
+ARM       6
+dtype: int64
+
+ pay_cat
+03     929
+06     817
+08     128
+NaN    119
+01      43
+dtype: int64
+
+ pay_type
+2    1462
+1     446
+0     128
+dtype: int64
+
+ pay_plan
+0.0      1801
+476.0      61
+126.0      42
+43.0       37
+176.0      26
+303.0      26
+152.0      24
+NaN        19
+dtype: int64
+
+
+ ########## RUNNING flags for 2023 ##########
+
+Results for -- larc
+0    2036
+Name: larc, dtype: int64
+
+Results for -- pay_cat
+03     929
+06     817
+08     128
+NaN    119
+01      43
+Name: pay_cat, dtype: int64
+
+Results for -- medicaid
+0    1107
+1     929
+Name: medicaid, dtype: int64
+
+Results for -- pls_abbr
+ENG    1197
+SPA     642
+CMN      62
+TGL      41
+VIE      37
+ARA      15
+KOR      15
+PES      13
+HIN       8
+ARM       6
+Name: pls_abbr, dtype: int64
+
+Results for -- preferred_language_not_english
+0    1197
+1     839
+Name: preferred_language_not_english, dtype: int64
+
+Results for -- known_prior_pregnancy
+0    2036
+Name: known_prior_pregnancy, dtype: int64
+
+Results for -- mental_illness
+0    2036
+Name: mental_illness, dtype: int64
+
+Results for -- intellectual_disability
+0    2036
+Name: intellectual_disability, dtype: int64
+
+Results for -- hemorrhage
+0    2036
+Name: hemorrhage, dtype: int64
+
+Results for -- intraamniotic_infection
+0    2036
+Name: intraamniotic_infection, dtype: int64
+
+Results for -- chorioamnionitis
+0    2036
+Name: chorioamnionitis, dtype: int64
+
+Results for -- endometritis
+0    2036
+Name: endometritis, dtype: int64
+Elapsed time (seconds):   8.784599304199219
+
+
+
+ ########## RUNNING subset_and_output for 2024 ##########
+
+Reading input file:   /home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2024.csv
+
+Variables of interest are:
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'pls_abbr', 'patcnty', 'patzip', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'disp', 'pay_cat', 'pay_type', 'pay_plan', 'charge', 'MSDRG', 'diag_p', 'poa_p', 'proc_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24']
+
+Check to see if headerrow_subset and 
+                         variables_keep match.
+--> Good.  The headerrow_subset contains 
+                             the expected variables
+
+Here are the indices for selected variables:   [1, 5, 6, 11, 16, 17, 18, 29, 30, 35, 38, 40, 42, 43, 44, 46, 50, 51, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 103, 106, 109, 112, 115, 118, 121, 124, 127, 130, 133, 136, 139, 142, 145, 148, 151, 154, 157, 160, 163, 166, 169, 172, 201, 202, 206, 207, 208, 209, 211, 212]
+
+And here are the corresponding variables selected:  
+['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 'ethncty', 'race1', 'race_grp', 'admtdate', 'dschdate', 'dsch_yr', 'los', 'srcpo_ns', 'srcroute_ns', 'admtype_ns', 'MSDRG', 'diag_p', 'poa_p', 'odiag1', 'odiag2', 'odiag3', 'odiag4', 'odiag5', 'odiag6', 'odiag7', 'odiag8', 'odiag9', 'odiag10', 'odiag11', 'odiag12', 'odiag13', 'odiag14', 'odiag15', 'odiag16', 'odiag17', 'odiag18', 'odiag19', 'odiag20', 'odiag21', 'odiag22', 'odiag23', 'odiag24', 'proc_p', 'oproc1', 'oproc2', 'oproc3', 'oproc4', 'oproc5', 'oproc6', 'oproc7', 'oproc8', 'oproc9', 'oproc10', 'oproc11', 'oproc12', 'oproc13', 'oproc14', 'oproc15', 'oproc16', 'oproc17', 'oproc18', 'oproc19', 'oproc20', 'oproc21', 'oproc22', 'oproc23', 'oproc24', 'disp', 'charge', 'pay_cat', 'pay_type', 'pay_plan', 'pls_abbr', 'patcnty', 'patzip']
+
+Whole line for first row of data:  
+1,190796,106190796,90095,19,1000000012,100000000010,07221990,07221990,0,0,33,33,08,08,05,F,E1,R2,,,,,,,,,,,,01072024,1,1,1,2024,01072024,1,1,2024,12,0,,E,3,5,,807,,,,Z3400,N,Z3400,Y,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,18946005,20240107,0,66348005,20240107,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,999519568,999519568,95,4511,4511,999-51-9568,Y,06,2,0000,ENG,English,19,90008
+
+
+Selection criteria for variable of interest:
+filter_variable_name='MSDRG'
+is in:
+filter_values=[768, 788, 807]
+
+/home/rtullis/orchid_initiative/postpartum_larc/raw/csv_HCAIPDD_04-09-2024_1143_2024.csv
+TOTAL RECORDS INPUT:   1007
+
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2024.csv
+RECORDS OUTPUT IN SUBSET:   481
+
+
+ ########## RUNNING readin_and_report for 2024 ##########
+
+Read in of subset
+/home/rtullis/orchid_initiative/postpartum_larc/created/labor_and_delivery_2024.csv
+          count         mean          std     min     50%      max
+agyradm   481.0    30.099792     7.526787    16.0    30.0     49.0
+race_grp    0.0          NaN          NaN     NaN     NaN      NaN
+dsch_yr   481.0  2024.000000     0.000000  2024.0  2024.0   2024.0
+los       481.0     0.043659     0.204548     0.0     0.0      1.0
+MSDRG     481.0   795.151767    16.387109   768.0   807.0    807.0
+charge    481.0  8571.627859  6881.291375   767.0  7028.0  34766.0
+pay_type  481.0     1.702703     0.529320     0.0     2.0      2.0
+pay_plan  474.0    34.795359   107.679082     0.0     0.0    476.0
+
+ MSDRG
+807    300
+768    113
+788     68
+dtype: int64
+
+ oshpd_id
+NaN       458
+190796     11
+190555      4
+191227      3
+190878      2
+191228      2
+190392      1
+dtype: int64
+
+ dsch_yr
+2024    481
+dtype: int64
+
+ ethncty
+E2    262
+E1    219
+dtype: int64
+
+ race1
+R5    328
+R2     77
+R3     53
+R4     10
+R9      8
+R1      5
+dtype: int64
+
+ pls_abbr
+ENG    277
+SPA    149
+VIE     17
+TGL     11
+CMN     10
+HIN      5
+KOR      4
+ARM      3
+PES      3
+ARA      2
+dtype: int64
+
+ pay_cat
+03     244
+06     165
+NaN     41
+08      17
+01      14
+dtype: int64
+
+ pay_type
+2    355
+1    109
+0     17
+dtype: int64
+
+ pay_plan
+0.0      414
+476.0     20
+303.0     11
+126.0      9
+152.0      9
+NaN        7
+43.0       6
+176.0      5
+dtype: int64
+
+
+ ########## RUNNING flags for 2024 ##########
+
+Results for -- larc
+0    481
+Name: larc, dtype: int64
+
+Results for -- pay_cat
+03     244
+06     165
+NaN     41
+08      17
+01      14
+Name: pay_cat, dtype: int64
+
+Results for -- medicaid
+1    244
+0    237
+Name: medicaid, dtype: int64
+
+Results for -- pls_abbr
+ENG    277
+SPA    149
+VIE     17
+TGL     11
+CMN     10
+HIN      5
+KOR      4
+PES      3
+ARM      3
+ARA      2
+Name: pls_abbr, dtype: int64
+
+Results for -- preferred_language_not_english
+0    277
+1    204
+Name: preferred_language_not_english, dtype: int64
+
+Results for -- known_prior_pregnancy
+0    481
+Name: known_prior_pregnancy, dtype: int64
+
+Results for -- mental_illness
+0    481
+Name: mental_illness, dtype: int64
+
+Results for -- intellectual_disability
+0    481
+Name: intellectual_disability, dtype: int64
+
+Results for -- hemorrhage
+0    481
+Name: hemorrhage, dtype: int64
+
+Results for -- intraamniotic_infection
+0    481
+Name: intraamniotic_infection, dtype: int64
+
+Results for -- chorioamnionitis
+0    481
+Name: chorioamnionitis, dtype: int64
+
+Results for -- endometritis
+0    481
+Name: endometritis, dtype: int64
+Elapsed time (seconds):   8.184184789657593
