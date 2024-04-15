@@ -27,7 +27,8 @@ def readin_and_report(filepath,
     print('\nRead in of subset')
     print(filepath)
     print(df.describe(percentiles="").T)
-    for var in(value_count_variables):
+    for var in value_count_variables:
         print('\n',df.value_counts(var,dropna=False))
 
     return df
+

@@ -25,12 +25,9 @@ def subset_and_output(infilepath,
     with open(infilepath, buffering=1, mode='rt') as infile:
         print('\nReading input file:  ',infilepath)
         for count, line in enumerate(infile):
-            #print('\nROW NUMBER:  ',count)
             if count==0:
                 # Get header row for all the data
                 headerrow_all = line.replace('\n','').split(sep=',')
-                #print('\nEntire dataset header row:')
-                #print(headerrow_all)
                 print('\nVariables of interest are:')
                 print(variables_keep)
 
@@ -107,6 +104,4 @@ def subset_and_output(infilepath,
     print('TOTAL RECORDS INPUT:  ', count)
     print(f'\n{outfilepath}.csv')
     print('RECORDS OUTPUT IN SUBSET:  ', subset_count)
-    # ending time
-    # time elapsed
 
