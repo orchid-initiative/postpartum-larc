@@ -50,7 +50,8 @@ def flags(df, file_suffix, outpath):
 
     # ******** MENTAL ILLNESS ********
     def check_codes(cell):
-        return cell[:3] in mental_illness_dx3s 
+        if type(cell)=='str':
+            return cell[:3] in mental_illness_dx3s 
 
     mental_illness_dx3s = mappings.get_code_lists(source=parm.code_sets,
                                      sheet_name='mental illness')
@@ -96,8 +97,8 @@ def flags(df, file_suffix, outpath):
     # **** R E P O R T   O N   F L A G S **** 
     check_these = ['larc' ,'pay_cat','medicaid',
                    'pls_abbr','preferred_language_not_english',
-                   #'known_prior_pregnancy','mental_illness',
-                   'intellectual_disability','hemorrhage',
+                   'known_prior_pregnancy','mental_illness',
+                   #'intellectual_disability','hemorrhage',
                    'intraamniotic_infection','chorioamnionitis',
                    'endometritis'
                    ]
