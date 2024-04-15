@@ -37,30 +37,32 @@ def flags(df, file_suffix, outpath):
                                         sheet_name='LARC') 
 
     df['larc'] = df[parm.px_vars].isin(list(larc_dict.keys())).any(axis=1)
-    df['larc_uterine'] = df[parm.px_vars].isin(list(larc_dict.keys(value=='U')))
-    df['larc_subcutaneous'] = df[parm.px_vars].isin(list(larc_dict.keys(value=='S')))
+    #df['larc_uterine'] = df[parm.px_vars].isin(list(larc_dict.keys(value=='U')))
+    #df['larc_subcutaneous'] = df[parm.px_vars].isin(list(larc_dict.keys(value=='S')))
 
 
     # ******** PRIOR PREGNANCIES ********
     prior_pregnancy_dxs = mappings.get_code_lists(source=parm.code_sets,
                                      sheet_name='prior pregnancy')
     df['known_prior_pregnancy'] = df[parm.dx_vars].isin\
-            (prior_pregnancy_dxs).any(axis=1)
+            (prior_pregnancy_dxs).any(axis=1).astype(int)
 
 
     # ******** MENTAL ILLNESS ********
+    def check_codes(cell):
+        return cell[:3] in mental_illness_dx3s 
+
     mental_illness_dx3s = mappings.get_code_lists(source=parm.code_sets,
                                      sheet_name='mental illness')
-    df['mental_illness'] = df[parm.dx_vars][:3].isin\
-            (mental_illness_dx3s).any(axis=1)
+    df['mental_illness'] = df[parm.dx_vars].applymap(check_codes).any(axis=1)
 
 
     # ******** INTELLECTUAL DISABILITY ********
-    intellectual_disability_dx3s = mappings.get_code_lists(
-            source=parm.code_sets,
-            sheet_name='intellectual disability')
-    df['intellectual_disability'] = df[parm.dx_vars][:3].isin\
-            (intellectual_disability_dx3s).any(axis=1)
+    #intellectual_disability_dx3s = mappings.get_code_lists(
+            #source=parm.code_sets,
+            #sheet_name='intellectual disability')
+    #df['intellectual_disability'] = df[parm.dx_vars][:3].isin\
+            #(intellectual_disability_dx3s).any(axis=1)
 
 
     # ******** HEMORRAHAGE ********
@@ -94,7 +96,7 @@ def flags(df, file_suffix, outpath):
     # **** R E P O R T   O N   F L A G S **** 
     check_these = ['larc' ,'pay_cat','medicaid',
                    'pls_abbr','preferred_language_not_english',
-                   'known_prior_pregnancy','mental_illness',
+                   #'known_prior_pregnancy','mental_illness',
                    'intellectual_disability','hemorrhage',
                    'intraamniotic_infection','chorioamnionitis',
                    'endometritis'
