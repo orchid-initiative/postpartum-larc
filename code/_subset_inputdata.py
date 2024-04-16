@@ -11,6 +11,15 @@
 #   filter_values = {Desired value for filter_variable_name}
 #   variables_keep = {list of variables to keep in output}
 #   outfile_path = {Is derived. Used to name the subset output file}
+#
+# NOTE:  CHOICE TO USE with open(file) INSTEAD OF PANDAS
+#        READ_CSV was made due to performance considerations.
+#        This program is intended for use on files as large
+#        as a million rows or larger.
+#
+# by Rhonda Tullis
+# 2/01/2024
+# for Orchid Initiative
 ########################################################################
 
 import csv
