@@ -116,31 +116,30 @@ def flags(df, file_suffix, outpath):
 
     # **** R E P O R T   O N   F L A G S **** 
 
-    check_these = ['pay_cat','medicaid', 'pls_abbr',
-                   'preferred_language_not_english',
-                   'larc_uterine','larc_subcutaneous','larc',
-                   'known_prior_pregnancy','mental_illness',
-                   'intellectual_disability','hemorrhage',
-                   'intraamniotic_infection','chorioamnionitis',
-                   'endometritis']
+    groupby_these = ['oshpd_id','agyradm','sex','ethncty','race1',
+                     'dsch_yr','disp','MSDRG','medicaid', 
+                     'preferred_language_not_english',
+                     'known_prior_pregnancy','mental_illness',
+                     'intellectual_disability','hemorrhage',
+                     'intraamniotic_infection','chorioamnionitis',
+                     'endometritis']
+    aggregate_these =['larc_uterine', 'larc_subcutaneous', 'larc']
     
-    for var in check_these:
+    for var in groupby_these:
         print(f'\nResults for -- {var}')
         print(df[var].value_counts(dropna=False))
 
 
     # **** A G G R E G A T E ****
-    """
-    df_summary = df.group_by('oshpd_id','agyradm','sex','ethncty','race1',
-                        'dsch_yr','disp','MSDRG']
-    """                    
-    # *** O U T P U T   T O   .C S V
-    record_info_vars = ['oshpd_id','agyradm','sex','ethncty','race1',
-                        'dsch_yr','disp','MSDRG']
+    df_summary = df.groupby(by=groupby_these, 
+                            as_index=True, 
+                            group_keys=False)\
+                             ['larc_uterine', 
+                              'larc_subcutaneous', 
+                              'larc'].sum(numeric_only=False)
     
-    vars_in_output = record_info_vars + check_these
-
-    df[vars_in_output].to_csv(f'{outpath}/sample_{file_suffix}.csv',index=False,)
+    # *** O U T P U T   T O   .C S V
+    df_summary.to_csv(f'{outpath}/sample_{file_suffix}.csv',index=False,)
 
     return df
    
