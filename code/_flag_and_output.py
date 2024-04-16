@@ -116,8 +116,8 @@ def flags(df, file_suffix, outpath):
 
     # **** R E P O R T   O N   F L A G S **** 
 
-    groupby_these = ['oshpd_id','agyradm','sex','ethncty','race1',
-                     'dsch_yr','disp','MSDRG','medicaid', 
+    groupby_these = ['oshpd_id','agyradm','ethncty','race1',
+                     'dsch_yr','medicaid', 
                      'preferred_language_not_english',
                      'known_prior_pregnancy','mental_illness',
                      'intellectual_disability','hemorrhage',
@@ -133,10 +133,9 @@ def flags(df, file_suffix, outpath):
     # **** A G G R E G A T E ****
     df_summary = df.groupby(by=groupby_these, 
                             as_index=True, 
-                            group_keys=False)\
-                             ['larc_uterine', 
-                              'larc_subcutaneous', 
-                              'larc'].sum(numeric_only=False)
+                            dropna=False,
+                            group_keys=False)[aggregate_these]\
+                                    .sum().reset_index()
     
     # *** O U T P U T   T O   .C S V
     df_summary.to_csv(f'{outpath}/sample_{file_suffix}.csv',index=False,)
