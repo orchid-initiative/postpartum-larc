@@ -3,6 +3,12 @@
 #                      category flags.  Then subsets, aggregates, 
 #                      and outputs data for downstream reporting.
 #
+#                      NOTE:  This program is intended to be edited
+#                             for and by the user to configure to
+#                             their specs.  Clarity (showing each 
+#                             condition) and user accessibility is 
+#                             prioritized over concise coding.
+#                             
 # by Rhonda Tullis, 1/24/2024
 # for Orchid Initiative
 #######################################################################
@@ -48,22 +54,29 @@ def flags(df, file_suffix, outpath):
             (prior_pregnancy_dxs).any(axis=1).astype(int)
 
 
-    # ******** MENTAL ILLNESS ********
-    def check_codes(cell):
-        if type(cell)=='str':
-            return cell[:3] in mental_illness_dx3s 
+    # ******** MENTAL ILLNESS AND INTELLECTUAL DISABILITY ********
 
     mental_illness_dx3s = mappings.get_code_lists(source=parm.code_sets,
-                                     sheet_name='mental illness')
-    df['mental_illness'] = df[parm.dx_vars].applymap(check_codes).any(axis=1)
+                                            sheet_name='mental illness')
 
+    intellectual_disability_dx3s = mappings.get_code_lists(
+            source=parm.code_sets,
+            sheet_name='intellectual disability')
+    
+    # Function to check 1st 3 chars in all DX vars against codeset lists
+    def check_codes(cell, search_list):
+        if type(cell)=='str':
+            return any(substring in cell[:3] for substring in search_list) 
 
-    # ******** INTELLECTUAL DISABILITY ********
-    #intellectual_disability_dx3s = mappings.get_code_lists(
-            #source=parm.code_sets,
-            #sheet_name='intellectual disability')
-    #df['intellectual_disability'] = df[parm.dx_vars][:3].isin\
-            #(intellectual_disability_dx3s).any(axis=1)
+    # Flag mental illness
+    df['mental_illness'] = df[parm.dx_vars].\
+            applymap(lambda x: check_codes(x, \
+                 search_list=mental_illness_dx3s)).any(axis=1)
+
+    # Flag intellectual disability
+    df['intellectual_disability'] = df[parm.dx_vars].\
+            applymap(lambda x: check_codes(x, \
+                 search_list=intellectual_disability_dx3s)).any(axis=1)
 
 
     # ******** HEMORRAHAGE ********
@@ -98,7 +111,7 @@ def flags(df, file_suffix, outpath):
     check_these = ['larc' ,'pay_cat','medicaid',
                    'pls_abbr','preferred_language_not_english',
                    'known_prior_pregnancy','mental_illness',
-                   #'intellectual_disability','hemorrhage',
+                   'intellectual_disability','hemorrhage',
                    'intraamniotic_infection','chorioamnionitis',
                    'endometritis'
                    ]
