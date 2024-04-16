@@ -37,14 +37,22 @@ def flags(df, file_suffix, outpath):
     # **** R E A D   C O D E S E T S   F O R   E A C H   F L A G
     # **** T H E N   S E T   C O N D I T I O N   F L A G 
 
-    # ******** LARC **********
-    larc_dict = mappings.get_code_dicts(source=parm.code_sets,
-                                        keep_columns=['PX','LARC_TYPE'],
-                                        sheet_name='LARC') 
+    # ******** LARCs *********
+    larc_map = mappings.get_code_maps(source=parm.code_sets,
+                                      sheet_name='LARC',
+                                      subset_col='LARC_TYPE',
+                                      subset_value='U'
+                                      ) 
+    df['larc_uterine'] = df[parm.px_vars].isin(larc_map).any(axis=1).astype(int)
 
-    df['larc'] = df[parm.px_vars].isin(list(larc_dict.keys())).any(axis=1)
-    #df['larc_uterine'] = df[parm.px_vars].isin(list(larc_dict.keys(value=='U')))
-    #df['larc_subcutaneous'] = df[parm.px_vars].isin(list(larc_dict.keys(value=='S')))
+    larc_map = mappings.get_code_maps(source=parm.code_sets,
+                                      sheet_name='LARC',
+                                      subset_col='LARC_TYPE',
+                                      subset_value='S'
+                                      ) 
+    df['larc_subcutaneous'] = df[parm.px_vars].isin(larc_map).any(axis=1).astype(int)
+
+    df['larc'] = ((df['larc_uterine'] + df['larc_subcutaneous']) > 0).astype(int)
 
 
     # ******** PRIOR PREGNANCIES ********
@@ -55,7 +63,6 @@ def flags(df, file_suffix, outpath):
 
 
     # ******** MENTAL ILLNESS AND INTELLECTUAL DISABILITY ********
-
     mental_illness_dx3s = mappings.get_code_lists(source=parm.code_sets,
                                             sheet_name='mental illness')
 
@@ -71,18 +78,18 @@ def flags(df, file_suffix, outpath):
     # Flag mental illness
     df['mental_illness'] = df[parm.dx_vars].\
             applymap(lambda x: check_codes(x, \
-                 search_list=mental_illness_dx3s)).any(axis=1)
+                 search_list=mental_illness_dx3s)).any(axis=1).astype(int)
 
     # Flag intellectual disability
     df['intellectual_disability'] = df[parm.dx_vars].\
             applymap(lambda x: check_codes(x, \
-                 search_list=intellectual_disability_dx3s)).any(axis=1)
+                 search_list=intellectual_disability_dx3s)).any(axis=1).astype(int)
 
 
     # ******** HEMORRAHAGE ********
     hemorrhage_dxs = mappings.get_code_lists(source=parm.code_sets,
                                             sheet_name='hemorrhage')
-    df['hemorrhage'] = df[parm.dx_vars].isin(hemorrhage_dxs).any(axis=1)
+    df['hemorrhage'] = df[parm.dx_vars].isin(hemorrhage_dxs).any(axis=1).astype(int)
 
 
     # ******** INTRAAMNIOTIC INFECTION ********
@@ -90,39 +97,43 @@ def flags(df, file_suffix, outpath):
             source=parm.code_sets,
             sheet_name='intraamniotic infection')
     df['intraamniotic_infection'] = df[parm.dx_vars].isin\
-            (intraamniotic_infection_dxs).any(axis=1)
+            (intraamniotic_infection_dxs).any(axis=1).astype(int)
 
 
     # ******** CHORIOAMNIONITIS ********
     chorioamnionitis_dxs = mappings.get_code_lists(source=parm.code_sets,
                                      sheet_name='chorioamnionitis')
     df['chorioamnionitis'] = df[parm.dx_vars].isin\
-            (chorioamnionitis_dxs).any(axis=1)
+            (chorioamnionitis_dxs).any(axis=1).astype(int)
 
 
     # ******** ENDOMETRITIS ********
     endometritis_dxs = mappings.get_code_lists(source=parm.code_sets,
                                      sheet_name='endometritis')
     df['endometritis'] = df[parm.dx_vars].isin\
-            (endometritis_dxs).any(axis=1)
+            (endometritis_dxs).any(axis=1).astype(int)
 
 
     # **** R E P O R T   O N   F L A G S **** 
-    check_these = ['larc' ,'pay_cat','medicaid',
-                   'pls_abbr','preferred_language_not_english',
+
+    check_these = ['pay_cat','medicaid', 'pls_abbr',
+                   'preferred_language_not_english',
+                   'larc_uterine','larc_subcutaneous','larc',
                    'known_prior_pregnancy','mental_illness',
                    'intellectual_disability','hemorrhage',
                    'intraamniotic_infection','chorioamnionitis',
-                   'endometritis'
-                   ]
-
+                   'endometritis']
+    
     for var in check_these:
         print(f'\nResults for -- {var}')
         print(df[var].value_counts(dropna=False))
 
 
     # **** A G G R E G A T E ****
-
+    """
+    df_summary = df.group_by('oshpd_id','agyradm','sex','ethncty','race1',
+                        'dsch_yr','disp','MSDRG']
+    """                    
     # *** O U T P U T   T O   .C S V
     record_info_vars = ['oshpd_id','agyradm','sex','ethncty','race1',
                         'dsch_yr','disp','MSDRG']
@@ -132,4 +143,4 @@ def flags(df, file_suffix, outpath):
     df[vars_in_output].to_csv(f'{outpath}/sample_{file_suffix}.csv',index=False,)
 
     return df
-
+   
