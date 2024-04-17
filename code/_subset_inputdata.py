@@ -11,6 +11,14 @@
 #   filter_values = {Desired value for filter_variable_name}
 #   variables_keep = {list of variables to keep in output}
 #   outfile_path = {Is derived. Used to name the subset output file}
+#
+# NOTE:  CHOICE TO USE with open(file) INSTEAD OF PANDAS
+#        READ_CSV was made due to performance considerations.
+#        This program is intended for use on files as large
+#        as a million rows or larger.
+#
+# by Rhonda Tullis, 2/01/2024
+# for Orchid Initiative
 ########################################################################
 
 import csv
@@ -23,14 +31,11 @@ def subset_and_output(infilepath,
                       outfilepath):
 
     with open(infilepath, buffering=1, mode='rt') as infile:
-        print('\nReading input file:  ',infilepath)
+        print('\nReading input file:  ', infilepath)
         for count, line in enumerate(infile):
-            #print('\nROW NUMBER:  ',count)
             if count==0:
                 # Get header row for all the data
                 headerrow_all = line.replace('\n','').split(sep=',')
-                #print('\nEntire dataset header row:')
-                #print(headerrow_all)
                 print('\nVariables of interest are:')
                 print(variables_keep)
 
@@ -45,11 +50,11 @@ def subset_and_output(infilepath,
                 hdr_subset = sorted(headerrow_subset)
                 var_keep = sorted(variables_keep)
                 if hdr_subset==var_keep:
-                    print("""--> Good.  The headerrow_subset contains the 
-                             expected variables""")
+                    print("""--> Good.  The headerrow_subset contains 
+                             the expected variables""")
                 else:
-                    print("""--> !! ERROR:  Header row subset and selected 
-                            variables dont match!!!""")
+                    print("""--> !! ERROR:  Header row subset and 
+                             selected variables dont match!!!""")
                 del hdr_subset, var_keep
 
                 # Use headerrow subset as index list to use on data in next 
@@ -84,9 +89,9 @@ def subset_and_output(infilepath,
                     print('is in:')
                     print(f'{filter_values=}')
 
-                # Set 'keep' flag
-                keep = (datarow[filter_var_idx] in(f'{filter_values}'))
-                #print('Keeping row? :  ', keep)
+                # Set 'keep' flag. Dont look where values are missing
+                if len(datarow[filter_var_idx])>0:
+                    keep = (datarow[filter_var_idx] in(f'{filter_values}'))
 
                 # Output record where keep=True
                 # keep only variables of interest
@@ -100,11 +105,11 @@ def subset_and_output(infilepath,
                             as outfile:
                         writer = csv.writer(outfile)
                         writer.writerow(output_row)
+                        # Set keep value to False for next row
+                        keep = False
 
     print(f'\n{infilepath}')
     print('TOTAL RECORDS INPUT:  ', count)
     print(f'\n{outfilepath}.csv')
     print('RECORDS OUTPUT IN SUBSET:  ', subset_count)
-    # ending time
-    # time elapsed
 
