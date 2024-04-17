@@ -20,7 +20,7 @@ import parameters as parm
 import _get_mappings as mappings
 
 # FLAG PROCEDURES, DEMOGRAPHICS, AND CONDITIONS
-def flags(df, file_suffix, outpath):
+def flags(df, file_suffix, outpath, outfile_prefix):
    
     # **** F L A G   D E M O G R A P H I C - B A S E D   F L A G S ****
     
@@ -114,31 +114,21 @@ def flags(df, file_suffix, outpath):
             (endometritis_dxs).any(axis=1).astype(int)
 
 
-    # **** R E P O R T   O N   F L A G S **** 
+    # **** R E P O R T   O N   F L A G S ****
 
-    groupby_these = ['oshpd_id','agyradm','ethncty','race1',
-                     'dsch_yr','medicaid', 
-                     'preferred_language_not_english',
-                     'known_prior_pregnancy','mental_illness',
-                     'intellectual_disability','hemorrhage',
-                     'intraamniotic_infection','chorioamnionitis',
-                     'endometritis']
-    aggregate_these =['larc_uterine', 'larc_subcutaneous', 'larc']
-    
-    for var in groupby_these:
+    for var in parm.groupby_these:
         print(f'\nResults for -- {var}')
         print(df[var].value_counts(dropna=False))
 
 
     # **** A G G R E G A T E ****
-    df_summary = df.groupby(by=groupby_these, 
-                            as_index=True, 
+    df_summary = df.groupby(by=parm.groupby_these,
+                            as_index=True,
                             dropna=False,
-                            group_keys=False)[aggregate_these]\
+                            group_keys=False)[parm.aggregate_these]\
                                     .sum().reset_index()
-    
-    # *** O U T P U T   T O   .C S V
-    df_summary.to_csv(f'{outpath}/sample_{file_suffix}.csv',index=False,)
-
-    return df
    
+
+    # *** O U T P U T   T O   .C S V ****
+    df_summary.to_csv(f'{outpath}/{outfile_prefix}_summary_{file_suffix}.csv', index=False)
+

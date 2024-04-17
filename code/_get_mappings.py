@@ -2,7 +2,7 @@
 # _get_mappings.py  Makes relational data available for 
 #                   _flag_and_output.py
 #
-# by Rhonda Tullis
+# by Rhonda Tullis, 2/01/2024
 # for Orchid Initiative
 ########################################################################
 

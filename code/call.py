@@ -18,9 +18,12 @@ from _readin_and_report import readin_and_report
 from _flag_and_output import flags
 import parameters as parm
 
+start_time = time.time()
+
 for filename in parm.infile_names:
     my_inpath = parm.inpath
     my_infile = filename
+    my_outfile_prefix = parm.outputfile_prefix
     my_outfile_suffix = \
           my_infile[parm.file_suffix_slice[0]:parm.file_suffix_slice[1]]
     my_outfile_filepath = \
@@ -48,9 +51,9 @@ for filename in parm.infile_names:
                                         parm.value_count_variables)
 
     print('\n\n','#'*10,f'RUNNING flags for {my_outfile_suffix}','#'*10)
-    start_time = time.time()
-    flags(df=dataframe,file_suffix=my_outfile_suffix,outpath= \
-            parm.outpath)
-    elapsed_time = time.time() - start_time
-    print('Elapsed time (seconds):  ', elapsed_time)
+    flags(df=dataframe, file_suffix=my_outfile_suffix, outpath= \
+            parm.outpath, outfile_prefix=my_outfile_prefix)
+
+elapsed_time = time.time() - start_time
+print('\n\nElapsed time (seconds):  ', elapsed_time)
 

@@ -17,8 +17,7 @@
 #        This program is intended for use on files as large
 #        as a million rows or larger.
 #
-# by Rhonda Tullis
-# 2/01/2024
+# by Rhonda Tullis, 2/01/2024
 # for Orchid Initiative
 ########################################################################
 
@@ -32,7 +31,7 @@ def subset_and_output(infilepath,
                       outfilepath):
 
     with open(infilepath, buffering=1, mode='rt') as infile:
-        print('\nReading input file:  ',infilepath)
+        print('\nReading input file:  ', infilepath)
         for count, line in enumerate(infile):
             if count==0:
                 # Get header row for all the data

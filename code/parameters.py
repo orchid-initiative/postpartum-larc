@@ -29,9 +29,9 @@ infile_names = ['csv_HCAIPDD_04-09-2024_1143_2018.csv',
 # Corresponding slice that is put in a tuple:  (-8,-4)
 file_suffix_slice = (-8,-4)
 
-# Document containing DX and PX codes for identifying procedure of 
+# Document containing DX and PX codes for identifying procedure of
 # interest and conditions to flag
-code_sets = f'{mainpath}/documentation/LARC codes.xlsx' 
+code_sets = f'{mainpath}/documentation/LARC codes.xlsx'
 
 # Output path for interim files
 outpath = f'{mainpath}/created'
@@ -53,7 +53,7 @@ value_count_variables = ['MSDRG','oshpd_id','dsch_yr',
                          'ethncty','race1','pls_abbr',
                          'pay_cat','pay_type','pay_plan']
 
-# List of variables to keep in record-level output}
+# List of variables to keep in record-level output
 variables_keep = ['oshpd_id', 'data_id', 'pat_id', 'agyradm', 'sex', 
                   'ethncty', 'race1', 'race_grp', 'pls_abbr', 'patcnty',
                   'patzip', 'admtdate', 'dschdate', 'dsch_yr', 'los', 
@@ -78,64 +78,32 @@ dx_vars = [x for x in variables_keep if 'diag' in x]
 px_vars = [x for x in variables_keep if 'proc' in x]
 
 # Data types for kept variables that need a string type indicated
-datatypes = ({'oshpd_id':str, 
-              'srcroute_ns':str,
-              'admtype_ns':str,
-              'disp':str, 
-              'pay_cat':str, 
-              'patcnty':str, 
-              'patzip':str,
-              'data_id':str,
-              'pat_id':str,
-              'diag_p':str,
-              'odiag1':str,
-              'odiag2':str,
-              'odiag3':str,
-              'odiag4':str,
-              'odiag5':str,
-              'odiag6':str,
-              'odiag7':str,
-              'odiag8':str,
-              'odiag9':str,
-              'odiag10':str,
-              'odiag11':str,
-              'odiag12':str,
-              'odiag13':str,
-              'odiag14':str,
-              'odiag15':str,
-              'odiag16':str,
-              'odiag17':str,
-              'odiag18':str,
-              'odiag19':str,
-              'odiag20':str,
-              'odiag21':str,
-              'odiag22':str,
-              'odiag23':str,
-              'odiag24':str,
-              'odiag25':str,
-              'proc_p':str,
-              'oproc1':str,
-              'oproc2':str,
-              'oproc3':str,
-              'oproc4':str,
-              'oproc5':str,
-              'oproc6':str,
-              'oproc7':str,
-              'oproc8':str,
-              'oproc9':str,
-              'oproc10':str,
-              'oproc11':str,
-              'oproc12':str,
-              'oproc13':str,
-              'oproc14':str,
-              'oproc15':str,
-              'oproc16':str,
-              'oproc17':str,
-              'oproc18':str,
-              'oproc19':str,
-              'oproc20':str,
-              'oproc21':str,
-              'oproc22':str,
-              'oproc23':str,
+datatypes = ({'oshpd_id':str, 'srcroute_ns':str, 'admtype_ns':str,
+              'disp':str, 'pay_cat':str, 'patcnty':str, 'patzip':str,
+              'data_id':str, 'pat_id':str, 'diag_p':str, 'odiag1':str,
+              'odiag2':str, 'odiag3':str, 'odiag4':str, 'odiag5':str,
+              'odiag6':str, 'odiag7':str, 'odiag8':str, 'odiag9':str,
+              'odiag10':str, 'odiag11':str, 'odiag12':str, 'odiag13':str,
+              'odiag14':str, 'odiag15':str, 'odiag16':str, 'odiag17':str,
+              'odiag18':str, 'odiag19':str, 'odiag20':str, 'odiag21':str,
+              'odiag22':str, 'odiag23':str, 'odiag24':str, 'odiag25':str,
+              'proc_p':str, 'oproc1':str, 'oproc2':str, 'oproc3':str,
+              'oproc4':str, 'oproc5':str, 'oproc6':str, 'oproc7':str,
+              'oproc8':str, 'oproc9':str, 'oproc10':str, 'oproc11':str,
+              'oproc12':str, 'oproc13':str, 'oproc14':str, 'oproc15':str,
+              'oproc16':str, 'oproc17':str, 'oproc18':str, 'oproc19':str,
+              'oproc20':str, 'oproc21':str, 'oproc22':str, 'oproc23':str,
               'oproc24':str})
+
+# Variables that will be used in the groupby in the output
+groupby_these = ['oshpd_id', 'agyradm', 'ethncty', 'race1',
+                     'dsch_yr', 'medicaid',
+                     'preferred_language_not_english',
+                     'known_prior_pregnancy', 'mental_illness',
+                     'intellectual_disability', 'hemorrhage',
+                     'intraamniotic_infection', 'chorioamnionitis',
+                     'endometritis']
+
+# Variables that will be aggregated by the above variables
+aggregate_these =['larc_uterine', 'larc_subcutaneous', 'larc']
 

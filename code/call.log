@@ -123,35 +123,71 @@ dtype: int64
 
  ########## RUNNING flags for 2018 ##########
 
-Results for -- larc
-0    1843
-Name: larc, dtype: int64
+Results for -- oshpd_id
+NaN       1764
+190796      42
+190555      16
+190392       8
+191227       6
+191228       6
+190429       1
+Name: oshpd_id, dtype: int64
 
-Results for -- pay_cat
-03     860
-06     748
-08     108
-NaN     92
-01      35
-Name: pay_cat, dtype: int64
+Results for -- agyradm
+30    120
+31    114
+26    111
+35    107
+34    106
+29    104
+33     99
+28     92
+27     89
+32     87
+21     77
+22     75
+23     74
+24     65
+25     64
+20     61
+19     52
+18     47
+36     46
+17     38
+37     37
+40     31
+39     29
+38     27
+41     25
+42     21
+43     17
+16     14
+15      7
+44      7
+Name: agyradm, dtype: int64
+
+Results for -- ethncty
+E2    973
+E1    870
+Name: ethncty, dtype: int64
+
+Results for -- race1
+R5    1300
+R2     270
+R3     186
+R4      31
+R9      29
+R1      27
+Name: race1, dtype: int64
+
+Results for -- dsch_yr
+2018    1843
+Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
 0    983
 1    860
 Name: medicaid, dtype: int64
-
-Results for -- pls_abbr
-ENG    1107
-SPA     555
-CMN      65
-TGL      41
-VIE      32
-KOR      16
-HIN       9
-PES       8
-ARM       6
-ARA       4
-Name: pls_abbr, dtype: int64
 
 Results for -- preferred_language_not_english
 0    1107
@@ -185,7 +221,6 @@ Name: chorioamnionitis, dtype: int64
 Results for -- endometritis
 0    1843
 Name: endometritis, dtype: int64
-Elapsed time (seconds):   5.961930990219116
 
 
 
@@ -311,35 +346,72 @@ dtype: int64
 
  ########## RUNNING flags for 2019 ##########
 
-Results for -- larc
-0    1906
-Name: larc, dtype: int64
+Results for -- oshpd_id
+NaN       1828
+190796      39
+190555      12
+191228      10
+191227      10
+190392       6
+190878       1
+Name: oshpd_id, dtype: int64
 
-Results for -- pay_cat
-03     890
-06     755
-NaN    111
-08      98
-01      52
-Name: pay_cat, dtype: int64
+Results for -- agyradm
+32    113
+31    110
+30    109
+27    106
+34    103
+29    102
+33     99
+28     97
+35     94
+26     85
+24     85
+22     83
+21     81
+20     78
+23     70
+25     63
+19     48
+18     42
+36     42
+17     34
+41     33
+44     32
+37     32
+40     29
+39     29
+42     28
+38     26
+43     23
+16     22
+45      4
+15      4
+Name: agyradm, dtype: int64
+
+Results for -- ethncty
+E2    1003
+E1     903
+Name: ethncty, dtype: int64
+
+Results for -- race1
+R5    1367
+R2     272
+R3     180
+R9      35
+R4      29
+R1      23
+Name: race1, dtype: int64
+
+Results for -- dsch_yr
+2019    1906
+Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
 0    1016
 1     890
 Name: medicaid, dtype: int64
-
-Results for -- pls_abbr
-ENG    1150
-SPA     569
-CMN      64
-TGL      44
-VIE      27
-KOR      15
-ARA      11
-ARM      10
-PES       8
-HIN       8
-Name: pls_abbr, dtype: int64
 
 Results for -- preferred_language_not_english
 0    1150
@@ -373,7 +445,6 @@ Name: chorioamnionitis, dtype: int64
 Results for -- endometritis
 0    1906
 Name: endometritis, dtype: int64
-Elapsed time (seconds):   5.385783672332764
 
 
 
@@ -500,35 +571,73 @@ dtype: int64
 
  ########## RUNNING flags for 2020 ##########
 
-Results for -- larc
-0    1967
-Name: larc, dtype: int64
+Results for -- oshpd_id
+NaN       1905
+190796      32
+191227       8
+190392       7
+190555       6
+191228       4
+190878       4
+190429       1
+Name: oshpd_id, dtype: int64
 
-Results for -- pay_cat
-03     922
-06     765
-08     112
-NaN    107
-01      61
-Name: pay_cat, dtype: int64
+Results for -- agyradm
+29    123
+33    120
+28    119
+30    116
+34    111
+26    101
+32     97
+35     95
+27     94
+31     92
+23     92
+20     85
+25     74
+21     73
+24     66
+22     59
+19     57
+36     44
+39     41
+17     37
+37     35
+18     35
+38     35
+42     32
+43     27
+44     26
+16     19
+45     19
+40     19
+41     18
+15      6
+Name: agyradm, dtype: int64
+
+Results for -- ethncty
+E2    1035
+E1     932
+Name: ethncty, dtype: int64
+
+Results for -- race1
+R5    1417
+R2     293
+R3     161
+R4      44
+R1      27
+R9      25
+Name: race1, dtype: int64
+
+Results for -- dsch_yr
+2020    1967
+Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
 0    1045
 1     922
 Name: medicaid, dtype: int64
-
-Results for -- pls_abbr
-ENG    1185
-SPA     600
-CMN      62
-TGL      28
-VIE      27
-KOR      24
-ARM      12
-HIN      10
-PES      10
-ARA       9
-Name: pls_abbr, dtype: int64
 
 Results for -- preferred_language_not_english
 0    1185
@@ -562,7 +671,6 @@ Name: chorioamnionitis, dtype: int64
 Results for -- endometritis
 0    1967
 Name: endometritis, dtype: int64
-Elapsed time (seconds):   5.452135801315308
 
 
 
@@ -688,35 +796,74 @@ dtype: int64
 
  ########## RUNNING flags for 2021 ##########
 
-Results for -- larc
-0    1951
-Name: larc, dtype: int64
+Results for -- oshpd_id
+NaN       1887
+190796      27
+191227      17
+190555       8
+190392       6
+191228       5
+190878       1
+Name: oshpd_id, dtype: int64
 
-Results for -- pay_cat
-03     929
-06     755
-NaN    123
-08     104
-01      40
-Name: pay_cat, dtype: int64
+Results for -- agyradm
+28    122
+35    115
+34    114
+30    104
+32    104
+33    101
+27     98
+31     96
+26     93
+21     93
+29     91
+25     78
+23     78
+24     76
+22     69
+20     56
+19     53
+38     47
+17     43
+36     39
+39     36
+18     33
+37     32
+41     29
+40     28
+44     27
+46     24
+45     21
+16     17
+43     15
+42     14
+47      3
+15      2
+Name: agyradm, dtype: int64
+
+Results for -- ethncty
+E2    1000
+E1     951
+Name: ethncty, dtype: int64
+
+Results for -- race1
+R5    1374
+R2     298
+R3     188
+R4      37
+R9      34
+R1      20
+Name: race1, dtype: int64
+
+Results for -- dsch_yr
+2021    1951
+Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
 0    1022
 1     929
 Name: medicaid, dtype: int64
-
-Results for -- pls_abbr
-ENG    1169
-SPA     584
-CMN      52
-TGL      42
-VIE      29
-KOR      25
-PES      14
-ARA      14
-HIN      11
-ARM      11
-Name: pls_abbr, dtype: int64
 
 Results for -- preferred_language_not_english
 0    1169
@@ -750,7 +897,6 @@ Name: chorioamnionitis, dtype: int64
 Results for -- endometritis
 0    1951
 Name: endometritis, dtype: int64
-Elapsed time (seconds):   7.503169298171997
 
 
 
@@ -877,35 +1023,76 @@ dtype: int64
 
  ########## RUNNING flags for 2022 ##########
 
-Results for -- larc
-0    1920
-Name: larc, dtype: int64
+Results for -- oshpd_id
+NaN       1850
+190796      37
+190555      11
+190392       9
+191227       6
+191228       4
+190878       2
+190429       1
+Name: oshpd_id, dtype: int64
 
-Results for -- pay_cat
-03     887
-06     764
-08     114
-NaN    107
-01      48
-Name: pay_cat, dtype: int64
+Results for -- agyradm
+30    119
+27    114
+28    114
+35    107
+29     97
+33     97
+31     97
+26     95
+32     88
+34     88
+21     79
+25     78
+20     77
+24     69
+22     68
+23     63
+19     57
+18     45
+36     37
+40     34
+17     33
+44     29
+45     28
+42     27
+38     26
+39     25
+37     23
+41     22
+43     20
+16     18
+46     17
+47     16
+48      7
+15      6
+Name: agyradm, dtype: int64
+
+Results for -- ethncty
+E2    1011
+E1     909
+Name: ethncty, dtype: int64
+
+Results for -- race1
+R5    1348
+R2     291
+R3     193
+R4      33
+R1      28
+R9      27
+Name: race1, dtype: int64
+
+Results for -- dsch_yr
+2022    1920
+Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
 0    1033
 1     887
 Name: medicaid, dtype: int64
-
-Results for -- pls_abbr
-ENG    1171
-SPA     571
-CMN      52
-TGL      41
-VIE      28
-KOR      18
-ARA      11
-ARM      11
-HIN       9
-PES       8
-Name: pls_abbr, dtype: int64
 
 Results for -- preferred_language_not_english
 0    1171
@@ -939,7 +1126,6 @@ Name: chorioamnionitis, dtype: int64
 Results for -- endometritis
 0    1920
 Name: endometritis, dtype: int64
-Elapsed time (seconds):   9.419947147369385
 
 
 
@@ -1066,35 +1252,77 @@ dtype: int64
 
  ########## RUNNING flags for 2023 ##########
 
-Results for -- larc
-0    2036
-Name: larc, dtype: int64
+Results for -- oshpd_id
+NaN       1945
+190796      40
+190392      17
+190555      15
+191228       9
+191227       7
+190878       2
+190429       1
+Name: oshpd_id, dtype: int64
 
-Results for -- pay_cat
-03     929
-06     817
-08     128
-NaN    119
-01      43
-Name: pay_cat, dtype: int64
+Results for -- agyradm
+28    128
+31    116
+27    113
+30    112
+33    112
+29    109
+32    101
+35     98
+26     98
+24     89
+22     87
+25     82
+23     80
+34     78
+20     70
+21     69
+19     67
+36     41
+18     35
+37     34
+17     32
+39     32
+40     32
+16     31
+38     23
+45     23
+41     22
+48     22
+43     22
+42     21
+44     18
+46     17
+47     17
+49      4
+15      1
+Name: agyradm, dtype: int64
+
+Results for -- ethncty
+E2    1034
+E1    1002
+Name: ethncty, dtype: int64
+
+Results for -- race1
+R5    1453
+R2     311
+R3     167
+R9      40
+R4      34
+R1      31
+Name: race1, dtype: int64
+
+Results for -- dsch_yr
+2023    2036
+Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
 0    1107
 1     929
 Name: medicaid, dtype: int64
-
-Results for -- pls_abbr
-ENG    1197
-SPA     642
-CMN      62
-TGL      41
-VIE      37
-ARA      15
-KOR      15
-PES      13
-HIN       8
-ARM       6
-Name: pls_abbr, dtype: int64
 
 Results for -- preferred_language_not_english
 0    1197
@@ -1128,7 +1356,6 @@ Name: chorioamnionitis, dtype: int64
 Results for -- endometritis
 0    2036
 Name: endometritis, dtype: int64
-Elapsed time (seconds):   8.784599304199219
 
 
 
@@ -1254,35 +1481,75 @@ dtype: int64
 
  ########## RUNNING flags for 2024 ##########
 
-Results for -- larc
-0    481
-Name: larc, dtype: int64
+Results for -- oshpd_id
+NaN       458
+190796     11
+190555      4
+191227      3
+190878      2
+191228      2
+190392      1
+Name: oshpd_id, dtype: int64
 
-Results for -- pay_cat
-03     244
-06     165
-NaN     41
-08      17
-01      14
-Name: pay_cat, dtype: int64
+Results for -- agyradm
+33    32
+27    32
+34    30
+35    29
+32    27
+31    25
+22    24
+26    22
+28    22
+30    22
+20    21
+29    20
+24    18
+25    17
+18    12
+21    11
+37    10
+36    10
+38    10
+43    10
+19     9
+23     8
+16     7
+48     7
+45     7
+17     6
+44     6
+47     5
+41     5
+39     4
+49     4
+46     4
+40     3
+42     2
+Name: agyradm, dtype: int64
+
+Results for -- ethncty
+E2    262
+E1    219
+Name: ethncty, dtype: int64
+
+Results for -- race1
+R5    328
+R2     77
+R3     53
+R4     10
+R9      8
+R1      5
+Name: race1, dtype: int64
+
+Results for -- dsch_yr
+2024    481
+Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
 1    244
 0    237
 Name: medicaid, dtype: int64
-
-Results for -- pls_abbr
-ENG    277
-SPA    149
-VIE     17
-TGL     11
-CMN     10
-HIN      5
-KOR      4
-PES      3
-ARM      3
-ARA      2
-Name: pls_abbr, dtype: int64
 
 Results for -- preferred_language_not_english
 0    277
@@ -1316,4 +1583,6 @@ Name: chorioamnionitis, dtype: int64
 Results for -- endometritis
 0    481
 Name: endometritis, dtype: int64
-Elapsed time (seconds):   8.184184789657593
+
+
+Elapsed time (seconds):   34.83849787712097
