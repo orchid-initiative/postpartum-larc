@@ -38,20 +38,25 @@ def flags(df, file_suffix, outpath, outfile_prefix):
     # **** T H E N   S E T   C O N D I T I O N   F L A G 
 
     # ******** LARCs *********
-    larc_map = mappings.get_code_maps(source=parm.code_sets,
+    # Uterine LARCs
+    larc_u_map = mappings.get_code_maps(source=parm.code_sets,
                                       sheet_name='LARC',
                                       subset_col='LARC_TYPE',
-                                      subset_value='U'
+                                      subset_value='U',
+                                      filter_var='PX'
                                       ) 
-    df['larc_uterine'] = df[parm.px_vars].isin(larc_map).any(axis=1).astype(int)
+    df['larc_uterine'] = df[parm.px_vars].isin(larc_u_map).any(axis=1).astype(int)
 
-    larc_map = mappings.get_code_maps(source=parm.code_sets,
+    # Subcutaneous LARCs
+    larc_s_map = mappings.get_code_maps(source=parm.code_sets,
                                       sheet_name='LARC',
                                       subset_col='LARC_TYPE',
-                                      subset_value='S'
+                                      subset_value='S',
+                                      filter_var='PX'
                                       ) 
-    df['larc_subcutaneous'] = df[parm.px_vars].isin(larc_map).any(axis=1).astype(int)
+    df['larc_subcutaneous'] = df[parm.px_vars].isin(larc_s_map).any(axis=1).astype(int)
 
+    # All LARCs
     df['larc'] = ((df['larc_uterine'] + df['larc_subcutaneous']) > 0).astype(int)
 
 
@@ -72,13 +77,13 @@ def flags(df, file_suffix, outpath, outfile_prefix):
     
     # Function to check 1st 3 chars in all DX vars against codeset lists
     def check_codes(cell, search_list):
-        if type(cell)=='str':
-            return any(substring in cell[:3] for substring in search_list) 
+        if type(cell)==str:
+            return (substring in cell[:3] for substring in search_list)
 
     # Flag mental illness
     df['mental_illness'] = df[parm.dx_vars].\
             applymap(lambda x: check_codes(x, \
-                 search_list=mental_illness_dx3s)).any(axis=1).astype(int)
+            search_list=mental_illness_dx3s)).any(axis=1).astype(int)
 
     # Flag intellectual disability
     df['intellectual_disability'] = df[parm.dx_vars].\
@@ -116,7 +121,9 @@ def flags(df, file_suffix, outpath, outfile_prefix):
 
     # **** R E P O R T   O N   F L A G S ****
 
-    for var in parm.groupby_these:
+    report_on_these = ['larc', 'larc_subcutaneous', 'larc_uterine'] + parm.groupby_these 
+
+    for var in report_on_these:
         print(f'\nResults for -- {var}')
         print(df[var].value_counts(dropna=False))
 
@@ -127,7 +134,7 @@ def flags(df, file_suffix, outpath, outfile_prefix):
                             dropna=False,
                             group_keys=False)[parm.aggregate_these]\
                                     .sum().reset_index()
-   
+    
 
     # *** O U T P U T   T O   .C S V ****
     df_summary.to_csv(f'{outpath}/{outfile_prefix}_summary_{file_suffix}.csv', index=False)
