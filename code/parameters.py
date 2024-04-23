@@ -13,13 +13,13 @@ inpath = f'{mainpath}/raw'
 
 # A dict w/list of the names of the input files 
 # and a naming suffix to differentiate output files.
-infile_names = [#'csv_HCAIPDD_04-09-2024_1143_2018.csv',
-                #'csv_HCAIPDD_04-09-2024_1143_2019.csv',
-                #'csv_HCAIPDD_04-09-2024_1143_2020.csv',
-                #'csv_HCAIPDD_04-09-2024_1143_2021.csv',
-                #'csv_HCAIPDD_04-09-2024_1143_2022.csv',
-                #'csv_HCAIPDD_04-09-2024_1143_2023.csv',
-                #'csv_HCAIPDD_04-09-2024_1143_2024.csv',"""
+infile_names = ['csv_HCAIPDD_04-09-2024_1143_2018.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2019.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2020.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2021.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2022.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2023.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2024.csv',
                 'csv_HCAIPDD_04-09-2024_1143_2024_test.csv'
                 ]
 
