@@ -78,7 +78,7 @@ def flags(df, file_suffix, outpath, outfile_prefix):
     # Function to check 1st 3 chars in all DX vars against codeset lists
     def check_codes(cell, search_list):
         if type(cell)==str:
-            return (substring in cell[:3] for substring in search_list)
+            return any(substring in cell[:3] for substring in search_list)
 
     # Flag mental illness
     df['mental_illness'] = df[parm.dx_vars].\
