@@ -19,10 +19,18 @@ import time
 import parameters as parm
 import _get_mappings as mappings
 
+##################################################
 # FLAG PROCEDURES, DEMOGRAPHICS, AND CONDITIONS
+##################################################
 def flags(df, file_suffix, outpath, outfile_prefix):
-   
-    # **** F L A G   D E M O G R A P H I C - B A S E D   F L A G S ****
+
+    #   S E T   A G E _ G R O U P 
+    df['age_group'] = pd.cut(df['agyradm'], 
+                             bins=parm.age_bins, 
+                             labels=parm.age_bin_labels)
+
+
+    #   F L A G   D E M O G R A P H I C - B A S E D   F L A G S 
     
     # ******** MEDICAID ******** (if pay_cat=Medi-Cal)
     # else zero.  Missing pay_cat values will return missing values.
@@ -34,8 +42,8 @@ def flags(df, file_suffix, outpath, outfile_prefix):
             =='ENG', 0, 1)
 
 
-    # **** R E A D   C O D E S E T S   F O R   E A C H   F L A G
-    # **** T H E N   S E T   C O N D I T I O N   F L A G 
+    #   R E A D   C O D E S E T S   F O R   E A C H   F L A G
+    #   T H E N   S E T   C O N D I T I O N   F L A G 
 
     # ******** LARCs *********
     # Uterine LARCs
@@ -119,16 +127,19 @@ def flags(df, file_suffix, outpath, outfile_prefix):
             (endometritis_dxs).any(axis=1).astype(int)
 
 
-    # **** R E P O R T   O N   F L A G S ****
+    #   R E P O R T   O N   F L A G S 
 
     report_on_these = ['larc', 'larc_subcutaneous', 'larc_uterine'] + parm.groupby_these 
 
     for var in report_on_these:
         print(f'\nResults for -- {var}')
-        print(df[var].value_counts(dropna=False))
+        print(df[var].value_counts(dropna=False).sort_index())
 
+    # Report showing crosstab of age and age group
+    print(f'\nResults for age mapping to groups')
+    print(pd.crosstab(df['agyradm'], df['age_group']))
 
-    # **** A G G R E G A T E ****
+    #   A G G R E G A T E 
     df_summary = df.groupby(by=parm.groupby_these,
                             as_index=True,
                             dropna=False,
@@ -136,6 +147,6 @@ def flags(df, file_suffix, outpath, outfile_prefix):
                                     .sum().reset_index()
     
 
-    # *** O U T P U T   T O   .C S V ****
+    #   O U T P U T   T O   .C S V 
     df_summary.to_csv(f'{outpath}/{outfile_prefix}_summary_{file_suffix}.csv', index=False)
 

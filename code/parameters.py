@@ -13,13 +13,13 @@ inpath = f'{mainpath}/raw'
 
 # A dict w/list of the names of the input files 
 # and a naming suffix to differentiate output files.
-infile_names = ['csv_HCAIPDD_04-09-2024_1143_2018.csv',
-                'csv_HCAIPDD_04-09-2024_1143_2019.csv',
-                'csv_HCAIPDD_04-09-2024_1143_2020.csv',
-                'csv_HCAIPDD_04-09-2024_1143_2021.csv',
-                'csv_HCAIPDD_04-09-2024_1143_2022.csv',
-                'csv_HCAIPDD_04-09-2024_1143_2023.csv',
-                'csv_HCAIPDD_04-09-2024_1143_2024.csv',
+infile_names = [#'csv_HCAIPDD_04-09-2024_1143_2018.csv',
+                #'csv_HCAIPDD_04-09-2024_1143_2019.csv',
+                #'csv_HCAIPDD_04-09-2024_1143_2020.csv',
+                #'csv_HCAIPDD_04-09-2024_1143_2021.csv',
+                #'csv_HCAIPDD_04-09-2024_1143_2022.csv',
+                #'csv_HCAIPDD_04-09-2024_1143_2023.csv',
+                #'csv_HCAIPDD_04-09-2024_1143_2024.csv',
                 'csv_HCAIPDD_04-09-2024_1143_2024_test.csv'
                 ]
 
@@ -96,8 +96,12 @@ datatypes = ({'oshpd_id':str, 'srcroute_ns':str, 'admtype_ns':str,
               'oproc20':str, 'oproc21':str, 'oproc22':str, 'oproc23':str,
               'oproc24':str})
 
+# Age groups that will be used when aggregating data
+age_bins = [0, 12, 19, 29, 45, 200]
+age_bin_labels = ['0-12','13-19', '20-29', '30-45', '46+']
+
 # Variables that will be used in the groupby in the output
-groupby_these = ['oshpd_id', 'agyradm', 'ethncty', 'race1',
+groupby_these = ['oshpd_id', 'age_group', 'ethncty', 'race1',
                  'dsch_yr', 'medicaid',
                  'preferred_language_not_english',
                  'known_prior_pregnancy', 'mental_illness',
