@@ -27,7 +27,7 @@ def flags(df, file_suffix, outpath, outfile_prefix):
     #   S E T   S E V E R A L   S T A N D A R D   V A R I A B L E S
     #   Set labor and delivery variables to 1.  Data has already
     #   been subset in a previous program.
-    df['l_and_d'] = 1
+    df['l_and_d_total'] = 1
 
     #   Set age group using age in years at admission
     df['age_group'] = pd.cut(df['agyradm'], 
@@ -151,6 +151,10 @@ def flags(df, file_suffix, outpath, outfile_prefix):
     df['excl'] = df[['hemorrhage', 'intraamniotic_infection',
                      'chorioamnionitis', 'endometritis']].any(axis=1).\
                              astype(int)
+
+
+    # ******** MAKE VARIABLE FOR INCLUDED L & D ********
+    df['l_and_d_incl'] = (df['excl']==0).astype(int)
     
 
     #   R E P O R T   O N   F L A G S 
@@ -166,16 +170,35 @@ def flags(df, file_suffix, outpath, outfile_prefix):
     print(pd.crosstab(df['agyradm'], df['age_group']))
 
 
-    #   A G G R E G A T E 
-    
-    df_summary = df.groupby(by=parm.groupby_these,
+    #   A G G R E G A T E   A N D   O U T P U T   T 0   C S V
+    #   Count exclusion conditions by hospital
+    df_excl_summary = df.groupby(by='oshpd_id',
+                                 observed=True,
+                                 as_index=True,
+                                 group_keys=False,
+                                 dropna=False)\
+                                         ['l_and_d_total',
+                                          'l_and_d_incl',
+                                          'excl',
+                                          'hemorrhage',
+                                          'intraamniotic_infection',
+                                          'chorioamnionitis', 
+                                          'endometritis'].apply(sum)
+    df_excl_summary.to_csv(\
+            f'{outpath}/{outfile_prefix}_EXCL_{file_suffix}.csv', 
+            index=True)
+
+
+    #   Make main aggregated output file for data visualizations,
+    #   keeping only where excl equal 0
+    df_main_summary = df[df['excl'] == 0].groupby(by=parm.groupby_these,
                             observed=True,
                             as_index=False,
-                            group_keys=False)[parm.aggregate_these]\
+                            group_keys=False,
+                            dropna=False)[parm.aggregate_these]\
                                     .apply(sum)
     
+    df_main_summary.to_csv(\
+            f'{outpath}/{outfile_prefix}_SUMMARY_{file_suffix}.csv', 
+            index=False)
 
-    #   O U T P U T   T O   .C S V 
-    df_summary.to_csv(f'{outpath}/{outfile_prefix}_summary_{file_suffix}.csv', 
-                      index=False)
-   

@@ -100,15 +100,16 @@ datatypes = ({'oshpd_id':str, 'srcroute_ns':str, 'admtype_ns':str,
 age_bins = [0, 12, 19, 29, 45, 200]
 age_bin_labels = ['0-12','13-19', '20-29', '30-45', '46+']
 
-# Variables that will be used in the groupby in the output
+# Variables that will be used in the groupby in the main output
 groupby_these = ['oshpd_id', 'age_group', 'ethncty', 'race1',
                  'dsch_yr', 'medicaid',
                  'preferred_language_not_english',
                  'known_prior_pregnancy', 'mental_illness',
-                 'intellectual_disability', 'hemorrhage',
-                 'intraamniotic_infection', 'chorioamnionitis',
-                 'endometritis']
+                 'intellectual_disability']
 
-# Variables that will be aggregated by the above variables
-aggregate_these =['larc_uterine', 'larc_subcutaneous', 'larc']
+# Variables that will be aggregated by the groupbys above
+aggregate_these =['l_and_d_incl',
+                  'larc_uterine', 
+                  'larc_subcutaneous', 
+                  'larc']
 
