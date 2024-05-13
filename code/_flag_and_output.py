@@ -23,11 +23,26 @@ import _get_mappings as mappings
 # FLAG PROCEDURES, DEMOGRAPHICS, AND CONDITIONS
 ##################################################
 def flags(df, file_suffix, outpath, outfile_prefix):
+   
+    #   S E T   S E V E R A L   S T A N D A R D   V A R I A B L E S
+    #   Set labor and delivery variables to 1.  Data has already
+    #   been subset in a previous program.
+    df['l_and_d'] = 1
 
-    #   S E T   A G E _ G R O U P 
+    #   Set age group using age in years at admission
     df['age_group'] = pd.cut(df['agyradm'], 
                              bins=parm.age_bins, 
                              labels=parm.age_bin_labels)
+
+    #   For hospital ID, race, ethnicity, (and age group?), set missing 
+    #   values to 'unknown' so that groupby will work correctly
+    source_dimension_variables = ['oshpd_id', 
+                                  'ethncty', 
+                                  'race1' 
+                                  ]
+
+    for var in source_dimension_variables: 
+        df.loc[df[var].isna(), var] = 'unknown'
 
 
     #   F L A G   D E M O G R A P H I C - B A S E D   F L A G S 
@@ -53,7 +68,8 @@ def flags(df, file_suffix, outpath, outfile_prefix):
                                       subset_value='U',
                                       filter_var='PX'
                                       ) 
-    df['larc_uterine'] = df[parm.px_vars].isin(larc_u_map).any(axis=1).astype(int)
+    df['larc_uterine'] = df[parm.px_vars].isin(larc_u_map).\
+            any(axis=1).astype(int)
 
     # Subcutaneous LARCs
     larc_s_map = mappings.get_code_maps(source=parm.code_sets,
@@ -62,10 +78,12 @@ def flags(df, file_suffix, outpath, outfile_prefix):
                                       subset_value='S',
                                       filter_var='PX'
                                       ) 
-    df['larc_subcutaneous'] = df[parm.px_vars].isin(larc_s_map).any(axis=1).astype(int)
+    df['larc_subcutaneous'] = df[parm.px_vars].isin(larc_s_map).\
+            any(axis=1).astype(int)
 
     # All LARCs
-    df['larc'] = ((df['larc_uterine'] + df['larc_subcutaneous']) > 0).astype(int)
+    df['larc'] = ((df['larc_uterine'] + df['larc_subcutaneous']) > 0)\
+            .astype(int)
 
 
     # ******** PRIOR PREGNANCIES ********
@@ -96,13 +114,15 @@ def flags(df, file_suffix, outpath, outfile_prefix):
     # Flag intellectual disability
     df['intellectual_disability'] = df[parm.dx_vars].\
             applymap(lambda x: check_codes(x, \
-                 search_list=intellectual_disability_dx3s)).any(axis=1).astype(int)
+                 search_list=intellectual_disability_dx3s)).any(axis=1)\
+                 .astype(int)
 
 
     # ******** HEMORRAHAGE ********
     hemorrhage_dxs = mappings.get_code_lists(source=parm.code_sets,
                                             sheet_name='hemorrhage')
-    df['hemorrhage'] = df[parm.dx_vars].isin(hemorrhage_dxs).any(axis=1).astype(int)
+    df['hemorrhage'] = df[parm.dx_vars].isin(hemorrhage_dxs).any(axis=1)\
+            .astype(int)
 
 
     # ******** INTRAAMNIOTIC INFECTION ********
@@ -127,9 +147,15 @@ def flags(df, file_suffix, outpath, outfile_prefix):
             (endometritis_dxs).any(axis=1).astype(int)
 
 
+    # ******** USE CONDITION FLAGS TO SET EXCL FLAG ********
+    df['excl'] = df[['hemorrhage', 'intraamniotic_infection',
+                     'chorioamnionitis', 'endometritis']].any(axis=1).\
+                             astype(int)
+    
+
     #   R E P O R T   O N   F L A G S 
 
-    report_on_these = ['larc', 'larc_subcutaneous', 'larc_uterine'] + parm.groupby_these 
+    report_on_these = parm.aggregate_these + parm.groupby_these 
 
     for var in report_on_these:
         print(f'\nResults for -- {var}')
@@ -139,14 +165,17 @@ def flags(df, file_suffix, outpath, outfile_prefix):
     print(f'\nResults for age mapping to groups')
     print(pd.crosstab(df['agyradm'], df['age_group']))
 
+
     #   A G G R E G A T E 
+    
     df_summary = df.groupby(by=parm.groupby_these,
-                            as_index=True,
-                            dropna=False,
+                            observed=True,
+                            as_index=False,
                             group_keys=False)[parm.aggregate_these]\
-                                    .sum().reset_index()
+                                    .apply(sum)
     
 
     #   O U T P U T   T O   .C S V 
-    df_summary.to_csv(f'{outpath}/{outfile_prefix}_summary_{file_suffix}.csv', index=False)
-
+    df_summary.to_csv(f'{outpath}/{outfile_prefix}_summary_{file_suffix}.csv', 
+                      index=False)
+   
