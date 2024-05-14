@@ -35,3 +35,13 @@ def get_code_maps(source,
     map_list = df.loc[df[subset_col]==subset_value, filter_var]
     return map_list
 
+
+# Get plan names from downloaded HCAI documentation
+def get_plan_maps(source):
+    df = pd.read_excel(source, skiprows=4, dtype=str)
+    # Remove leading zeros from plan code
+    df['Code'] = df['Code'].astype('Int64').astype('str')
+    df.rename(columns={'Code':'key', 'Plan Code':'value'}, inplace=True)
+    plan_dict = df.set_index('key')['value'].to_dict()
+    return plan_dict
+

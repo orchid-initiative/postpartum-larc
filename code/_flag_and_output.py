@@ -34,11 +34,22 @@ def flags(df, file_suffix, outpath, outfile_prefix):
                              bins=parm.age_bins, 
                              labels=parm.age_bin_labels)
 
+    #   Map health plan code to plan name
+    #   First, set data type for pay_plan to string
+    df['pay_plan_code'] = df['pay_plan'].astype('Int64').astype('str')
+
+    #   Second, get plan code to description dict
+    plan_dict = mappings.get_plan_maps(parm.health_plans)
+    
+    #   Now map values
+    df['pay_plan_name'] = df['pay_plan_code'].replace(plan_dict)
+
     #   For hospital ID, race, ethnicity, (and age group?), set missing 
     #   values to 'unknown' so that groupby will work correctly
     source_dimension_variables = ['oshpd_id', 
                                   'ethncty', 
-                                  'race1' 
+                                  'race1',
+                                  'pay_plan'
                                   ]
 
     for var in source_dimension_variables: 
@@ -172,7 +183,7 @@ def flags(df, file_suffix, outpath, outfile_prefix):
 
     #   A G G R E G A T E   A N D   O U T P U T   T 0   C S V
     #   Count exclusion conditions by hospital
-    df_excl_summary = df.groupby(by='oshpd_id',
+    df_excl_summary = df.groupby(by=['oshpd_id'],
                                  observed=True,
                                  as_index=True,
                                  group_keys=False,
