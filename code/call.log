@@ -177,6 +177,16 @@ Results for -- oshpd_id
 unknown    1764
 Name: oshpd_id, dtype: int64
 
+Results for -- hospital_name
+CEDARS-SINAI MEDICAL CENTER                   16
+KAISER FOUNDATION HOSPITAL - LOS ANGELES       1
+LAC/HARBOR-UCLA MEDICAL CENTER                 6
+LOS ANGELES GENERAL MEDICAL CENTER             6
+PIH HEALTH GOOD SAMARITAN HOSPITAL             8
+RONALD REAGAN UCLA MEDICAL CENTER             42
+unknown                                     1764
+Name: hospital_name, dtype: int64
+
 Results for -- age_group
 0-12       0
 13-19    158
@@ -449,6 +459,16 @@ Results for -- oshpd_id
 191228       10
 unknown    1828
 Name: oshpd_id, dtype: int64
+
+Results for -- hospital_name
+ADVENTIST HEALTH WHITE MEMORIAL          1
+CEDARS-SINAI MEDICAL CENTER             12
+LAC/HARBOR-UCLA MEDICAL CENTER          10
+LOS ANGELES GENERAL MEDICAL CENTER      10
+PIH HEALTH GOOD SAMARITAN HOSPITAL       6
+RONALD REAGAN UCLA MEDICAL CENTER       39
+unknown                               1828
+Name: hospital_name, dtype: int64
 
 Results for -- age_group
 0-12       0
@@ -726,6 +746,17 @@ Results for -- oshpd_id
 unknown    1905
 Name: oshpd_id, dtype: int64
 
+Results for -- hospital_name
+ADVENTIST HEALTH WHITE MEMORIAL                4
+CEDARS-SINAI MEDICAL CENTER                    6
+KAISER FOUNDATION HOSPITAL - LOS ANGELES       1
+LAC/HARBOR-UCLA MEDICAL CENTER                 8
+LOS ANGELES GENERAL MEDICAL CENTER             4
+PIH HEALTH GOOD SAMARITAN HOSPITAL             7
+RONALD REAGAN UCLA MEDICAL CENTER             32
+unknown                                     1905
+Name: hospital_name, dtype: int64
+
 Results for -- age_group
 0-12       0
 13-19    154
@@ -997,6 +1028,16 @@ Results for -- oshpd_id
 191228        5
 unknown    1887
 Name: oshpd_id, dtype: int64
+
+Results for -- hospital_name
+ADVENTIST HEALTH WHITE MEMORIAL          1
+CEDARS-SINAI MEDICAL CENTER              8
+LAC/HARBOR-UCLA MEDICAL CENTER          17
+LOS ANGELES GENERAL MEDICAL CENTER       5
+PIH HEALTH GOOD SAMARITAN HOSPITAL       6
+RONALD REAGAN UCLA MEDICAL CENTER       27
+unknown                               1887
+Name: hospital_name, dtype: int64
 
 Results for -- age_group
 0-12       0
@@ -1273,6 +1314,17 @@ Results for -- oshpd_id
 191228        4
 unknown    1850
 Name: oshpd_id, dtype: int64
+
+Results for -- hospital_name
+ADVENTIST HEALTH WHITE MEMORIAL                2
+CEDARS-SINAI MEDICAL CENTER                   11
+KAISER FOUNDATION HOSPITAL - LOS ANGELES       1
+LAC/HARBOR-UCLA MEDICAL CENTER                 6
+LOS ANGELES GENERAL MEDICAL CENTER             4
+PIH HEALTH GOOD SAMARITAN HOSPITAL             9
+RONALD REAGAN UCLA MEDICAL CENTER             37
+unknown                                     1850
+Name: hospital_name, dtype: int64
 
 Results for -- age_group
 0-12       0
@@ -1551,6 +1603,17 @@ Results for -- oshpd_id
 unknown    1945
 Name: oshpd_id, dtype: int64
 
+Results for -- hospital_name
+ADVENTIST HEALTH WHITE MEMORIAL                2
+CEDARS-SINAI MEDICAL CENTER                   15
+KAISER FOUNDATION HOSPITAL - LOS ANGELES       1
+LAC/HARBOR-UCLA MEDICAL CENTER                 7
+LOS ANGELES GENERAL MEDICAL CENTER             9
+PIH HEALTH GOOD SAMARITAN HOSPITAL            17
+RONALD REAGAN UCLA MEDICAL CENTER             40
+unknown                                     1945
+Name: hospital_name, dtype: int64
+
 Results for -- age_group
 0-12       0
 13-19    166
@@ -1826,6 +1889,16 @@ Results for -- oshpd_id
 191228       2
 unknown    458
 Name: oshpd_id, dtype: int64
+
+Results for -- hospital_name
+ADVENTIST HEALTH WHITE MEMORIAL         2
+CEDARS-SINAI MEDICAL CENTER             4
+LAC/HARBOR-UCLA MEDICAL CENTER          3
+LOS ANGELES GENERAL MEDICAL CENTER      2
+PIH HEALTH GOOD SAMARITAN HOSPITAL      1
+RONALD REAGAN UCLA MEDICAL CENTER      11
+unknown                               458
+Name: hospital_name, dtype: int64
 
 Results for -- age_group
 0-12       0
@@ -2106,6 +2179,16 @@ Results for -- oshpd_id
 unknown    458
 Name: oshpd_id, dtype: int64
 
+Results for -- hospital_name
+ADVENTIST HEALTH WHITE MEMORIAL         2
+CEDARS-SINAI MEDICAL CENTER             4
+LAC/HARBOR-UCLA MEDICAL CENTER          3
+LOS ANGELES GENERAL MEDICAL CENTER      2
+PIH HEALTH GOOD SAMARITAN HOSPITAL      1
+RONALD REAGAN UCLA MEDICAL CENTER      11
+unknown                               458
+Name: hospital_name, dtype: int64
+
 Results for -- age_group
 0-12       0
 13-19     34
@@ -2207,4 +2290,4 @@ agyradm
 49             0      0      0    4
 
 
-Elapsed time (seconds):   19.73772954940796
+Elapsed time (seconds):   20.481765747070312

@@ -44,9 +44,17 @@ def flags(df, file_suffix, outpath, outfile_prefix):
     #   Now map values
     df['pay_plan_name'] = df['pay_plan_code'].replace(plan_dict)
 
+    #   Map hospital id to hospital names
+    #   First, get hospital id to hospital names dict
+    hosp_dict = mappings.get_hosp_maps(parm.hospital_names)
+
+    #   Now map values
+    df['hospital_name'] = df['oshpd_id'].replace(hosp_dict)
+
     #   For hospital ID, race, ethnicity, (and age group?), set missing 
     #   values to 'unknown' so that groupby will work correctly
     source_dimension_variables = ['oshpd_id', 
+                                  'hospital_name',
                                   'ethncty', 
                                   'race1',
                                   'pay_plan'
@@ -183,7 +191,7 @@ def flags(df, file_suffix, outpath, outfile_prefix):
 
     #   A G G R E G A T E   A N D   O U T P U T   T 0   C S V
     #   Count exclusion conditions by hospital
-    df_excl_summary = df.groupby(by=['oshpd_id'],
+    df_excl_summary = df.groupby(by=['oshpd_id','hospital_name'],
                                  observed=True,
                                  as_index=True,
                                  group_keys=False,

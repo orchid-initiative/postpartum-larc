@@ -45,3 +45,14 @@ def get_plan_maps(source):
     plan_dict = df.set_index('key')['value'].to_dict()
     return plan_dict
 
+
+# Get hospital names from downloaded HCAI documentation
+def get_hosp_maps(source):
+    df = pd.read_excel(source, dtype=str)
+    # Remove leading zeros from oshpd_id
+    df['oshpd_id'] = df['oshpd_id'].astype('Int64').astype('str')
+    df.rename(columns={'oshpd_id':'key', 'FACILITY_NAME':'value'},\
+            inplace=True)
+    hosp_dict = df.set_index('key')['value'].to_dict()
+    return hosp_dict
+
