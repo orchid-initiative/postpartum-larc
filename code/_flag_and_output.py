@@ -16,6 +16,7 @@
 import pandas as pd
 import numpy as np
 import time
+import datetime
 import parameters as parm
 import _get_mappings as mappings
 
@@ -190,6 +191,9 @@ def flags(df, file_suffix, outpath, outfile_prefix):
 
 
     #   A G G R E G A T E   A N D   O U T P U T   T 0   C S V
+    #   Get datestamp
+    datestamp = datetime.date.today().strftime('%Y%m%d')
+        
     #   Count exclusion conditions by hospital
     df_excl_summary = df.groupby(by=['oshpd_id','hospital_name'],
                                  observed=True,
@@ -204,7 +208,7 @@ def flags(df, file_suffix, outpath, outfile_prefix):
                                           'chorioamnionitis', 
                                           'endometritis'].apply(sum)
     df_excl_summary.to_csv(\
-            f'{outpath}/{outfile_prefix}_EXCL_{file_suffix}.csv', 
+            f'{outpath}/{outfile_prefix}_EXCL_{file_suffix}_{datestamp}.csv', 
             index=True)
 
 
@@ -218,6 +222,6 @@ def flags(df, file_suffix, outpath, outfile_prefix):
                                     .apply(sum)
     
     df_main_summary.to_csv(\
-            f'{outpath}/{outfile_prefix}_SUMMARY_{file_suffix}.csv', 
+            f'{outpath}/{outfile_prefix}_SUMMARY_{file_suffix}_{datestamp}.csv', 
             index=False)
 

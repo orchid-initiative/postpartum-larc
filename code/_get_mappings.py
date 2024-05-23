@@ -32,7 +32,7 @@ def get_code_maps(source,
                   filter_var):
 
     df = pd.read_excel(source, sheet_name=sheet_name, dtype=str)
-    map_list = df.loc[df[subset_col]==subset_value, filter_var]
+    map_list = df.loc[df[subset_col]==subset_value, filter_var].tolist()
     return map_list
 
 
