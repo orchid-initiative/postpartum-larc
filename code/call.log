@@ -216,6 +216,14 @@ Results for -- dsch_yr
 2018    1843
 Name: dsch_yr, dtype: int64
 
+Results for -- pay_cat
+01      35
+03     860
+06     748
+08     108
+NaN     92
+Name: pay_cat, dtype: int64
+
 Results for -- medicaid
 0    1843
 Name: medicaid, dtype: int64
@@ -498,6 +506,14 @@ Name: race1, dtype: int64
 Results for -- dsch_yr
 2019    1906
 Name: dsch_yr, dtype: int64
+
+Results for -- pay_cat
+01      52
+03     890
+06     755
+08      98
+NaN    111
+Name: pay_cat, dtype: int64
 
 Results for -- medicaid
 0    1906
@@ -786,6 +802,14 @@ Results for -- dsch_yr
 2020    1967
 Name: dsch_yr, dtype: int64
 
+Results for -- pay_cat
+01      61
+03     922
+06     765
+08     112
+NaN    107
+Name: pay_cat, dtype: int64
+
 Results for -- medicaid
 0    1967
 Name: medicaid, dtype: int64
@@ -1069,6 +1093,14 @@ Name: race1, dtype: int64
 Results for -- dsch_yr
 2021    1951
 Name: dsch_yr, dtype: int64
+
+Results for -- pay_cat
+01      40
+03     929
+06     755
+08     104
+NaN    123
+Name: pay_cat, dtype: int64
 
 Results for -- medicaid
 0    1951
@@ -1358,6 +1390,14 @@ Name: race1, dtype: int64
 Results for -- dsch_yr
 2022    1920
 Name: dsch_yr, dtype: int64
+
+Results for -- pay_cat
+01      48
+03     887
+06     764
+08     114
+NaN    107
+Name: pay_cat, dtype: int64
 
 Results for -- medicaid
 0    1920
@@ -1649,6 +1689,14 @@ Results for -- dsch_yr
 2023    2036
 Name: dsch_yr, dtype: int64
 
+Results for -- pay_cat
+01      43
+03     929
+06     817
+08     128
+NaN    119
+Name: pay_cat, dtype: int64
+
 Results for -- medicaid
 0    2036
 Name: medicaid, dtype: int64
@@ -1936,6 +1984,14 @@ Name: race1, dtype: int64
 Results for -- dsch_yr
 2024    481
 Name: dsch_yr, dtype: int64
+
+Results for -- pay_cat
+01      14
+03     244
+06     165
+08      17
+NaN     41
+Name: pay_cat, dtype: int64
 
 Results for -- medicaid
 0    481
@@ -2225,6 +2281,14 @@ Results for -- dsch_yr
 2024    481
 Name: dsch_yr, dtype: int64
 
+Results for -- pay_cat
+01      14
+03     244
+06     165
+08      17
+NaN     41
+Name: pay_cat, dtype: int64
+
 Results for -- medicaid
 0    481
 Name: medicaid, dtype: int64
@@ -2299,4 +2363,4 @@ agyradm
 49             0      0      0    4
 
 
-Elapsed time (seconds):   19.78974461555481
+Elapsed time (seconds):   19.672968864440918

@@ -109,7 +109,7 @@ age_bin_labels = ['0-12','13-19', '20-29', '30-45', '46+']
 # Variables that will be used in the groupby in the main output
 groupby_these = ['oshpd_id', 'hospital_name','age_group', 
                  'ethncty', 'race1',
-                 'dsch_yr', 'medicaid', 'pay_plan_name',
+                 'dsch_yr', 'pay_cat', 'medicaid', 'pay_plan_name',
                  'preferred_language_not_english',
                  'known_prior_pregnancy', 'mental_illness',
                  'intellectual_disability']
