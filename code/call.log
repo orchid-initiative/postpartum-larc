@@ -156,15 +156,18 @@ Results for -- l_and_d_incl
 Name: l_and_d_incl, dtype: int64
 
 Results for -- larc_uterine
-0    1843
+0    1702
+1     141
 Name: larc_uterine, dtype: int64
 
 Results for -- larc_subcutaneous
-0    1843
+0    1785
+1      58
 Name: larc_subcutaneous, dtype: int64
 
 Results for -- larc
-0    1843
+0    1644
+1     199
 Name: larc, dtype: int64
 
 Results for -- oshpd_id
@@ -214,8 +217,7 @@ Results for -- dsch_yr
 Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
-0    983
-1    860
+0    1843
 Name: medicaid, dtype: int64
 
 Results for -- pay_plan_name
@@ -437,17 +439,18 @@ Results for -- l_and_d_incl
 Name: l_and_d_incl, dtype: int64
 
 Results for -- larc_uterine
-0    1905
-1       1
+0    1780
+1     126
 Name: larc_uterine, dtype: int64
 
 Results for -- larc_subcutaneous
-0    1906
+0    1854
+1      52
 Name: larc_subcutaneous, dtype: int64
 
 Results for -- larc
-0    1905
-1       1
+0    1728
+1     178
 Name: larc, dtype: int64
 
 Results for -- oshpd_id
@@ -497,8 +500,7 @@ Results for -- dsch_yr
 Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
-0    1016
-1     890
+0    1906
 Name: medicaid, dtype: int64
 
 Results for -- pay_plan_name
@@ -722,17 +724,18 @@ Results for -- l_and_d_incl
 Name: l_and_d_incl, dtype: int64
 
 Results for -- larc_uterine
-0    1967
+0    1845
+1     122
 Name: larc_uterine, dtype: int64
 
 Results for -- larc_subcutaneous
-0    1966
-1       1
+0    1911
+1      56
 Name: larc_subcutaneous, dtype: int64
 
 Results for -- larc
-0    1966
-1       1
+0    1789
+1     178
 Name: larc, dtype: int64
 
 Results for -- oshpd_id
@@ -784,8 +787,7 @@ Results for -- dsch_yr
 Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
-0    1045
-1     922
+0    1967
 Name: medicaid, dtype: int64
 
 Results for -- pay_plan_name
@@ -1008,15 +1010,18 @@ Results for -- l_and_d_incl
 Name: l_and_d_incl, dtype: int64
 
 Results for -- larc_uterine
-0    1951
+0    1832
+1     119
 Name: larc_uterine, dtype: int64
 
 Results for -- larc_subcutaneous
-0    1951
+0    1896
+1      55
 Name: larc_subcutaneous, dtype: int64
 
 Results for -- larc
-0    1951
+0    1777
+1     174
 Name: larc, dtype: int64
 
 Results for -- oshpd_id
@@ -1066,8 +1071,7 @@ Results for -- dsch_yr
 Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
-0    1022
-1     929
+0    1951
 Name: medicaid, dtype: int64
 
 Results for -- pay_plan_name
@@ -1293,15 +1297,18 @@ Results for -- l_and_d_incl
 Name: l_and_d_incl, dtype: int64
 
 Results for -- larc_uterine
-0    1920
+0    1803
+1     117
 Name: larc_uterine, dtype: int64
 
 Results for -- larc_subcutaneous
-0    1920
+0    1861
+1      59
 Name: larc_subcutaneous, dtype: int64
 
 Results for -- larc
-0    1920
+0    1744
+1     176
 Name: larc, dtype: int64
 
 Results for -- oshpd_id
@@ -1353,8 +1360,7 @@ Results for -- dsch_yr
 Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
-0    1033
-1     887
+0    1920
 Name: medicaid, dtype: int64
 
 Results for -- pay_plan_name
@@ -1581,15 +1587,18 @@ Results for -- l_and_d_incl
 Name: l_and_d_incl, dtype: int64
 
 Results for -- larc_uterine
-0    2036
+0    1907
+1     129
 Name: larc_uterine, dtype: int64
 
 Results for -- larc_subcutaneous
-0    2036
+0    1987
+1      49
 Name: larc_subcutaneous, dtype: int64
 
 Results for -- larc
-0    2036
+0    1858
+1     178
 Name: larc, dtype: int64
 
 Results for -- oshpd_id
@@ -1641,8 +1650,7 @@ Results for -- dsch_yr
 Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
-0    1107
-1     929
+0    2036
 Name: medicaid, dtype: int64
 
 Results for -- pay_plan_name
@@ -1869,15 +1877,18 @@ Results for -- l_and_d_incl
 Name: l_and_d_incl, dtype: int64
 
 Results for -- larc_uterine
-0    481
+0    433
+1     48
 Name: larc_uterine, dtype: int64
 
 Results for -- larc_subcutaneous
-0    481
+0    468
+1     13
 Name: larc_subcutaneous, dtype: int64
 
 Results for -- larc
-0    481
+0    420
+1     61
 Name: larc, dtype: int64
 
 Results for -- oshpd_id
@@ -1927,8 +1938,7 @@ Results for -- dsch_yr
 Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
-0    237
-1    244
+0    481
 Name: medicaid, dtype: int64
 
 Results for -- pay_plan_name
@@ -2155,18 +2165,18 @@ Results for -- l_and_d_incl
 Name: l_and_d_incl, dtype: int64
 
 Results for -- larc_uterine
-0    480
-1      1
+0    432
+1     49
 Name: larc_uterine, dtype: int64
 
 Results for -- larc_subcutaneous
-0    480
-1      1
+0    467
+1     14
 Name: larc_subcutaneous, dtype: int64
 
 Results for -- larc
-0    479
-1      2
+0    418
+1     63
 Name: larc, dtype: int64
 
 Results for -- oshpd_id
@@ -2216,8 +2226,7 @@ Results for -- dsch_yr
 Name: dsch_yr, dtype: int64
 
 Results for -- medicaid
-0    237
-1    244
+0    481
 Name: medicaid, dtype: int64
 
 Results for -- pay_plan_name
@@ -2290,4 +2299,4 @@ agyradm
 49             0      0      0    4
 
 
-Elapsed time (seconds):   20.481765747070312
+Elapsed time (seconds):   19.78974461555481

@@ -69,7 +69,7 @@ def flags(df, file_suffix, outpath, outfile_prefix):
     
     # ******** MEDICAID ******** (if pay_cat=Medi-Cal)
     # else zero.  Missing pay_cat values will return missing values.
-    df['medicaid'] = np.where(df['pay_cat']=='03', 1, 0) 
+    df['medicaid'] = np.where(df['pay_cat']=='02', 1, 0) 
 
 
     # ******** PREFERRED_LANGUAGE_NOT_ENGLISH ********
