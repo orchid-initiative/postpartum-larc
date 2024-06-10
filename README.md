@@ -12,7 +12,7 @@ Project initiation is nearing completion, our team is fully assembled and we are
 - Have questions or feedback? Join the discussion on our GitHub Discussions page.  Or, you can use the GitHub issues page to report bugs and request new features.
 
 ### User Guide for Running Programs
-See USER_GUIDE.md.
+See [USER_GUIDE](documentation/USER_GUIDE.md).
 
 ### Additional Resources
 - [Google Drive folder](https://drive.google.com/drive/folders/1zWag_MZAYXod5H0NEOwFOsjk0Dp7rtug) (access required)
