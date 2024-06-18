@@ -11,15 +11,15 @@ mainpath = '/home/rtullis/orchid_initiative/postpartum_larc'
 # Path and file name for input file
 inpath = f'{mainpath}/raw'
 
-# A dict w/list of the names of the input files 
+# A list of the names of the input files 
 # and a naming suffix to differentiate output files.
-infile_names = [#'csv_HCAIPDD_04-09-2024_1143_2018.csv',
-                #'csv_HCAIPDD_04-09-2024_1143_2019.csv',
-                #'csv_HCAIPDD_04-09-2024_1143_2020.csv',
-                #'csv_HCAIPDD_04-09-2024_1143_2021.csv',
-                #'csv_HCAIPDD_04-09-2024_1143_2022.csv',
-                #'csv_HCAIPDD_04-09-2024_1143_2023.csv',
-                #'csv_HCAIPDD_04-09-2024_1143_2024.csv',"""
+infile_names = ['csv_HCAIPDD_04-09-2024_1143_2018.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2019.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2020.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2021.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2022.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2023.csv',
+                'csv_HCAIPDD_04-09-2024_1143_2024.csv',
                 'csv_HCAIPDD_04-09-2024_1143_2024_test.csv'
                 ]
 
@@ -33,6 +33,12 @@ file_suffix_slice = (-8,-4)
 # Document containing DX and PX codes for identifying procedure of
 # interest and conditions to flag
 code_sets = f'{mainpath}/documentation/LARC codes.xlsx'
+
+# Health plan names documentation
+health_plans = f'{mainpath}/documentation/Appendix H - Plan Codes.xlsx'
+
+# Hospital names documentation
+hospital_names = f'{mainpath}/documentation/Proc Format_PDD Hospital Name.xlsx'
 
 # Output path for interim files
 outpath = f'{mainpath}/created'
@@ -96,15 +102,32 @@ datatypes = ({'oshpd_id':str, 'srcroute_ns':str, 'admtype_ns':str,
               'oproc20':str, 'oproc21':str, 'oproc22':str, 'oproc23':str,
               'oproc24':str})
 
-# Variables that will be used in the groupby in the output
-groupby_these = ['oshpd_id', 'agyradm', 'ethncty', 'race1',
-                 'dsch_yr', 'medicaid',
+# Age groups that will be used when aggregating data
+age_bins = [0, 12, 19, 29, 45, 200]
+age_bin_labels = ['0-12','13-19', '20-29', '30-45', '46+']
+
+# Variables that will be used in the groupby in the main output
+groupby_these = ['oshpd_id', 'age_group',
+                 'ethncty', 'race1',
+                 'dsch_yr', 'pay_cat', 'medicaid', 'pay_plan_code',
                  'preferred_language_not_english',
                  'known_prior_pregnancy', 'mental_illness',
-                 'intellectual_disability', 'hemorrhage',
-                 'intraamniotic_infection', 'chorioamnionitis',
-                 'endometritis']
+                 'intellectual_disability']
 
-# Variables that will be aggregated by the above variables
-aggregate_these =['larc_uterine', 'larc_subcutaneous', 'larc']
+# Variables that will be aggregated by the groupbys above
+aggregate_these = ['l_and_d_incl',
+                   'larc_uterine', 
+                   'larc_subcutaneous', 
+                   'larc']
+
+# Main summary output variable order
+output_variable_order = ['oshpd_id', 'hospital_name',
+                         'dsch_yr', 'pay_cat', 'paycat_name',
+                         'pay_plan_code', 'pay_plan_name',
+                         'age_group', 'ethncty', 'race1',
+                         'medicaid', 'preferred_language_not_english',
+                         'known_prior_pregnancy', 'mental_illness',
+                         'intellectual_disability',
+                         'l_and_d_incl', 'larc',
+                         'larc_uterine', 'larc_subcutaneous']
 

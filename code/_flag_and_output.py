@@ -16,17 +16,45 @@
 import pandas as pd
 import numpy as np
 import time
+import datetime
 import parameters as parm
 import _get_mappings as mappings
 
+##################################################
 # FLAG PROCEDURES, DEMOGRAPHICS, AND CONDITIONS
+##################################################
 def flags(df, file_suffix, outpath, outfile_prefix):
    
-    # **** F L A G   D E M O G R A P H I C - B A S E D   F L A G S ****
+    #   S E T   S E V E R A L   S T A N D A R D   V A R I A B L E S
+    #   Set labor and delivery variables to 1.  Data has already
+    #   been subset in a previous program.
+    df['l_and_d_total'] = 1
+
+    #   Set age group using age in years at admission
+    df['age_group'] = pd.cut(df['agyradm'], 
+                             bins=parm.age_bins, 
+                             labels=parm.age_bin_labels)
+
+    #   For hospital ID, race, ethnicity, (and age group?), set missing 
+    #   values to 'unknown' so that groupby will work correctly
+    #   First, set data type for pay_plan to string
+    df['pay_plan_code'] = df['pay_plan'].astype('Int64').astype('str')
+
+    source_dimension_variables = ['oshpd_id', 
+                                  'ethncty', 
+                                  'race1',
+                                  'pay_plan_code'
+                                  ]
+
+    for var in source_dimension_variables: 
+        df.loc[df[var].isna(), var] = 'unknown'
+
+
+    #   F L A G   D E M O G R A P H I C - B A S E D   F L A G S 
     
     # ******** MEDICAID ******** (if pay_cat=Medi-Cal)
     # else zero.  Missing pay_cat values will return missing values.
-    df['medicaid'] = np.where(df['pay_cat']=='03', 1, 0) 
+    df['medicaid'] = np.where(df['pay_cat']=='02', 1, 0) 
 
 
     # ******** PREFERRED_LANGUAGE_NOT_ENGLISH ********
@@ -34,8 +62,8 @@ def flags(df, file_suffix, outpath, outfile_prefix):
             =='ENG', 0, 1)
 
 
-    # **** R E A D   C O D E S E T S   F O R   E A C H   F L A G
-    # **** T H E N   S E T   C O N D I T I O N   F L A G 
+    #   R E A D   C O D E S E T S   F O R   E A C H   F L A G
+    #   T H E N   S E T   C O N D I T I O N   F L A G 
 
     # ******** LARCs *********
     # Uterine LARCs
@@ -45,7 +73,8 @@ def flags(df, file_suffix, outpath, outfile_prefix):
                                       subset_value='U',
                                       filter_var='PX'
                                       ) 
-    df['larc_uterine'] = df[parm.px_vars].isin(larc_u_map).any(axis=1).astype(int)
+    df['larc_uterine'] = df[parm.px_vars].isin(larc_u_map).\
+            any(axis=1).astype(int)
 
     # Subcutaneous LARCs
     larc_s_map = mappings.get_code_maps(source=parm.code_sets,
@@ -54,10 +83,12 @@ def flags(df, file_suffix, outpath, outfile_prefix):
                                       subset_value='S',
                                       filter_var='PX'
                                       ) 
-    df['larc_subcutaneous'] = df[parm.px_vars].isin(larc_s_map).any(axis=1).astype(int)
+    df['larc_subcutaneous'] = df[parm.px_vars].isin(larc_s_map).\
+            any(axis=1).astype(int)
 
     # All LARCs
-    df['larc'] = ((df['larc_uterine'] + df['larc_subcutaneous']) > 0).astype(int)
+    df['larc'] = ((df['larc_uterine'] + df['larc_subcutaneous']) > 0)\
+            .astype(int)
 
 
     # ******** PRIOR PREGNANCIES ********
@@ -78,7 +109,7 @@ def flags(df, file_suffix, outpath, outfile_prefix):
     # Function to check 1st 3 chars in all DX vars against codeset lists
     def check_codes(cell, search_list):
         if type(cell)==str:
-            return (substring in cell[:3] for substring in search_list)
+            return any(substring in cell[:3] for substring in search_list)
 
     # Flag mental illness
     df['mental_illness'] = df[parm.dx_vars].\
@@ -88,13 +119,15 @@ def flags(df, file_suffix, outpath, outfile_prefix):
     # Flag intellectual disability
     df['intellectual_disability'] = df[parm.dx_vars].\
             applymap(lambda x: check_codes(x, \
-                 search_list=intellectual_disability_dx3s)).any(axis=1).astype(int)
+                 search_list=intellectual_disability_dx3s)).any(axis=1)\
+                 .astype(int)
 
 
     # ******** HEMORRAHAGE ********
     hemorrhage_dxs = mappings.get_code_lists(source=parm.code_sets,
                                             sheet_name='hemorrhage')
-    df['hemorrhage'] = df[parm.dx_vars].isin(hemorrhage_dxs).any(axis=1).astype(int)
+    df['hemorrhage'] = df[parm.dx_vars].isin(hemorrhage_dxs).any(axis=1)\
+            .astype(int)
 
 
     # ******** INTRAAMNIOTIC INFECTION ********
@@ -119,23 +152,84 @@ def flags(df, file_suffix, outpath, outfile_prefix):
             (endometritis_dxs).any(axis=1).astype(int)
 
 
-    # **** R E P O R T   O N   F L A G S ****
+    # ******** USE CONDITION FLAGS TO SET EXCL FLAG ********
+    df['excl'] = df[['hemorrhage', 'intraamniotic_infection',
+                     'chorioamnionitis', 'endometritis']].any(axis=1).\
+                             astype(int)
 
-    report_on_these = ['larc', 'larc_subcutaneous', 'larc_uterine'] + parm.groupby_these 
+
+    # ******** MAKE VARIABLE FOR INCLUDED L & D ********
+    df['l_and_d_incl'] = (df['excl']==0).astype(int)
+    
+
+    #   R E P O R T   O N   F L A G S 
+
+    report_on_these = parm.aggregate_these + parm.groupby_these 
 
     for var in report_on_these:
         print(f'\nResults for -- {var}')
-        print(df[var].value_counts(dropna=False))
+        print(df[var].value_counts(dropna=False).sort_index())
+
+    # Report showing crosstab of age and age group
+    print(f'\nResults for age mapping to groups')
+    print(pd.crosstab(df['agyradm'], df['age_group']))
 
 
-    # **** A G G R E G A T E ****
-    df_summary = df.groupby(by=parm.groupby_these,
-                            as_index=True,
-                            dropna=False,
-                            group_keys=False)[parm.aggregate_these]\
-                                    .sum().reset_index()
+    #   A G G R E G A T E   A N D   O U T P U T   T 0   C S V
+    #   Get datestamp
+    datestamp = datetime.date.today().strftime('%Y%m%d')
+        
+    #   Count exclusion conditions by hospital
+    df_excl_summary = df.groupby(by=['oshpd_id'],
+                                 observed=True,
+                                 as_index=True,
+                                 dropna=False)\
+                                         ['l_and_d_total',
+                                          'l_and_d_incl',
+                                          'excl',
+                                          'hemorrhage',
+                                          'intraamniotic_infection',
+                                          'chorioamnionitis', 
+                                          'endometritis'].apply(sum)
+
+    # Add hospital name. First, get hospital id to hospital names dict
+    hosp_dict = mappings.get_hosp_maps(parm.hospital_names)
+    df_excl_summary['hospital_name'] = df_excl_summary.index.map(hosp_dict)
+
+    # Output excl file to csv
+    df_excl_summary.to_csv(\
+            f'{outpath}/{outfile_prefix}_EXCL_{file_suffix}_{datestamp}.csv', 
+            index=True)
+
+
+    #   Make main aggregated output file for data visualizations,
+    #   keeping only where excl equal 0
+    df_main_summary = df[df['excl'] == 0].groupby(by=parm.groupby_these,
+                            observed=True,
+                            as_index=False,
+                            group_keys=False,
+                            dropna=False)[parm.aggregate_these]\
+                                    .apply(sum)
+
+    #   Map health plan code to plan name
+    #   Get plan code to description dict
+    plan_dict = mappings.get_plan_maps(parm.health_plans)
     
+    #   Now map plan name values
+    df_main_summary['pay_plan_name'] = df_main_summary['pay_plan_code'].\
+            replace(plan_dict)
 
-    # *** O U T P U T   T O   .C S V ****
-    df_summary.to_csv(f'{outpath}/{outfile_prefix}_summary_{file_suffix}.csv', index=False)
+    #   Map hospital id to hospital names
+    df_main_summary['hospital_name'] = df_main_summary['oshpd_id'].\
+            replace(hosp_dict)
+
+    #   Add payer catory map
+    df_main_summary['paycat_name'] = df_main_summary['pay_cat'].\
+            replace(mappings.paycat_dict)
+   
+    #   Output main aggregation file to csv
+    df_main_summary.to_csv(\
+            f'{outpath}/{outfile_prefix}_SUMMARY_{file_suffix}_{datestamp}.csv', 
+            index=False,
+            columns=parm.output_variable_order)
 

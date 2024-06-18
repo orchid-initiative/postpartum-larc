@@ -11,6 +11,9 @@ The project is currently ongoing and expected to finish in June
 - Ready to contribute? Check out the [developer guide](documentation/DEVELOPER_GUIDE.md) and [project board](https://github.com/orgs/orchid-initiative/projects/10)!
 - Have questions or feedback? Join the discussion on our GitHub Discussions page.  Or, you can use the GitHub issues page to report bugs and request new features.
 
+### User Guide for Running Programs
+See [USER_GUIDE](documentation/USER_GUIDE.md).
+
 ### Additional Resources
 - [Google Drive folder](https://drive.google.com/drive/folders/1zWag_MZAYXod5H0NEOwFOsjk0Dp7rtug) (access required)
 - Slack channel: #larc

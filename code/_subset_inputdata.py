@@ -31,7 +31,7 @@ def subset_and_output(infilepath,
                       outfilepath):
 
     with open(infilepath, buffering=1, mode='rt') as infile:
-        print('\nReading input file:  ', infilepath)
+        print('\nOpening input file:  ', infilepath)
         for count, line in enumerate(infile):
             if count==0:
                 # Get header row for all the data
