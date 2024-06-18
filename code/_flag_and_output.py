@@ -35,30 +35,15 @@ def flags(df, file_suffix, outpath, outfile_prefix):
                              bins=parm.age_bins, 
                              labels=parm.age_bin_labels)
 
-    #   Map health plan code to plan name
+    #   For hospital ID, race, ethnicity, (and age group?), set missing 
+    #   values to 'unknown' so that groupby will work correctly
     #   First, set data type for pay_plan to string
     df['pay_plan_code'] = df['pay_plan'].astype('Int64').astype('str')
 
-    #   Second, get plan code to description dict
-    plan_dict = mappings.get_plan_maps(parm.health_plans)
-    
-    #   Now map values
-    df['pay_plan_name'] = df['pay_plan_code'].replace(plan_dict)
-
-    #   Map hospital id to hospital names
-    #   First, get hospital id to hospital names dict
-    hosp_dict = mappings.get_hosp_maps(parm.hospital_names)
-
-    #   Now map values
-    df['hospital_name'] = df['oshpd_id'].replace(hosp_dict)
-
-    #   For hospital ID, race, ethnicity, (and age group?), set missing 
-    #   values to 'unknown' so that groupby will work correctly
     source_dimension_variables = ['oshpd_id', 
-                                  'hospital_name',
                                   'ethncty', 
                                   'race1',
-                                  'pay_plan'
+                                  'pay_plan_code'
                                   ]
 
     for var in source_dimension_variables: 
@@ -195,10 +180,9 @@ def flags(df, file_suffix, outpath, outfile_prefix):
     datestamp = datetime.date.today().strftime('%Y%m%d')
         
     #   Count exclusion conditions by hospital
-    df_excl_summary = df.groupby(by=['oshpd_id','hospital_name'],
+    df_excl_summary = df.groupby(by=['oshpd_id'],
                                  observed=True,
                                  as_index=True,
-                                 group_keys=False,
                                  dropna=False)\
                                          ['l_and_d_total',
                                           'l_and_d_incl',
@@ -207,6 +191,12 @@ def flags(df, file_suffix, outpath, outfile_prefix):
                                           'intraamniotic_infection',
                                           'chorioamnionitis', 
                                           'endometritis'].apply(sum)
+
+    # Add hospital name. First, get hospital id to hospital names dict
+    hosp_dict = mappings.get_hosp_maps(parm.hospital_names)
+    df_excl_summary['hospital_name'] = df_excl_summary.index.map(hosp_dict)
+
+    # Output excl file to csv
     df_excl_summary.to_csv(\
             f'{outpath}/{outfile_prefix}_EXCL_{file_suffix}_{datestamp}.csv', 
             index=True)
@@ -220,8 +210,26 @@ def flags(df, file_suffix, outpath, outfile_prefix):
                             group_keys=False,
                             dropna=False)[parm.aggregate_these]\
                                     .apply(sum)
+
+    #   Map health plan code to plan name
+    #   Get plan code to description dict
+    plan_dict = mappings.get_plan_maps(parm.health_plans)
     
+    #   Now map plan name values
+    df_main_summary['pay_plan_name'] = df_main_summary['pay_plan_code'].\
+            replace(plan_dict)
+
+    #   Map hospital id to hospital names
+    df_main_summary['hospital_name'] = df_main_summary['oshpd_id'].\
+            replace(hosp_dict)
+
+    #   Add payer catory map
+    df_main_summary['paycat_name'] = df_main_summary['pay_cat'].\
+            replace(mappings.paycat_dict)
+   
+    #   Output main aggregation file to csv
     df_main_summary.to_csv(\
             f'{outpath}/{outfile_prefix}_SUMMARY_{file_suffix}_{datestamp}.csv', 
-            index=False)
+            index=False,
+            columns=parm.output_variable_order)
 

@@ -36,6 +36,20 @@ def get_code_maps(source,
     return map_list
 
 
+# Get payer category names from downloaded HCAI documentation
+paycat_dict = {'01': 'Medicare',
+               '02': 'Medi-Cal',
+               '03': 'Private Coverage',
+               '04': 'Workers’ Compensation',
+               '05': 'County Indigent Programs',
+               '06': 'Other Government',
+               '07': 'Other Indigent',
+               '08': 'Self-Pay',
+               '09': 'Other Payer',
+               '-' : 'Invalid',
+               ' ' : 'Missing',
+               ''  : 'Missing'}
+
 # Get plan names from downloaded HCAI documentation
 def get_plan_maps(source):
     df = pd.read_excel(source, skiprows=4, dtype=str)
