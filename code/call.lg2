@@ -180,16 +180,6 @@ Results for -- oshpd_id
 unknown    1764
 Name: oshpd_id, dtype: int64
 
-Results for -- hospital_name
-CEDARS-SINAI MEDICAL CENTER                   16
-KAISER FOUNDATION HOSPITAL - LOS ANGELES       1
-LAC/HARBOR-UCLA MEDICAL CENTER                 6
-LOS ANGELES GENERAL MEDICAL CENTER             6
-PIH HEALTH GOOD SAMARITAN HOSPITAL             8
-RONALD REAGAN UCLA MEDICAL CENTER             42
-unknown                                     1764
-Name: hospital_name, dtype: int64
-
 Results for -- age_group
 0-12       0
 13-19    158
@@ -228,16 +218,16 @@ Results for -- medicaid
 0    1843
 Name: medicaid, dtype: int64
 
-Results for -- pay_plan_name
-0                                        1609
-<NA>                                       28
-Aetna Health of California, Inc.           31
-Blue Cross of California                   33
-Blue Shield of California                  24
-Cigna HealthCare of California, Inc.       39
-Humana Health Plan of California           56
-UHC (United Healthcare of California)      23
-Name: pay_plan_name, dtype: int64
+Results for -- pay_plan_code
+0       1609
+126       23
+152       39
+176       31
+303       33
+43        24
+476       56
+<NA>      28
+Name: pay_plan_code, dtype: int64
 
 Results for -- preferred_language_not_english
 0    1107
@@ -471,16 +461,6 @@ Results for -- oshpd_id
 unknown    1828
 Name: oshpd_id, dtype: int64
 
-Results for -- hospital_name
-ADVENTIST HEALTH WHITE MEMORIAL          1
-CEDARS-SINAI MEDICAL CENTER             12
-LAC/HARBOR-UCLA MEDICAL CENTER          10
-LOS ANGELES GENERAL MEDICAL CENTER      10
-PIH HEALTH GOOD SAMARITAN HOSPITAL       6
-RONALD REAGAN UCLA MEDICAL CENTER       39
-unknown                               1828
-Name: hospital_name, dtype: int64
-
 Results for -- age_group
 0-12       0
 13-19    150
@@ -519,16 +499,16 @@ Results for -- medicaid
 0    1906
 Name: medicaid, dtype: int64
 
-Results for -- pay_plan_name
-0                                        1672
-<NA>                                       26
-Aetna Health of California, Inc.           33
-Blue Cross of California                   22
-Blue Shield of California                  32
-Cigna HealthCare of California, Inc.       24
-Humana Health Plan of California           56
-UHC (United Healthcare of California)      41
-Name: pay_plan_name, dtype: int64
+Results for -- pay_plan_code
+0       1672
+126       41
+152       24
+176       33
+303       22
+43        32
+476       56
+<NA>      26
+Name: pay_plan_code, dtype: int64
 
 Results for -- preferred_language_not_english
 0    1150
@@ -765,17 +745,6 @@ Results for -- oshpd_id
 unknown    1905
 Name: oshpd_id, dtype: int64
 
-Results for -- hospital_name
-ADVENTIST HEALTH WHITE MEMORIAL                4
-CEDARS-SINAI MEDICAL CENTER                    6
-KAISER FOUNDATION HOSPITAL - LOS ANGELES       1
-LAC/HARBOR-UCLA MEDICAL CENTER                 8
-LOS ANGELES GENERAL MEDICAL CENTER             4
-PIH HEALTH GOOD SAMARITAN HOSPITAL             7
-RONALD REAGAN UCLA MEDICAL CENTER             32
-unknown                                     1905
-Name: hospital_name, dtype: int64
-
 Results for -- age_group
 0-12       0
 13-19    154
@@ -814,16 +783,16 @@ Results for -- medicaid
 0    1967
 Name: medicaid, dtype: int64
 
-Results for -- pay_plan_name
-0                                        1728
-<NA>                                       28
-Aetna Health of California, Inc.           31
-Blue Cross of California                   26
-Blue Shield of California                  32
-Cigna HealthCare of California, Inc.       32
-Humana Health Plan of California           58
-UHC (United Healthcare of California)      32
-Name: pay_plan_name, dtype: int64
+Results for -- pay_plan_code
+0       1728
+126       32
+152       32
+176       31
+303       26
+43        32
+476       58
+<NA>      28
+Name: pay_plan_code, dtype: int64
 
 Results for -- preferred_language_not_english
 0    1185
@@ -1058,16 +1027,6 @@ Results for -- oshpd_id
 unknown    1887
 Name: oshpd_id, dtype: int64
 
-Results for -- hospital_name
-ADVENTIST HEALTH WHITE MEMORIAL          1
-CEDARS-SINAI MEDICAL CENTER              8
-LAC/HARBOR-UCLA MEDICAL CENTER          17
-LOS ANGELES GENERAL MEDICAL CENTER       5
-PIH HEALTH GOOD SAMARITAN HOSPITAL       6
-RONALD REAGAN UCLA MEDICAL CENTER       27
-unknown                               1887
-Name: hospital_name, dtype: int64
-
 Results for -- age_group
 0-12       0
 13-19    148
@@ -1106,16 +1065,16 @@ Results for -- medicaid
 0    1951
 Name: medicaid, dtype: int64
 
-Results for -- pay_plan_name
-0                                        1697
-<NA>                                       31
-Aetna Health of California, Inc.           33
-Blue Cross of California                   28
-Blue Shield of California                  26
-Cigna HealthCare of California, Inc.       20
-Humana Health Plan of California           83
-UHC (United Healthcare of California)      33
-Name: pay_plan_name, dtype: int64
+Results for -- pay_plan_code
+0       1697
+126       33
+152       20
+176       33
+303       28
+43        26
+476       83
+<NA>      31
+Name: pay_plan_code, dtype: int64
 
 Results for -- preferred_language_not_english
 0    1169
@@ -1354,17 +1313,6 @@ Results for -- oshpd_id
 unknown    1850
 Name: oshpd_id, dtype: int64
 
-Results for -- hospital_name
-ADVENTIST HEALTH WHITE MEMORIAL                2
-CEDARS-SINAI MEDICAL CENTER                   11
-KAISER FOUNDATION HOSPITAL - LOS ANGELES       1
-LAC/HARBOR-UCLA MEDICAL CENTER                 6
-LOS ANGELES GENERAL MEDICAL CENTER             4
-PIH HEALTH GOOD SAMARITAN HOSPITAL             9
-RONALD REAGAN UCLA MEDICAL CENTER             37
-unknown                                     1850
-Name: hospital_name, dtype: int64
-
 Results for -- age_group
 0-12       0
 13-19    159
@@ -1403,16 +1351,16 @@ Results for -- medicaid
 0    1920
 Name: medicaid, dtype: int64
 
-Results for -- pay_plan_name
-0                                        1683
-<NA>                                       26
-Aetna Health of California, Inc.           27
-Blue Cross of California                   35
-Blue Shield of California                  28
-Cigna HealthCare of California, Inc.       28
-Humana Health Plan of California           56
-UHC (United Healthcare of California)      37
-Name: pay_plan_name, dtype: int64
+Results for -- pay_plan_code
+0       1683
+126       37
+152       28
+176       27
+303       35
+43        28
+476       56
+<NA>      26
+Name: pay_plan_code, dtype: int64
 
 Results for -- preferred_language_not_english
 0    1171
@@ -1652,17 +1600,6 @@ Results for -- oshpd_id
 unknown    1945
 Name: oshpd_id, dtype: int64
 
-Results for -- hospital_name
-ADVENTIST HEALTH WHITE MEMORIAL                2
-CEDARS-SINAI MEDICAL CENTER                   15
-KAISER FOUNDATION HOSPITAL - LOS ANGELES       1
-LAC/HARBOR-UCLA MEDICAL CENTER                 7
-LOS ANGELES GENERAL MEDICAL CENTER             9
-PIH HEALTH GOOD SAMARITAN HOSPITAL            17
-RONALD REAGAN UCLA MEDICAL CENTER             40
-unknown                                     1945
-Name: hospital_name, dtype: int64
-
 Results for -- age_group
 0-12       0
 13-19    166
@@ -1701,16 +1638,16 @@ Results for -- medicaid
 0    2036
 Name: medicaid, dtype: int64
 
-Results for -- pay_plan_name
-0                                        1801
-<NA>                                       19
-Aetna Health of California, Inc.           26
-Blue Cross of California                   26
-Blue Shield of California                  37
-Cigna HealthCare of California, Inc.       24
-Humana Health Plan of California           61
-UHC (United Healthcare of California)      42
-Name: pay_plan_name, dtype: int64
+Results for -- pay_plan_code
+0       1801
+126       42
+152       24
+176       26
+303       26
+43        37
+476       61
+<NA>      19
+Name: pay_plan_code, dtype: int64
 
 Results for -- preferred_language_not_english
 0    1197
@@ -1949,16 +1886,6 @@ Results for -- oshpd_id
 unknown    458
 Name: oshpd_id, dtype: int64
 
-Results for -- hospital_name
-ADVENTIST HEALTH WHITE MEMORIAL         2
-CEDARS-SINAI MEDICAL CENTER             4
-LAC/HARBOR-UCLA MEDICAL CENTER          3
-LOS ANGELES GENERAL MEDICAL CENTER      2
-PIH HEALTH GOOD SAMARITAN HOSPITAL      1
-RONALD REAGAN UCLA MEDICAL CENTER      11
-unknown                               458
-Name: hospital_name, dtype: int64
-
 Results for -- age_group
 0-12       0
 13-19     34
@@ -1997,16 +1924,16 @@ Results for -- medicaid
 0    481
 Name: medicaid, dtype: int64
 
-Results for -- pay_plan_name
-0                                        414
-<NA>                                       7
-Aetna Health of California, Inc.           5
-Blue Cross of California                  11
-Blue Shield of California                  6
-Cigna HealthCare of California, Inc.       9
-Humana Health Plan of California          20
-UHC (United Healthcare of California)      9
-Name: pay_plan_name, dtype: int64
+Results for -- pay_plan_code
+0       414
+126       9
+152       9
+176       5
+303      11
+43        6
+476      20
+<NA>      7
+Name: pay_plan_code, dtype: int64
 
 Results for -- preferred_language_not_english
 0    277
@@ -2245,16 +2172,6 @@ Results for -- oshpd_id
 unknown    458
 Name: oshpd_id, dtype: int64
 
-Results for -- hospital_name
-ADVENTIST HEALTH WHITE MEMORIAL         2
-CEDARS-SINAI MEDICAL CENTER             4
-LAC/HARBOR-UCLA MEDICAL CENTER          3
-LOS ANGELES GENERAL MEDICAL CENTER      2
-PIH HEALTH GOOD SAMARITAN HOSPITAL      1
-RONALD REAGAN UCLA MEDICAL CENTER      11
-unknown                               458
-Name: hospital_name, dtype: int64
-
 Results for -- age_group
 0-12       0
 13-19     34
@@ -2293,16 +2210,16 @@ Results for -- medicaid
 0    481
 Name: medicaid, dtype: int64
 
-Results for -- pay_plan_name
-0                                        414
-<NA>                                       7
-Aetna Health of California, Inc.           5
-Blue Cross of California                  11
-Blue Shield of California                  6
-Cigna HealthCare of California, Inc.       9
-Humana Health Plan of California          20
-UHC (United Healthcare of California)      9
-Name: pay_plan_name, dtype: int64
+Results for -- pay_plan_code
+0       414
+126       9
+152       9
+176       5
+303      11
+43        6
+476      20
+<NA>      7
+Name: pay_plan_code, dtype: int64
 
 Results for -- preferred_language_not_english
 0    277
@@ -2363,4 +2280,4 @@ agyradm
 49             0      0      0    4
 
 
-Elapsed time (seconds):   19.672968864440918
+Elapsed time (seconds):   20.537967681884766
