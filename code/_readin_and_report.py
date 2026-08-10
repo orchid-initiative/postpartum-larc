@@ -28,7 +28,7 @@ def readin_and_report(filepath,
     print(filepath)
     print(df.describe(percentiles="").T)
     for var in value_count_variables:
-        print('\n',df.value_counts(var,dropna=False))
+        print('\n',df.value_counts(var,dropna=False).sort_index())
 
     return df
 

@@ -32,6 +32,41 @@ def get_code_maps(source,
                   filter_var):
 
     df = pd.read_excel(source, sheet_name=sheet_name, dtype=str)
-    map_list = df.loc[df[subset_col]==subset_value, filter_var]
+    map_list = df.loc[df[subset_col]==subset_value, filter_var].tolist()
     return map_list
+
+
+# Get payer category names from downloaded HCAI documentation
+paycat_dict = {'01': 'Medicare',
+               '02': 'Medi-Cal',
+               '03': 'Private Coverage',
+               '04': 'Workers’ Compensation',
+               '05': 'County Indigent Programs',
+               '06': 'Other Government',
+               '07': 'Other Indigent',
+               '08': 'Self-Pay',
+               '09': 'Other Payer',
+               '-' : 'Invalid',
+               ' ' : 'Missing',
+               ''  : 'Missing'}
+
+# Get plan names from downloaded HCAI documentation
+def get_plan_maps(source):
+    df = pd.read_excel(source, skiprows=4, dtype=str)
+    # Remove leading zeros from plan code
+    df['Code'] = df['Code'].astype('Int64').astype('str')
+    df.rename(columns={'Code':'key', 'Plan Code':'value'}, inplace=True)
+    plan_dict = df.set_index('key')['value'].to_dict()
+    return plan_dict
+
+
+# Get hospital names from downloaded HCAI documentation
+def get_hosp_maps(source):
+    df = pd.read_excel(source, dtype=str)
+    # Remove leading zeros from oshpd_id
+    df['oshpd_id'] = df['oshpd_id'].astype('Int64').astype('str')
+    df.rename(columns={'oshpd_id':'key', 'FACILITY_NAME':'value'},\
+            inplace=True)
+    hosp_dict = df.set_index('key')['value'].to_dict()
+    return hosp_dict
 
